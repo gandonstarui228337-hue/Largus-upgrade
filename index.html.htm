@@ -1,0 +1,640 @@
+<p>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;AUTO UPGRADE 5.0&lt;/title&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Orbitron:wght@500;700;900&amp;display=swap" rel="stylesheet"&gt;
+&lt;style&gt;
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#070a10;--card:rgba(17,24,39,.7);--card2:rgba(26,35,50,.8);--orange:#ff6b00;--cyan:#00d2ff;--green:#10b981;--red:#ef4444;--gold:#f59e0b;--text:#e5e7eb;--muted:#9ca3af;--border:rgba(31,41,55,.6)}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;position:relative}
+.mono{font-family:'Orbitron',monospace}
+#bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+.app-wrap{position:relative;z-index:1}
+#authOverlay{position:fixed;inset:0;z-index:9999;background:radial-gradient(ellipse at center,#0f172a 0%,#070a10 70%);display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+#authOverlay.hidden{display:none}
+.auth-card{max-width:480px;width:100%;background:rgba(17,24,39,.85);backdrop-filter:blur(20px);border:1px solid rgba(0,210,255,.3);border-radius:24px;padding:40px 32px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(255,107,0,.15);animation:authIn .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes authIn{from{opacity:0;transform:translateY(30px) scale(.95)}to{opacity:1;transform:none}}
+.auth-logo{font-family:'Orbitron';font-weight:900;font-size:32px;text-align:center;background:linear-gradient(90deg,var(--orange),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:1px;margin-bottom:6px}
+.auth-sub{text-align:center;color:var(--muted);font-size:13px;margin-bottom:28px}
+.auth-tabs{display:flex;gap:6px;margin-bottom:20px;background:var(--card2);padding:4px;border-radius:10px}
+.auth-tab{flex:1;padding:10px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:8px;font-weight:600;font-family:'Inter';transition:all .2s}
+.auth-tab.active{background:linear-gradient(135deg,var(--orange),#e85900);color:#fff;box-shadow:0 4px 12px rgba(255,107,0,.3)}
+.auth-form{display:none}
+.auth-form.active{display:block;animation:fadeIn .3s}
+.auth-note{font-size:11px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5}
+.gift-box{background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(255,107,0,.05));border:1px solid rgba(245,158,11,.3);border-radius:12px;padding:14px;margin-bottom:20px;text-align:center}
+.gift-box .ico{font-size:32px;margin-bottom:6px}
+.gift-box .t{font-weight:700;color:var(--gold);font-size:14px}
+.gift-box .d{font-size:12px;color:var(--muted);margin-top:4px}
+header{background:rgba(15,23,42,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:14px 20px;position:sticky;top:0;z-index:100}
+.header-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo{font-family:'Orbitron';font-weight:900;font-size:22px;background:linear-gradient(90deg,var(--orange),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:1px}
+.header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{background:var(--card2);color:var(--text);border:1px solid var(--border);padding:8px 14px;border-radius:8px;cursor:pointer;font-family:'Inter';font-weight:600;font-size:13px;transition:all .2s;display:inline-flex;align-items:center;gap:6px;position:relative;overflow:hidden}
+.btn:hover{background:rgba(39,51,71,.9);border-color:var(--cyan);box-shadow:0 0 12px rgba(0,210,255,.3);transform:translateY(-1px)}
+.btn-primary{background:linear-gradient(135deg,var(--orange),#e85900);border:none;color:#fff}
+.btn-primary:hover{box-shadow:0 0 20px rgba(255,107,0,.6);transform:translateY(-2px)}
+.btn-green{background:linear-gradient(135deg,var(--green),#059669);border:none;color:#fff}
+.btn-red{background:linear-gradient(135deg,var(--red),#dc2626);border:none;color:#fff}
+.btn-cyan{background:linear-gradient(135deg,var(--cyan),#0284c7);border:none;color:#fff}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#d97706);border:none;color:#fff}
+.stat{background:var(--card2);padding:8px 14px;border-radius:8px;border:1px solid var(--border);font-family:'Orbitron';font-weight:700;font-size:14px;cursor:pointer;transition:all .2s}
+.stat.balance{color:var(--gold);border-color:rgba(245,158,11,.4)}
+.stat.balance:hover{background:rgba(245,158,11,.1)}
+.stat.cars{color:var(--cyan)}
+nav.tabs{display:flex;gap:4px;margin-top:12px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:10px 16px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-family:'Inter';font-weight:600;font-size:13px;border-radius:8px;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:6px;position:relative;overflow:hidden}
+.tab:hover{color:var(--text);background:var(--card2)}
+.tab.active{background:linear-gradient(135deg,var(--orange),#e85900);color:#fff;box-shadow:0 0 15px rgba(255,107,0,.4)}
+.ticker{background:rgba(10,15,28,.8);border-top:1px solid var(--border);padding:8px 0;overflow:hidden;white-space:nowrap;font-family:'Orbitron';font-size:12px}
+.ticker-inner{display:inline-block;animation:tick 60s linear infinite;padding-left:100%}
+.ticker-live{color:var(--green);font-weight:700;margin-right:12px;text-shadow:0 0 8px var(--green)}
+.ticker-item{color:var(--muted);margin-right:28px}
+.ticker-item b{color:var(--gold)}
+.ticker-item .w{color:var(--green)}
+.ticker-item .l{color:var(--red)}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+main{padding:20px;max-width:1600px;margin:0 auto}
+.section{display:none}
+.section.active{display:block;animation:sectionIn .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes sectionIn{from{opacity:0;transform:translateY(20px) scale(.98);filter:blur(4px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+h2{font-family:'Orbitron';font-size:24px;margin-bottom:16px;color:var(--cyan);text-shadow:0 0 12px rgba(0,210,255,.3)}
+h3,h4{color:var(--cyan)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:12px;padding:14px;transition:all .3s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;transform-style:preserve-3d}
+.card::before{content:'';position:absolute;inset:0;border-radius:12px;background:linear-gradient(135deg,rgba(255,107,0,.12),transparent 50%,rgba(0,210,255,.12));opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,210,255,.25),0 0 30px rgba(255,107,0,.15);border-color:var(--cyan)}
+.card:hover::before{opacity:1}
+.card-img{width:100%;height:140px;background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.card-img img{width:100%;height:100%;object-fit:cover}
+.card-img svg{width:100%;height:100%}
+.card-title{font-weight:700;font-size:14px;margin-bottom:4px}
+.card-price{font-family:'Orbitron';font-weight:700;color:var(--gold);font-size:15px}
+.badge{position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;font-family:'Orbitron'}
+.badge-by{background:var(--red);color:#fff}
+.badge-stage{background:var(--orange);color:#fff;margin-top:4px}
+.badge-cond{background:var(--card2);color:var(--cyan);border:1px solid var(--cyan);margin-top:4px}
+.badge-boss{background:linear-gradient(135deg,var(--gold),#b45309);color:#000;font-size:11px;padding:5px 10px}
+.upgrade-layout{display:grid;grid-template-columns:300px 1fr 300px;gap:20px;align-items:start}
+@media(max-width:1100px){.upgrade-layout{grid-template-columns:1fr}}
+.upgrade-wheel{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center}
+.wheel-svg{width:100%;max-width:380px}
+.wheel-info{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:13px}
+.wheel-info img,.wheel-info svg{width:60px;height:40px;object-fit:cover;border-radius:6px;background:#1e293b}
+.pct{font-family:'Orbitron';font-weight:900;font-size:32px;color:var(--green);text-shadow:0 0 15px rgba(16,185,129,.6)}
+.pct.loss{color:var(--red);text-shadow:0 0 15px rgba(239,68,68,.6)}
+.target-list{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:12px;padding:16px;max-height:600px;overflow-y:auto}
+.stake-area{background:var(--card);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:12px;padding:16px}
+.stake-cars{min-height:80px;border:2px dashed var(--border);border-radius:10px;padding:10px;display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.stake-chip{background:var(--card2);padding:6px 10px;border-radius:8px;font-size:11px;display:flex;align-items:center;gap:6px;border:1px solid var(--cyan)}
+.stake-chip .x{color:var(--red);cursor:pointer;font-weight:900;margin-left:4px}
+.stake-chip img,.stake-chip svg{width:30px;height:20px;border-radius:4px;background:#1e293b;object-fit:cover}
+.switch-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.switch{position:relative;width:40px;height:22px;background:#374151;border-radius:11px;cursor:pointer;transition:all .2s;flex-shrink:0}
+.switch.on{background:var(--green)}
+.switch::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:all .2s}
+.switch.on::after{left:20px}
+.quick-btns{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.quick-btns button{flex:1;padding:8px;background:var(--card2);border:1px solid var(--border);color:var(--text);border-radius:6px;cursor:pointer;font-family:'Orbitron';font-weight:700;position:relative;overflow:hidden}
+.quick-btns button:hover{background:var(--cyan);color:#000}
+.sto-wrap{text-align:center;padding:40px 20px}
+.sto-btn{width:240px;height:240px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--orange),#991b1b);border:6px solid var(--gold);color:#fff;font-family:'Orbitron';font-weight:900;font-size:22px;cursor:pointer;box-shadow:0 0 50px rgba(255,107,0,.5);transition:all .1s;margin:20px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden}
+.sto-btn:active{transform:scale(0.95);box-shadow:0 0 80px rgba(255,107,0,.8)}
+.sto-progress{max-width:500px;margin:20px auto;height:24px;background:var(--card);border-radius:12px;overflow:hidden;border:2px solid var(--border)}
+.sto-progress-bar{height:100%;background:linear-gradient(90deg,var(--orange),var(--gold));transition:width .3s;position:relative}
+.sto-progress-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);animation:shine 1.5s infinite}
+@keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.sto-cars{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.sto-car{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;min-width:200px;cursor:pointer;transition:all .2s}
+.sto-car.affordable{border-color:var(--green);box-shadow:0 0 20px rgba(16,185,129,.3)}
+.sto-car.affordable:hover{transform:translateY(-3px)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.active{display:flex;animation:fadeIn .2s}
+.modal-content{background:rgba(17,24,39,.95);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:16px;padding:24px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.7);animation:modalIn .3s cubic-bezier(.2,.8,.2,1)}
+@keyframes modalIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.modal-close{position:absolute;top:12px;right:12px;background:var(--red);color:#fff;border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;font-weight:900}
+.input{width:100%;padding:10px 14px;background:rgba(7,10,16,.8);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Inter';font-size:14px;margin-bottom:10px;transition:all .2s}
+.input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,210,255,.15)}
+.label{font-size:12px;color:var(--muted);margin-bottom:4px;display:block}
+.db-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}
+.db-table th,.db-table td{padding:8px;border:1px solid var(--border);text-align:left}
+.db-table th{background:var(--card2);color:var(--cyan);font-family:'Orbitron'}
+.history-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}
+.history-item.win{border-left:4px solid var(--green)}
+.history-item.loss{border-left:4px solid var(--red)}
+.history-item small{color:var(--muted)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;backdrop-filter:blur(10px)}
+.stat-card .val{font-family:'Orbitron';font-size:26px;font-weight:900;margin:8px 0}
+.stat-card .lbl{color:var(--muted);font-size:12px}
+.inspection{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media(max-width:768px){.inspection{grid-template-columns:1fr}}
+.insp-img{width:100%;height:300px;background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:12px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.insp-img img,.insp-img svg{width:100%;height:100%;object-fit:cover}
+.headlights{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,255,200,.6),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.headlights.on{opacity:1}
+.insp-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.garage-stats{background:var(--card2);padding:14px;border-radius:10px;margin-bottom:14px}
+.garage-stat-row{display:flex;justify-content:space-between;padding:4px 0;font-size:13px}
+.garage-stat-row b{font-family:'Orbitron';color:var(--gold)}
+.plates-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
+.plate{background:linear-gradient(180deg,#fff,#f0f0f0);color:#000;padding:12px;border-radius:8px;text-align:center;font-family:'Orbitron';font-weight:900;font-size:18px;letter-spacing:2px;border:3px solid #000;position:relative;cursor:pointer;transition:all .2s}
+.plate:hover{transform:scale(1.05)}
+.plate .by{background:#d52b1e;color:#fff;font-size:10px;padding:2px 6px;border-radius:3px;margin-top:4px;display:inline-block}
+.plate.active{box-shadow:0 0 20px var(--gold);border-color:var(--gold)}
+.notification{position:fixed;top:20px;right:20px;background:rgba(17,24,39,.95);backdrop-filter:blur(14px);border-left:4px solid var(--green);padding:14px 18px;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,.5);z-index:2000;animation:slideIn .3s;max-width:320px;font-size:13px}
+.notification.error{border-color:var(--red)}
+.notification.warn{border-color:var(--gold)}
+@keyframes slideIn{from{transform:translateX(400px)}to{transform:translateX(0)}}
+.car-option{background:var(--card2);padding:10px;border-radius:8px;margin-bottom:6px;cursor:pointer;border:2px solid transparent;transition:all .2s;display:flex;gap:8px;align-items:center}
+.car-option:hover{border-color:var(--cyan)}
+.car-option.selected{border-color:var(--green);background:rgba(13,58,46,.6)}
+.car-option img,.car-option svg{width:50px;height:35px;border-radius:6px;background:#1e293b;object-fit:cover;flex-shrink:0}
+.car-option-info{flex:1;min-width:0}
+.car-option-info b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.car-option-info small{color:var(--muted);font-size:11px}
+.arrow{transition:transform 3.5s cubic-bezier(0.25,0.1,0.25,1)}
+.empty{text-align:center;padding:40px;color:var(--muted);font-size:14px}
+.filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.filter-bar select,.filter-bar input{padding:8px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Inter'}
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.case-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
+.case-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 15px 40px rgba(245,158,11,.2)}
+.case-icon{font-size:64px;margin-bottom:10px;display:block}
+.case-name{font-family:'Orbitron';font-weight:700;margin-bottom:6px}
+.case-price{font-family:'Orbitron';color:var(--gold);font-weight:900;font-size:18px}
+.case-contents{font-size:11px;color:var(--muted);margin-top:8px}
+.case-opening{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:3000;display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+.case-opening.active{display:flex}
+.case-roulette{width:100%;max-width:800px;height:200px;background:var(--card);border:2px solid var(--gold);border-radius:12px;position:relative;overflow:hidden;margin-bottom:20px}
+.case-roulette-track{display:flex;gap:10px;padding:20px;transition:transform 4s cubic-bezier(0.25,0.1,0.25,1)}
+.case-roulette-item{min-width:150px;height:160px;background:var(--card2);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;flex-shrink:0}
+.case-roulette-item img,.case-roulette-item svg{width:100%;height:100px;object-fit:cover;border-radius:6px}
+.case-indicator{position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--red);box-shadow:0 0 20px var(--red);transform:translateX(-50%);z-index:10}
+.win-popup{font-family:'Orbitron';font-size:32px;font-weight:900;text-align:center;animation:pulse 1s infinite;color:var(--gold);text-shadow:0 0 30px var(--gold)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.ripple-effect{position:absolute;border-radius:50%;background:rgba(255,255,255,.4);transform:scale(0);animation:rippleAnim .6s linear;pointer-events:none}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+.confetti-piece{position:fixed;z-index:9999;pointer-events:none;animation:confettiFall linear forwards}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0) scale(1);opacity:1}100%{transform:translateY(100vh) rotate(720deg) scale(.6);opacity:0}}
+#achievementToast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(200px);background:linear-gradient(135deg,#f59e0b,#d97706);color:#000;padding:16px 24px;border-radius:12px;font-family:'Orbitron';font-weight:900;z-index:5000;box-shadow:0 0 40px rgba(245,158,11,.6);transition:transform .5s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;gap:12px;border:2px solid #fff;pointer-events:none}
+#achievementToast.show{transform:translateX(-50%) translateY(0)}
+.xp-wrap{display:flex;flex-direction:column;gap:2px;min-width:140px}
+.xp-label{font-size:10px;color:var(--muted);font-family:'Orbitron';display:flex;justify-content:space-between}
+.xp-bar{height:6px;background:var(--card2);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+.xp-bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .5s;box-shadow:0 0 8px var(--cyan)}
+.pm-box{background:rgba(7,10,16,.5);border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:8px}
+@media(max-width:768px){.auth-card{padding:28px 20px}.auth-logo{font-size:24px}h2{font-size:20px}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas id="bgCanvas"&gt;&lt;/canvas&gt;
+
+&lt;div id="authOverlay"&gt;
+  &lt;div class="auth-card"&gt;
+    &lt;div class="auth-logo"&gt;¡ AUTO UPGRADE 5.0&lt;/div&gt;
+    &lt;div class="auth-sub"&gt;!8<C;OB>@ 0?3@5940 02B><>18;59 · 5;0@CAL Edition&lt;/div&gt;
+    &lt;div class="gift-box"&gt;&lt;div class="ico"&gt;<&lt;/div&gt;&lt;div class="t"&gt;!B0@B>2K9 ?>40@>:&lt;/div&gt;&lt;div class="d"&gt;-968 «0?>@>65F» + 100 BYN ?@8 A>740=88 0::0C=B0&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="auth-tabs"&gt;
+      &lt;button class="auth-tab active" data-mode="reg"&gt; 538AB@0F8O&lt;/button&gt;
+      &lt;button class="auth-tab" data-mode="log"&gt;E>4&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="auth-form active" id="formReg"&gt;
+      &lt;label class="label"&gt;@84C<09B5 =8:&lt;/label&gt;
+      &lt;input class="input" id="regUser" placeholder="0?@8<5@: TurboDriver_BY" maxlength="20"&gt;
+      &lt;label class="label"&gt;0@>;L&lt;/label&gt;
+      &lt;input class="input" id="regPass" type="password" placeholder="8=8<C< 4 A8<2>;0"&gt;
+      &lt;label class="label"&gt;>2B>@8B5 ?0@>;L&lt;/label&gt;
+      &lt;input class="input" id="regPass2" type="password" placeholder=">2B>@8B5 ?0@>;L"&gt;
+      &lt;button class="btn btn-primary" style="width:100%;padding:12px;font-size:15px" onclick="register()"&gt;=€ !>740BL 0::0C=B&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="auth-form" id="formLog"&gt;
+      &lt;label class="label"&gt;0H =8:&lt;/label&gt;
+      &lt;input class="input" id="loginUser" placeholder="8:"&gt;
+      &lt;label class="label"&gt;0@>;L&lt;/label&gt;
+      &lt;input class="input" id="loginPass" type="password" placeholder="0@>;L"&gt;
+      &lt;button class="btn btn-primary" style="width:100%;padding:12px;font-size:15px" onclick="login()"&gt;= >9B8&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="auth-note"&gt;068<0O «!>740BL 0::0C=B», 2K A>3;0H05B5AL A ?@028;0<8 83@K.&lt;br&gt;0==K5 A>E@0=ONBAO ;>:0;L=> 2 20H5< 1@0C75@5.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="app-wrap"&gt;
+&lt;header&gt;
+  &lt;div class="header-top"&gt;
+    &lt;div class="logo"&gt;¡ AUTO UPGRADE 5.0&lt;/div&gt;
+    &lt;div class="header-actions"&gt;
+      &lt;button class="btn" onclick="openAuth()"&gt;= ::0C=B&lt;/button&gt;
+      &lt;button class="btn btn-red" id="adminBtn" style="display:none" onclick="openAdmin()"&gt;=á 4<8=&lt;/button&gt;
+      &lt;div class="xp-wrap"&gt;&lt;div class="xp-label"&gt;&lt;span id="xpLevel"&gt;LVL 1&lt;/span&gt;&lt;span id="xpCur"&gt;0/100&lt;/span&gt;&lt;/div&gt;&lt;div class="xp-bar"&gt;&lt;div class="xp-bar-fill" id="xpFill" style="width:0%"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="stat balance mono" onclick="switchTab('sto')"&gt;=° &lt;span id="balance"&gt;0&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="stat cars mono" onclick="switchTab('garage')"&gt;<à &lt;span id="carsCount"&gt;0&lt;/span&gt;&lt;/div&gt;
+      &lt;button class="btn" id="soundBtn" onclick="toggleSound()"&gt;=
+&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;nav class="tabs" id="tabs"&gt;
+    &lt;button class="tab active" data-tab="upgrade"&gt;¡ ?3@594&lt;/button&gt;
+    &lt;button class="tab" data-tab="sto"&gt;=' !" ;8:5@&lt;/button&gt;
+    &lt;button class="tab" data-tab="cases"&gt;=æ 59AK&lt;/button&gt;
+    &lt;button class="tab" data-tab="catalog"&gt;=˜ 0B0;>3&lt;/button&gt;
+    &lt;button class="tab" data-tab="garage"&gt;<à 0@06&lt;/button&gt;
+    &lt;button class="tab" data-tab="plates"&gt;<ç ><5@0  &lt;/button&gt;
+    &lt;button class="tab" data-tab="history"&gt;=R AB>@8O&lt;/button&gt;
+    &lt;button class="tab" data-tab="profile"&gt;<Æ @>D8;L&lt;/button&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;div class="ticker"&gt;&lt;div class="ticker-inner" id="ticker"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;main&gt;
+  &lt;section class="section active" id="sec-upgrade"&gt;
+    &lt;h2&gt;¡   (+&lt;/h2&gt;
+    &lt;div class="upgrade-layout"&gt;
+      &lt;div class="stake-area"&gt;
+        &lt;h3 style="font-family:'Orbitron';margin-bottom:12px;color:var(--orange)"&gt;<¯ !B02:0 (4> 4 02B>)&lt;/h3&gt;
+        &lt;div class="stake-cars" id="stakeCars"&gt;&lt;span class="empty" style="padding:20px"&gt;K15@8B5 <0H8=K 87 30@060&lt;/span&gt;&lt;/div&gt;
+        &lt;button class="btn btn-cyan" style="width:100%" onclick="openStakePicker()"&gt;• K1@0BL 02B>&lt;/button&gt;
+        &lt;div style="margin-top:12px;padding:10px;background:var(--card2);border-radius:8px;font-size:13px"&gt;&lt;div style="display:flex;justify-content:space-between"&gt;&lt;span&gt;!C<<0 AB02:8:&lt;/span&gt;&lt;b class="mono" id="totalStake"&gt;0 BYN&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="switch-row"&gt;&lt;span&gt;=á !B@0E>2:0 25% (-10% H0=A0)&lt;/span&gt;&lt;div class="switch" id="insuranceSw" onclick="toggleInsurance()"&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="switch-row"&gt;&lt;span&gt;Ä !5:B>@: >=5F/0G0;>&lt;/span&gt;&lt;div class="switch" id="invertSw" onclick="toggleInvert()"&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="upgrade-wheel"&gt;
+        &lt;svg class="wheel-svg" viewBox="0 0 200 200" id="wheelSvg"&gt;
+          &lt;defs&gt;
+            &lt;radialGradient id="wheelGrad"&gt;&lt;stop offset="0%" stop-color="#1e293b"/&gt;&lt;stop offset="60%" stop-color="#0f172a"/&gt;&lt;stop offset="100%" stop-color="#070a10"/&gt;&lt;/radialGradient&gt;
+            &lt;radialGradient id="glowGrad"&gt;&lt;stop offset="0%" stop-color="#ff6b00" stop-opacity=".3"/&gt;&lt;stop offset="100%" stop-color="#ff6b00" stop-opacity="0"/&gt;&lt;/radialGradient&gt;
+            &lt;filter id="glow"&gt;&lt;feGaussianBlur stdDeviation="2"/&gt;&lt;/filter&gt;
+          &lt;/defs&gt;
+          &lt;circle cx="100" cy="100" r="95" fill="url(#wheelGrad)" stroke="#1f2937" stroke-width="2"/&gt;
+          &lt;circle cx="100" cy="100" r="95" fill="url(#glowGrad)"/&gt;
+          &lt;circle cx="100" cy="100" r="85" fill="none" stroke="#1f2937" stroke-width="1"/&gt;
+          &lt;path id="winArc" fill="none" stroke="var(--green)" stroke-width="20" opacity="0.7" filter="url(#glow)"/&gt;
+          &lt;path id="loseArc" fill="none" stroke="var(--red)" stroke-width="20" opacity="0.4"/&gt;
+          &lt;line id="arrow" class="arrow" x1="100" y1="100" x2="100" y2="15" stroke="#fff" stroke-width="4" stroke-linecap="round"/&gt;
+          &lt;circle cx="100" cy="100" r="8" fill="#fff" stroke="#000" stroke-width="2"/&gt;
+        &lt;/svg&gt;
+        &lt;div class="pct mono" id="pctDisplay"&gt;0.00%&lt;/div&gt;
+        &lt;div class="wheel-info"&gt;
+          &lt;div id="stakeImg" style="width:60px;height:40px;background:#1e293b;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted)"&gt;!B02:0&lt;/div&gt;
+          &lt;span style="font-size:20px"&gt;”&lt;/span&gt;
+          &lt;div id="targetImg" style="width:60px;height:40px;background:#1e293b;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted)"&gt;&5;L&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style="margin-top:14px;font-size:12px;color:var(--muted)" id="wheelStatus"&gt;K15@8B5 AB02:C 8 F5;L&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="target-list"&gt;
+        &lt;h3 style="font-family:'Orbitron';margin-bottom:12px;color:var(--gold)"&gt;<¯ &5;L 0?3@5940&lt;/h3&gt;
+        &lt;div id="selectedTarget" style="padding:14px;background:var(--card2);border-radius:10px;margin-bottom:12px;text-align:center"&gt;&lt;span style="color:var(--muted);font-size:13px"&gt;&5;L =5 2K1@0=0&lt;/span&gt;&lt;/div&gt;
+        &lt;button class="btn btn-primary" style="width:100%;margin-bottom:10px" onclick="openTargetPicker()"&gt;<¯ K1@0BL F5;L&lt;/button&gt;
+        &lt;div class="quick-btns"&gt;&lt;button onclick="quickTarget(2)"&gt;x2&lt;/button&gt;&lt;button onclick="quickTarget(5)"&gt;x5&lt;/button&gt;&lt;button onclick="quickTarget(10)"&gt;x10&lt;/button&gt;&lt;button onclick="quickTarget('auto')"&gt;AUTO&lt;/button&gt;&lt;/div&gt;
+        &lt;button class="btn btn-green" style="width:100%;margin-top:12px;font-size:16px;padding:14px" onclick="doUpgrade()"&gt;=€  #",&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+  &lt;section class="section" id="sec-sto"&gt;
+    &lt;h2&gt;=' !"   (+10 BYN)&lt;/h2&gt;
+    &lt;div class="sto-wrap"&gt;
+      &lt;p style="color:var(--muted);margin-bottom:20px;font-size:14px"&gt; 01>B09B5 =0 !", GB>1K =0:>?8BL =0 ?5@2CN <0H8=C&lt;/p&gt;
+      &lt;button class="sto-btn" onclick="stoClick()"&gt;&lt;div style="font-size:50px"&gt;='&lt;/div&gt;&lt;div&gt; "",&lt;/div&gt;&lt;div style="font-size:16px;color:var(--gold)"&gt;+10 BYN&lt;/div&gt;&lt;/button&gt;
+      &lt;div class="sto-progress"&gt;&lt;div class="sto-progress-bar" id="stoBar" style="width:0%"&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;p class="mono" id="stoStatus"&gt;0 / 1 900 BYN (-968)&lt;/p&gt;
+      &lt;div class="sto-cars"&gt;
+        &lt;div class="sto-car" onclick="buyStoCar(1)"&gt;&lt;div style="font-size:40px"&gt;=—&lt;/div&gt;&lt;div style="font-weight:700;margin:6px 0"&gt;-968&lt;/div&gt;&lt;div class="mono" style="color:var(--gold)"&gt;1 900 BYN&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="sto-car" onclick="buyStoCar(2)"&gt;&lt;div style="font-size:40px"&gt;=™&lt;/div&gt;&lt;div style="font-weight:700;margin:6px 0"&gt;-2101&lt;/div&gt;&lt;div class="mono" style="color:var(--gold)"&gt;2 200 BYN&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+  &lt;section class="section" id="sec-cases"&gt;&lt;h2&gt;=æ "" +&lt;/h2&gt;&lt;div class="cases-grid" id="casesGrid"&gt;&lt;/div&gt;&lt;/section&gt;
+  &lt;section class="section" id="sec-catalog"&gt;
+    &lt;h2&gt;=˜ " (83 ")&lt;/h2&gt;
+    &lt;div class="filter-bar"&gt;
+      &lt;input type="text" id="catSearch" placeholder="= >8A:..." oninput="renderCatalog()"&gt;
+      &lt;select id="catCategory" onchange="renderCatalog()"&gt;&lt;option value=""&gt;A5 :0B53>@88&lt;/option&gt;&lt;option value="budget"&gt;N465B=K5 (25)&lt;/option&gt;&lt;option value="mid"&gt;!@54=89 (25)&lt;/option&gt;&lt;option value="premium"&gt;>@>385 (30)&lt;/option&gt;&lt;option value="boss"&gt;-:A:;N782K (3)&lt;/option&gt;&lt;/select&gt;
+      &lt;select id="catSort" onchange="renderCatalog()"&gt;&lt;option value="price-asc"&gt;&5=0 ‘&lt;/option&gt;&lt;option value="price-desc"&gt;&5=0 “&lt;/option&gt;&lt;option value="name"&gt;> 8<5=8&lt;/option&gt;&lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class="grid" id="catalogGrid"&gt;&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;section class="section" id="sec-garage"&gt;&lt;h2&gt;<à   &lt;/h2&gt;&lt;div id="garageStats" class="garage-stats"&gt;&lt;/div&gt;&lt;div class="grid" id="garageGrid"&gt;&lt;/div&gt;&lt;/section&gt;
+  &lt;section class="section" id="sec-plates"&gt;
+    &lt;h2&gt;<ç "+     &lt;/h2&gt;
+    &lt;p style="color:var(--muted);margin-bottom:16px"&gt;K15@8B5 <0H8=C 2 30@065 8 2K159B5 1;0B=>9 =><5@ 70 3 500 BYN (+18%..+35% : F5=5)&lt;/p&gt;
+    &lt;div&gt;&lt;label class="label"&gt;K15@8B5 <0H8=C:&lt;/label&gt;&lt;select class="input" id="plateCar" onchange="updatePlateUI()"&gt;&lt;/select&gt;&lt;/div&gt;
+    &lt;h3 style="font-family:'Orbitron';margin-top:20px;margin-bottom:10px"&gt;>ABC?=K5 =><5@0:&lt;/h3&gt;
+    &lt;div class="plates-section" id="platesSection"&gt;&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;section class="section" id="sec-history"&gt;&lt;h2&gt;=R !" /&lt;/h2&gt;&lt;div id="historyList"&gt;&lt;/div&gt;&lt;/section&gt;
+  &lt;section class="section" id="sec-profile"&gt;&lt;h2&gt;<Æ  $,&lt;/h2&gt;&lt;div id="profileInfo"&gt;&lt;/div&gt;&lt;/section&gt;
+&lt;/main&gt;
+&lt;/div&gt;
+
+&lt;div class="modal" id="authModal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;button class="modal-close" onclick="closeModal('authModal')"&gt;×&lt;/button&gt;
+    &lt;h2&gt;= ::0C=B&lt;/h2&gt;
+    &lt;p style="margin:10px 0 16px;font-size:14px"&gt;K 2>H;8 :0:: &lt;b class="mono" style="color:var(--cyan)" id="authWho"&gt;&lt;/b&gt;&lt;/p&gt;
+    &lt;div style="display:flex;gap:8px;flex-wrap:wrap"&gt;&lt;button class="btn btn-red" onclick="logout()"&gt;=ª K9B8 87 0::0C=B0&lt;/button&gt;&lt;/div&gt;
+    &lt;p style="margin-top:16px;font-size:12px;color:var(--muted)"&gt;@>3@5AA A>E@0=O5BAO 02B><0B8G5A:8 2 MB>< 1@0C75@5.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="modal" id="adminModal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;button class="modal-close" onclick="closeModal('adminModal')"&gt;×&lt;/button&gt;
+    &lt;h2&gt;=á -,&lt;/h2&gt;
+    &lt;p style="font-size:12px;color:var(--green);margin-bottom:10px"&gt;Ï  568< 04<8=8AB@0B>@0 0:B825= (Largus)&lt;/p&gt;
+    &lt;h3 style="color:var(--gold);margin:14px 0 10px"&gt;=° >9 10;0=A&lt;/h3&gt;
+    &lt;div style="display:flex;gap:8px;flex-wrap:wrap"&gt;
+      &lt;button class="btn btn-green" onclick="adminAdd(50000)"&gt;+50 000 BYN&lt;/button&gt;
+      &lt;button class="btn btn-green" onclick="adminAdd(1000000)"&gt;+1 000 000 BYN&lt;/button&gt;
+      &lt;button class="btn btn-red" onclick="adminAdd(-state.balance)"&gt;1=C;8BL&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;h3 style="color:var(--cyan);margin:14px 0 10px"&gt;=— K40BL A515 02B>&lt;/h3&gt;
+    &lt;select class="input" id="adminCar"&gt;&lt;/select&gt;
+    &lt;button class="btn btn-gold" style="width:100%" onclick="adminGiveCar()"&gt;< K40BL (0?AC;0 + Stage 3 + 7777)&lt;/button&gt;
+    &lt;h3 style="color:var(--orange);margin:14px 0 10px"&gt;=% '8BK&lt;/h3&gt;
+    &lt;div class="switch-row"&gt;&lt;span&gt;100% >1540 2 0?3@5945 (God Mode)&lt;/span&gt;&lt;div class="switch" id="godSw" onclick="toggleGod()"&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;h3 style="color:var(--cyan);margin:14px 0 10px"&gt;=e #   &lt;/h3&gt;
+    &lt;select class="input" id="pmUser" onchange="pmRender()"&gt;&lt;/select&gt;
+    &lt;div id="pmPanel" class="pm-box"&gt;&lt;/div&gt;
+    &lt;h3 style="color:var(--gold);margin:14px 0 10px"&gt;=Ê 070 40==KE 83@>:>2&lt;/h3&gt;
+    &lt;div id="dbTable"&gt;&lt;/div&gt;
+    &lt;button class="btn btn-gold" style="margin-top:10px" onclick="exportDB()"&gt;=¾ !:0G0BL  (.JSON)&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="modal" id="pickerModal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;button class="modal-close" onclick="closeModal('pickerModal')"&gt;×&lt;/button&gt;
+    &lt;h2 id="pickerTitle"&gt;K15@8B5&lt;/h2&gt;
+    &lt;input class="input" id="pickerSearch" placeholder="= >8A:..." oninput="renderPickerList()"&gt;
+    &lt;div id="pickerList" style="max-height:500px;overflow-y:auto"&gt;&lt;/div&gt;
+    &lt;button class="btn btn-green" style="width:100%;margin-top:10px" onclick="confirmPicker()"&gt; >4B25@48BL&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="modal" id="inspModal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;button class="modal-close" onclick="closeModal('inspModal')"&gt;×&lt;/button&gt;
+    &lt;h2 id="inspTitle"&gt;= A<>B@&lt;/h2&gt;
+    &lt;div id="inspContent"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="modal" id="tuneModal"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;button class="modal-close" onclick="closeModal('tuneModal')"&gt;×&lt;/button&gt;
+    &lt;h2&gt;=' ".-",&lt;/h2&gt;
+    &lt;div id="tuneContent"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="case-opening" id="caseOpening"&gt;
+  &lt;h2 style="color:var(--gold);font-family:'Orbitron'"&gt;<° " +" " &lt;/h2&gt;
+  &lt;div class="case-roulette"&gt;&lt;div class="case-indicator"&gt;&lt;/div&gt;&lt;div class="case-roulette-track" id="rouletteTrack"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div id="caseResult"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="achievementToast"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+const ADMIN_LOGIN='Largus', ADMIN_PASS='Boss777';
+const CARS_DB=[
+{id:1,name:'-968 0?>@>65F',price:1900,wiki:'ZAZ-968',cat:'budget',engine:'V4_air',cyl:4,year:1979},
+{id:2,name:'-2101 >?59:0',price:2200,wiki:'VAZ-2101',cat:'budget',engine:'I4_soviet',cyl:4,year:1970},
+{id:3,name:'-2102',price:2300,wiki:'VAZ-2102',cat:'budget',engine:'I4_soviet',cyl:4,year:1971},
+{id:4,name:'-2103',price:2500,wiki:'VAZ-2103',cat:'budget',engine:'I4_soviet',cyl:4,year:1972},
+{id:5,name:'-2106',price:2800,wiki:'VAZ-2106',cat:'budget',engine:'I4_soviet',cyl:4,year:1976},
+{id:6,name:'-2107',price:3000,wiki:'VAZ-2107',cat:'budget',engine:'I4_soviet',cyl:4,year:1982},
+{id:7,name:'-2108 !0<0@0',price:3200,wiki:'VAZ-2108',cat:'budget',engine:'I4_soviet',cyl:4,year:1984},
+{id:8,name:'-2109',price:3400,wiki:'VAZ-2109',cat:'budget',engine:'I4_soviet',cyl:4,year:1987},
+{id:9,name:'-2110',price:4000,wiki:'VAZ-2110',cat:'budget',engine:'I4_soviet',cyl:4,year:1995},
+{id:10,name:'-24 >;30',price:5500,wiki:'GAZ-24',cat:'budget',engine:'I4_volga',cyl:4,year:1970},
+{id:11,name:'-3110',price:4500,wiki:'GAZ-3110',cat:'budget',engine:'I4_volga',cyl:4,year:1997},
+{id:12,name:'>A:28G-2141',price:3800,wiki:'Moskvich-2141',cat:'budget',engine:'I4_soviet',cyl:4,year:1986},
+{id:13,name:'Daewoo Nexia',price:5500,wiki:'Daewoo_Nexia',cat:'budget',engine:'I4',cyl:4,year:1995},
+{id:14,name:'Daewoo Lanos',price:5000,wiki:'Daewoo_Lanos',cat:'budget',engine:'I4',cyl:4,year:1997},
+{id:15,name:'Opel Astra G',price:6500,wiki:'Opel_Astra#Second_generation_(G)',cat:'budget',engine:'I4',cyl:4,year:1998},
+{id:16,name:'VW Passat B3',price:6000,wiki:'Volkswagen_Passat_B3',cat:'budget',engine:'I4',cyl:4,year:1988},
+{id:17,name:'VW Golf 3',price:5500,wiki:'Volkswagen_Golf_Mk3',cat:'budget',engine:'I4',cyl:4,year:1991},
+{id:18,name:'Audi 80 B4',price:7500,wiki:'Audi_80#B4_(19911996)',cat:'budget',engine:'I4',cyl:4,year:1991},
+{id:19,name:'BMW E36',price:9000,wiki:'BMW_3_Series_(E36)',cat:'budget',engine:'I6',cyl:6,year:1990},
+{id:20,name:'Mercedes W124',price:8500,wiki:'Mercedes-Benz_W124',cat:'budget',engine:'I6',cyl:6,year:1984},
+{id:21,name:'Ford Focus II',price:8000,wiki:'Ford_Focus_(second_generation)',cat:'budget',engine:'I4',cyl:4,year:2004},
+{id:22,name:'Renault Logan',price:7500,wiki:'Renault_Logan',cat:'budget',engine:'I4',cyl:4,year:2004},
+{id:23,name:'Lada Niva',price:9500,wiki:'Lada_Niva',cat:'budget',engine:'I4_soviet',cyl:4,year:1977},
+{id:24,name:'Lada Kalina',price:6000,wiki:'Lada_Kalina',cat:'budget',engine:'I4_soviet',cyl:4,year:2004},
+{id:25,name:'Lada Priora',price:7500,wiki:'Lada_Priora',cat:'budget',engine:'I4_soviet',cyl:4,year:2007},
+{id:26,name:'Lada Granta',price:10000,wiki:'Lada_Granta',cat:'mid',engine:'I4',cyl:4,year:2011},
+{id:27,name:'Lada Vesta',price:15000,wiki:'Lada_Vesta',cat:'mid',engine:'I4',cyl:4,year:2015},
+{id:28,name:'Lada Largus',price:14000,wiki:'Lada_Largus',cat:'mid',engine:'I4',cyl:4,year:2012},
+{id:29,name:'Hyundai Solaris',price:13000,wiki:'Hyundai_Accent#Fourth_generation_(RB;_2010)',cat:'mid',engine:'I4',cyl:4,year:2010},
+{id:30,name:'Kia Rio',price:14000,wiki:'Kia_Rio#Third_generation_(QB;_2011)',cat:'mid',engine:'I4',cyl:4,year:2011},
+{id:31,name:'VW Polo',price:15000,wiki:'Volkswagen_Polo#Fifth_generation_(6R/6C;_2009)',cat:'mid',engine:'I4',cyl:4,year:2009},
+{id:32,name:'Skoda Octavia A7',price:18000,wiki:'`koda_Octavia#Third_generation_(5E;_2013)',cat:'mid',engine:'I4',cyl:4,year:2013},
+{id:33,name:'VW Passat B8',price:28000,wiki:'Volkswagen_Passat_(B8)',cat:'mid',engine:'I4',cyl:4,year:2014},
+{id:34,name:'Toyota Corolla',price:20000,wiki:'Toyota_Corolla_(E160)',cat:'mid',engine:'I4',cyl:4,year:2013},
+{id:35,name:'Toyota Camry XV70',price:45000,wiki:'Toyota_Camry_(XV70)',cat:'mid',engine:'V6',cyl:6,year:2017},
+{id:36,name:'Honda Accord',price:25000,wiki:'Honda_Accord_(ninth_generation)',cat:'mid',engine:'I4',cyl:4,year:2013},
+{id:37,name:'Mazda 6',price:24000,wiki:'Mazda6#Third_generation_(GJ;_2012)',cat:'mid',engine:'I4',cyl:4,year:2012},
+{id:38,name:'Hyundai Sonata',price:22000,wiki:'Hyundai_Sonata#Seventh_generation_(LF;_2014)',cat:'mid',engine:'I4',cyl:4,year:2014},
+{id:39,name:'Kia K5',price:30000,wiki:'Kia_K5',cat:'mid',engine:'I4',cyl:4,year:2019},
+{id:40,name:'Renault Duster',price:18000,wiki:'Dacia_Duster#First_generation_(H79;_2010)',cat:'mid',engine:'I4',cyl:4,year:2010},
+{id:41,name:'Nissan Qashqai',price:25000,wiki:'Nissan_Qashqai',cat:'mid',engine:'I4',cyl:4,year:2006},
+{id:42,name:'Kia Sportage',price:28000,wiki:'Kia_Sportage#Fourth_generation_(QL;_2015)',cat:'mid',engine:'I4',cyl:4,year:2015},
+{id:43,name:'Hyundai Tucson',price:26000,wiki:'Hyundai_Tucson#Third_generation_(TL;_2015)',cat:'mid',engine:'I4',cyl:4,year:2015},
+{id:44,name:'Toyota RAV4',price:32000,wiki:'Toyota_RAV4_(XA40)',cat:'mid',engine:'I4',cyl:4,year:2012},
+{id:45,name:'Mitsubishi Outlander',price:27000,wiki:'Mitsubishi_Outlander#Third_generation_(GF)',cat:'mid',engine:'I4',cyl:4,year:2012},
+{id:46,name:'BMW E46',price:15000,wiki:'BMW_3_Series_(E46)',cat:'mid',engine:'I6',cyl:6,year:1998},
+{id:47,name:'BMW E39',price:20000,wiki:'BMW_5_Series_(E39)',cat:'mid',engine:'I6',cyl:6,year:1995},
+{id:48,name:'BMW E60',price:28000,wiki:'BMW_5_Series_(E60)',cat:'mid',engine:'I6',cyl:6,year:2003},
+{id:49,name:'Mercedes W210',price:14000,wiki:'Mercedes-Benz_E-Class_(W210)',cat:'mid',engine:'V6',cyl:6,year:1995},
+{id:50,name:'Mercedes W211',price:22000,wiki:'Mercedes-Benz_E-Class_(W211)',cat:'mid',engine:'V6',cyl:6,year:2002},
+{id:51,name:'Mercedes W212',price:35000,wiki:'Mercedes-Benz_E-Class_(W212)',cat:'premium',engine:'V6',cyl:6,year:2009},
+{id:52,name:'Audi A4 B8',price:25000,wiki:'Audi_A4#B8_(Typ_8K;_2008)',cat:'premium',engine:'I4',cyl:4,year:2008},
+{id:53,name:'Audi A6 C7',price:35000,wiki:'Audi_A6#C7_(Typ_4G;_2011)',cat:'premium',engine:'V6',cyl:6,year:2011},
+{id:54,name:'BMW G20',price:55000,wiki:'BMW_3_Series_(G20)',cat:'premium',engine:'I4_turbo',cyl:4,year:2018},
+{id:55,name:'BMW G30',price:75000,wiki:'BMW_5_Series_(G30)',cat:'premium',engine:'I6_turbo',cyl:6,year:2017},
+{id:56,name:'BMW X5 G05',price:95000,wiki:'BMW_X5_(G05)',cat:'premium',engine:'I6_turbo',cyl:6,year:2018},
+{id:57,name:'BMW M3 G80',price:120000,wiki:'BMW_M3#G80_(2021present)',cat:'premium',engine:'I6_twin',cyl:6,year:2021},
+{id:58,name:'BMW M5 F90',price:150000,wiki:'BMW_5_Series_(G30)#M5',cat:'premium',engine:'V8_twinturbo',cyl:8,year:2018},
+{id:59,name:'Mercedes W213',price:80000,wiki:'Mercedes-Benz_E-Class_(W213)',cat:'premium',engine:'I6_turbo',cyl:6,year:2016},
+{id:60,name:'Mercedes W223',price:150000,wiki:'Mercedes-Benz_S-Class_(W223)',cat:'premium',engine:'I6_turbo',cyl:6,year:2020},
+{id:61,name:'Mercedes G63 AMG',price:250000,wiki:'Mercedes-Benz_G-Class#Second_generation_(W463;_2018)',cat:'premium',engine:'V8_amg',cyl:8,year:2018},
+{id:62,name:'Mercedes AMG C63',price:120000,wiki:'Mercedes-Benz_C-Class_(W205)#C63_AMG',cat:'premium',engine:'V8_amg',cyl:8,year:2015},
+{id:63,name:'Mercedes AMG GT',price:220000,wiki:'Mercedes-AMG_GT',cat:'premium',engine:'V8_amg',cyl:8,year:2014},
+{id:64,name:'Audi A6 C8',price:80000,wiki:'Audi_A6#C8_(Typ_4K;_2018)',cat:'premium',engine:'V6_turbo',cyl:6,year:2018},
+{id:65,name:'Audi Q7 4M',price:90000,wiki:'Audi_Q7#Second_generation_(4M;_2015)',cat:'premium',engine:'V6_turbo',cyl:6,year:2015},
+{id:66,name:'Audi RS6 Avant',price:180000,wiki:'Audi_RS_6#C8_(2019present)',cat:'premium',engine:'V8_twinturbo',cyl:8,year:2019},
+{id:67,name:'Porsche Cayenne',price:120000,wiki:'Porsche_Cayenne#Third_generation_(2018)',cat:'premium',engine:'V6_turbo',cyl:6,year:2018},
+{id:68,name:'Porsche Panamera',price:140000,wiki:'Porsche_Panamera#Second_generation_(2016)',cat:'premium',engine:'V8_twinturbo',cyl:8,year:2016},
+{id:69,name:'Porsche 911 (992)',price:200000,wiki:'Porsche_911_(992)',cat:'premium',engine:'Boxer6',cyl:6,year:2019},
+{id:70,name:'Porsche 911 Turbo S',price:350000,wiki:'Porsche_911_(992)#911_Turbo_and_Turbo_S',cat:'premium',engine:'Boxer6_twin',cyl:6,year:2020},
+{id:71,name:'Tesla Model 3',price:60000,wiki:'Tesla_Model_3',cat:'premium',engine:'Tesla',cyl:0,year:2017},
+{id:72,name:'Tesla Model Y',price:75000,wiki:'Tesla_Model_Y',cat:'premium',engine:'Tesla',cyl:0,year:2020},
+{id:73,name:'Tesla Model S Plaid',price:180000,wiki:'Tesla_Model_S#Plaid_(2021present)',cat:'premium',engine:'Tesla_Plaid',cyl:0,year:2021},
+{id:74,name:'Toyota Land Cruiser 300',price:140000,wiki:'Toyota_Land_Cruiser_(J300)',cat:'premium',engine:'V6_twin',cyl:6,year:2021},
+{id:75,name:'Lexus LX',price:180000,wiki:'Lexus_LX#Fourth_generation_(J310;_2022)',cat:'premium',engine:'V6_twin',cyl:6,year:2022},
+{id:76,name:'Range Rover L460',price:200000,wiki:'Range_Rover_(L460)',cat:'premium',engine:'V8_twin',cyl:8,year:2022},
+{id:77,name:'VW Touareg',price:90000,wiki:'Volkswagen_Touareg#Third_generation_(CR;_2018)',cat:'premium',engine:'V6_tdi',cyl:6,year:2018},
+{id:78,name:'Lamborghini Huracan',price:450000,wiki:'Lamborghini_Huracán',cat:'premium',engine:'V10',cyl:10,year:2014},
+{id:79,name:'Ferrari F8 Tributo',price:500000,wiki:'Ferrari_F8',cat:'premium',engine:'V8_twin',cyl:8,year:2019},
+{id:80,name:'McLaren 720S',price:480000,wiki:'McLaren_720S',cat:'premium',engine:'V8_twin',cyl:8,year:2017},
+{id:81,name:'Rolls-Royce Cullinan Black Badge',price:2900000,wiki:'Rolls-Royce_Cullinan',cat:'boss',engine:'V12',cyl:12,year:2018,boss:true},
+{id:82,name:'Bugatti Chiron Super Sport',price:4800000,wiki:'Bugatti_Chiron',cat:'boss',engine:'W16',cyl:16,year:2016,boss:true},
+{id:83,name:'LADA Largus VIP [!!]',price:10000000,wiki:'Lada_Largus',cat:'boss',engine:'Boss',cyl:4,year:2024,boss:true}];
+const CONDITIONS=[{id:1,name:'>A;5 " (8B0O)',mult:0.55,emoji:'=¥'},{id:2,name:'5@5:C?-M48H=',mult:0.75,emoji:'='},{id:3,name:'0 1>4@>< E>4C',mult:1.00,emoji:''},{id:4,name:'>A;5 4540 (450;)',mult:1.25,emoji:'=t'},{id:5,name:'0?AC;0 2@5<5=8',mult:1.50,emoji:'ó'}];
+const PLATES=[{id:'7777 AA-7',mult:0.35},{id:'0001 MI-7',mult:0.32},{id:'8888 OO-7',mult:0.25},{id:'0770 BP-7',mult:0.18}];
+const CASES=[{id:1,name:'><6-:59A',icon:'=æ',price:5000,min:1,max:10},{id:2,name:'!@54=89 :>=B59=5@',icon:'<',price:25000,min:10,max:50},{id:3,name:'@5<8C< :59A',icon:'=Ž',price:100000,min:50,max:80},{id:4,name:'VIP >=B59=5@',icon:'=Q',price:500000,min:60,max:83},{id:5,name:'!!-:>=B59=5@',icon:'=%',price:3000000,min:81,max:83}];
+const ACHIEVEMENTS=[{id:'first_win',name:'5@20O ?>1540',icon:'<Æ',check:s=&gt;s.history.some(h=&gt;h.win)},{id:'millionaire',name:'8;;8>=5@',icon:'=Ž',check:s=&gt;s.balance&gt;=1000000},{id:'collector10',name:'>;;5:F8>=5@ 10',icon:'=—',check:s=&gt;s.garage.length&gt;=10},{id:'collector25',name:'0@06 <5GBK',icon:'<Á',check:s=&gt;s.garage.length&gt;=25},{id:'boss_hunter',name:'E>B=8: =0 1>AA>2',icon:'=%',check:s=&gt;s.garage.some(c=&gt;c.boss)},{id:'tuner',name:'0AB5@ BN=8=30',icon:'='',check:s=&gt;s.garage.some(c=&gt;c.stage&gt;=3)},{id:'lucky',name:'57C=G8:',icon:'<@',check:s=&gt;s.history.filter(h=&gt;h.win).length&gt;=10},{id:'highroller',name:'3@>: ?>-:@C?=><C',icon:'=°',check:s=&gt;s.history.some(h=&gt;h.stake&gt;=1000000)}];
+
+function freshState(user){return{balance:0,garage:[],history:[],stakeCars:[],target:null,currentUser:user,soundOn:true,insurance:false,invertSector:false,godMode:false,xp:0,level:1,achievements:[],isAdmin:false,chanceMod:1};}
+let state=freshState(null);
+const SAVE_KEY='auto_upgrade_5_save_';
+const DB_KEY='users_db';
+
+let audioCtx;
+function getCtx(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();return audioCtx;}
+function playUI(s){if(!state.soundOn)return;try{const ctx=getCtx();const P={hover:{f:1200,d:.03,v:.05,t:'sine'},click:{f:800,d:.05,v:.1,t:'square'},tab:{f:600,d:.08,v:.08,t:'triangle'},modal:{f:400,d:.15,v:.1,t:'sine'}};const p=P[s]||P.click;const o=ctx.createOscillator(),g=ctx.createGain();o.type=p.t;o.frequency.value=p.f;g.gain.setValueAtTime(p.v,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+p.d);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+p.d);}catch(e){}}
+function playClick(){if(!state.soundOn)return;try{const ctx=getCtx();const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=800;g.gain.setValueAtTime(.1,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.05);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.05);}catch(e){}}
+function playWin(){if(!state.soundOn)return;try{const ctx=getCtx();[523.25,659.25,783.99].forEach((f,i)=&gt;{const o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(.2,ctx.currentTime+i*.1);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+i*.1+.3);o.connect(g);g.connect(ctx.destination);o.start(ctx.currentTime+i*.1);o.stop(ctx.currentTime+i*.1+.3);});}catch(e){}}
+function playLoss(){if(!state.soundOn)return;try{const ctx=getCtx();const o=ctx.createOscillator(),g=ctx.createGain();o.type='sawtooth';o.frequency.setValueAtTime(300,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(80,ctx.currentTime+.5);g.gain.setValueAtTime(.2,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.5);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.5);}catch(e){}}
+function playAlarm(){if(!state.soundOn)return;try{const ctx=getCtx();for(let i=0;i&lt;4;i++){const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=i%2===0?880:660;g.gain.setValueAtTime(.15,ctx.currentTime+i*.3);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+i*.3+.25);o.connect(g);g.connect(ctx.destination);o.start(ctx.currentTime+i*.3);o.stop(ctx.currentTime+i*.3+.25);}}catch(e){}}
+function playEngine(type){if(!state.soundOn)return;try{
+const ctx=getCtx();const master=ctx.createGain();master.gain.setValueAtTime(.4,ctx.currentTime);master.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+4);master.connect(ctx.destination);
+const profiles={V4_air:{freq:180,type:'square',h:[2,3,4],sweep:1.3,dur:3},I4_soviet:{freq:150,type:'sawtooth',h:[2,3],sweep:1.4,dur:3.5},I4_volga:{freq:140,type:'sawtooth',h:[2,3,5],sweep:1.3,dur:3},I4:{freq:200,type:'sawtooth',h:[2,3],sweep:1.5,dur:2.5},I4_turbo:{freq:220,type:'sawtooth',h:[2,3,5],sweep:1.6,dur:2.5,turbo:1},I6:{freq:160,type:'sawtooth',h:[2,3,4,5],sweep:1.5,dur:3},I6_turbo:{freq:180,type:'sawtooth',h:[2,3,5,6],sweep:1.7,dur:2.5,turbo:1},I6_twin:{freq:220,type:'sawtooth',h:[2,3,4,5,6],sweep:2,dur:2.5,turbo:1},V6:{freq:130,type:'triangle',h:[2,3,5],sweep:1.5,dur:3},V6_turbo:{freq:150,type:'triangle',h:[2,3,5],sweep:1.7,dur:2.8,turbo:1},V6_twin:{freq:180,type:'triangle',h:[2,3,5,7],sweep:1.8,dur:2.8,turbo:1},V6_tdi:{freq:90,type:'square',h:[2,3,5],sweep:1.4,dur:3.5,turbo:1,diesel:1},V8_twinturbo:{freq:90,type:'sawtooth',h:[2,3,4,5,7],sweep:1.8,dur:3,popcorn:1,turbo:1},V8_amg:{freq:80,type:'sawtooth',h:[2,3,5,7],sweep:1.9,dur:3.5,popcorn:1,turbo:1},V8_twin:{freq:100,type:'sawtooth',h:[2,3,5,7],sweep:1.8,dur:2.8,popcorn:1,turbo:1},Boxer6:{freq:120,type:'sawtooth',h:[2,3,5,7],sweep:2,dur:2.5},Boxer6_twin:{freq:160,type:'sawtooth',h:[2,3,5,7,9],sweep:2.2,dur:2.8,turbo:1},V10:{freq:110,type:'sawtooth',h:[2,3,5,7,9,11],sweep:2.5,dur:3},V12:{freq:100,type:'sawtooth',h:[2,3,5,7,9,11,13],sweep:2.2,dur:3.5},W16:{freq:120,type:'sawtooth',h:[2,3,5,7,9,11,13,15],sweep:2.5,dur:3,turbo:1,popcorn:1},Tesla:{freq:2000,type:'sine',h:[3,5,7],sweep:.8,dur:2,inv:1},Tesla_Plaid:{freq:2500,type:'sine',h:[3,5,7,9],sweep:.7,dur:2.5,inv:1},Boss:{freq:140,type:'sawtooth',h:[2,3,5,7,11],sweep:2.2,dur:3.5,turbo:1,blow:1}};
+const p=profiles[type]||profiles.I4;
+p.h.forEach((h,i)=&gt;{const o=ctx.createOscillator(),g=ctx.createGain();o.type=p.type;o.frequency.setValueAtTime(p.freq*h,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(p.freq*h*p.sweep,ctx.currentTime+.3);o.frequency.exponentialRampToValueAtTime(p.freq*h*p.sweep*.85,ctx.currentTime+p.dur);g.gain.setValueAtTime(.15/(i+1),ctx.currentTime);g.gain.linearRampToValueAtTime(.2/(i+1),ctx.currentTime+.5);g.gain.linearRampToValueAtTime(0,ctx.currentTime+p.dur);o.connect(g);g.connect(master);o.start();o.stop(ctx.currentTime+p.dur);});
+if(p.turbo){const n=ctx.createBufferSource();const buf=ctx.createBuffer(1,ctx.sampleRate*p.dur,ctx.sampleRate);const d=buf.getChannelData(0);for(let i=0;i&lt;d.length;i++)d[i]=(Math.random()*2-1)*.05;n.buffer=buf;const f=ctx.createBiquadFilter();f.type='bandpass';f.frequency.setValueAtTime(3000,ctx.currentTime);f.frequency.exponentialRampToValueAtTime(8000,ctx.currentTime+p.dur*.8);const ng=ctx.createGain();ng.gain.setValueAtTime(0,ctx.currentTime+.5);ng.gain.linearRampToValueAtTime(.15,ctx.currentTime+1);ng.gain.linearRampToValueAtTime(0,ctx.currentTime+p.dur);n.connect(f);f.connect(ng);ng.connect(master);n.start(ctx.currentTime+.5);n.stop(ctx.currentTime+p.dur);}
+if(p.popcorn){for(let i=0;i&lt;8;i++){const t=ctx.currentTime+1+Math.random()*1.5;const o=ctx.createOscillator(),g=ctx.createGain();o.type='sawtooth';o.frequency.value=60+Math.random()*40;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.3,t+.01);g.gain.exponentialRampToValueAtTime(.001,t+.15);o.connect(g);g.connect(master);o.start(t);o.stop(t+.15);}}
+if(p.inv){const o=ctx.createOscillator(),g=ctx.createGain();o.type='sawtooth';o.frequency.setValueAtTime(8000,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(12000,ctx.currentTime+p.dur);g.gain.setValueAtTime(0,ctx.currentTime);g.gain.linearRampToValueAtTime(.08,ctx.currentTime+.5);g.gain.linearRampToValueAtTime(0,ctx.currentTime+p.dur);o.connect(g);g.connect(master);o.start();o.stop(ctx.currentTime+p.dur);}
+if(p.blow){const t=ctx.currentTime+2;const o=ctx.createOscillator(),g=ctx.createGain();o.type='sawtooth';o.frequency.setValueAtTime(5000,t);o.frequency.exponentialRampToValueAtTime(500,t+.5);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.4,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+.5);o.connect(g);g.connect(master);o.start(t);o.stop(t+.5);}
+}catch(e){}}
+
+(function(){const cv=document.getElementById('bgCanvas');const ctx=cv.getContext('2d');let W,H,ps=[];function rz(){W=cv.width=innerWidth;H=cv.height=innerHeight}rz();addEventListener('resize',rz);const N=innerWidth&lt;768?40:70;for(let i=0;i&lt;N;i++)ps.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.5+.5,c:Math.random()&gt;.5?'#ff6b00':'#00d2ff'});function draw(){ctx.fillStyle='rgba(7,10,16,0.18)';ctx.fillRect(0,0,W,H);ps.forEach(p=&gt;{p.x+=p.vx;p.y+=p.vy;if(p.x&lt;0||p.x&gt;W)p.vx*=-1;if(p.y&lt;0||p.y&gt;H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle=p.c;ctx.shadowBlur=10;ctx.shadowColor=p.c;ctx.fill();});for(let i=0;i&lt;ps.length;i++)for(let j=i+1;j&lt;ps.length;j++){const dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y;const d=Math.sqrt(dx*dx+dy*dy);if(d&lt;120){ctx.strokeStyle=`rgba(0,210,255,${.15*(1-d/120)})`;ctx.lineWidth=.5;ctx.shadowBlur=0;ctx.beginPath();ctx.moveTo(ps[i].x,ps[i].y);ctx.lineTo(ps[j].x,ps[j].y);ctx.stroke();}}requestAnimationFrame(draw);}draw();})();
+
+document.addEventListener('click',e=&gt;{const b=e.target.closest('.btn,.tab,.sto-btn,.case-card,.quick-btns button');if(!b)return;const r=document.createElement('span');r.className='ripple-effect';const d=Math.max(b.clientWidth,b.clientHeight);r.style.width=r.style.height=d+'px';r.style.left=(e.clientX-b.getBoundingClientRect().left-d/2)+'px';r.style.top=(e.clientY-b.getBoundingClientRect().top-d/2)+'px';b.appendChild(r);setTimeout(()=&gt;r.remove(),600);});
+function spawnConfetti(){const colors=['#ff6b00','#00d2ff','#10b981','#f59e0b','#ef4444','#fff'];for(let i=0;i&lt;80;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.left=Math.random()*100+'vw';c.style.top='-20px';c.style.background=colors[i%colors.length];c.style.width=(6+Math.random()*8)+'px';c.style.height=(6+Math.random()*8)+'px';c.style.borderRadius=Math.random()&gt;.5?'50%':'2px';c.style.animationDuration=(2.5+Math.random()*2)+'s';document.body.appendChild(c);setTimeout(()=&gt;c.remove(),4500);}}
+
+const imgCache={};
+function getCarSVG(car,w=300,h=200,showName=true){const grad=car.boss?'#f59e0b,#b45309':(car.cat==='premium'?'#ef4444,#7f1d1d':(car.cat==='mid'?'#00d2ff,#0284c7':'#10b981,#065f46'));const[c1,c2]=grad.split(',');return `&lt;svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg"&gt;&lt;defs&gt;&lt;linearGradient id="g${car.id}_${w}" x1="0" y1="0" x2="1" y2="1"&gt;&lt;stop offset="0%" stop-color="${c1}"/&gt;&lt;stop offset="100%" stop-color="${c2}"/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;&lt;rect width="${w}" height="${h}" fill="url(#g${car.id}_${w})" opacity="0.3"/&gt;&lt;rect width="${w}" height="${h}" fill="#0f172a" opacity="0.5"/&gt;&lt;g transform="translate(${w/2},${h/2-10})"&gt;&lt;path d="M-60,-20 L-50,-30 L-20,-30 L-10,-20 L30,-20 L40,-10 L50,-10 L55,0 L-65,0 Z" fill="${c1}" opacity="0.9"/&gt;&lt;circle cx="-40" cy="5" r="10" fill="#000" stroke="#444" stroke-width="2"/&gt;&lt;circle cx="40" cy="5" r="10" fill="#000" stroke="#444" stroke-width="2"/&gt;&lt;rect x="-15" y="-25" width="18" height="8" fill="#7dd3fc" opacity="0.7"/&gt;&lt;/g&gt;${showName?`&lt;text x="${w/2}" y="${h-30}" text-anchor="middle" fill="#fff" font-family="Orbitron,sans-serif" font-size="14" font-weight="700"&gt;${car.name}&lt;/text&gt;&lt;text x="${w/2}" y="${h-12}" text-anchor="middle" fill="#f59e0b" font-family="Orbitron,sans-serif" font-size="13" font-weight="700"&gt;${car.price.toLocaleString('ru')} BYN&lt;/text&gt;`:''}&lt;/svg&gt;`;}
+async function getCarImg(car){if(imgCache[car.id])return imgCache[car.id];try{const r=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(car.wiki)}`);if(r.ok){const d=await r.json();if(d.thumbnail&amp;&amp;d.thumbnail.source){imgCache[car.id]=d.thumbnail.source;localStorage.setItem('img_'+car.id,d.thumbnail.source);return d.thumbnail.source;}}}catch(e){}const c=localStorage.getItem('img_'+car.id);if(c){imgCache[car.id]=c;return c;}return null;}
+async function loadImgInto(elId,car){const url=await getCarImg(car);const el=document.getElementById(elId);if(el&amp;&amp;url){const svg=getCarSVG(car,300,140,true).replace(/`/g,'\\`');el.innerHTML=`&lt;img src="${url}" alt="${car.name}" onerror="this.parentNode.innerHTML=\`${svg}\`"&gt;`;}}
+
+function save(){if(!state.currentUser)return;localStorage.setItem(SAVE_KEY+state.currentUser,JSON.stringify(state));saveUsersDB();}
+function loadSave(user){const raw=localStorage.getItem(SAVE_KEY+user);if(!raw)return false;try{state={...freshState(user),...JSON.parse(raw)};state.currentUser=user;return true;}catch(e){return false;}}
+function getUsersDB(){try{return JSON.parse(localStorage.getItem(DB_KEY)||'{}')}catch(e){return{}}}
+function saveUsersDB(){if(!state.currentUser||state.currentUser===ADMIN_LOGIN)return;const db=getUsersDB();db[state.currentUser]={pass:(db[state.currentUser]||{}).pass,balance:state.balance,cars:state.garage.length,capital:state.balance+state.garage.reduce((s,c)=&gt;s+calcCarPrice(c),0),xp:state.xp||0,level:state.level||1,achievements:state.achievements||[],chanceMod:state.chanceMod||1};localStorage.setItem(DB_KEY,JSON.stringify(db));}
+
+// ===== !592K 83@>:>2 (4;O 04<8=0) =====
+function getPlayerSave(u){try{return JSON.parse(localStorage.getItem(SAVE_KEY+u))||null}catch(e){return null}}
+function setPlayerSave(u,d){localStorage.setItem(SAVE_KEY+u,JSON.stringify(d));const db=getUsersDB();if(db[u]){db[u].balance=d.balance;db[u].cars=(d.garage||[]).length;db[u].capital=(d.balance||0)+(d.garage||[]).reduce((s,c)=&gt;s+calcCarPrice(c),0);db[u].chanceMod=d.chanceMod||1;db[u].level=d.level||1;localStorage.setItem(DB_KEY,JSON.stringify(db));}}
+
+function renderHeader(){document.getElementById('balance').textContent=state.balance.toLocaleString('ru');document.getElementById('carsCount').textContent=state.garage.length;document.getElementById('adminBtn').style.display=state.isAdmin?'inline-flex':'none';updateXP();}
+function updateXP(){const lvl=state.level||1;const need=lvl*100;const cur=(state.xp||0)%need;document.getElementById('xpLevel').textContent='LVL '+lvl;document.getElementById('xpCur').textContent=cur+'/'+need;document.getElementById('xpFill').style.width=(cur/need*100)+'%';}
+function addXP(a){state.xp=(state.xp||0)+a;let need=(state.level||1)*100;while(state.xp&gt;=need){state.xp-=need;state.level=(state.level||1)+1;notify(`<‰ #@>25=L ${state.level}!`);spawnConfetti();need=state.level*100;}updateXP();}
+function renderTicker(){const items=[];const bots=['Alex_91','TurboKing','BY_Driver','SpeedMax','Garazh_777','MinskRacer'];state.history.slice(-5).forEach(h=&gt;{items.push(`&lt;span class="ticker-item"&gt;&lt;b&gt;${state.currentUser}&lt;/b&gt; ${h.win?'&lt;span class="w"&gt; 2K83@0;&lt;/span&gt;':'&lt;span class="l"&gt; ?@>83@0;&lt;/span&gt;'} &lt;b&gt;${h.targetName}&lt;/b&gt; (${h.pct.toFixed(1)}%)&lt;/span&gt;`);});for(let i=0;i&lt;8;i++){const c=CARS_DB[Math.floor(Math.random()*CARS_DB.length)];const win=Math.random()&gt;.3;const b=bots[Math.floor(Math.random()*bots.length)];items.push(`&lt;span class="ticker-item"&gt;&lt;b&gt;${b}&lt;/b&gt; ${win?'&lt;span class="w"&gt; 2K83@0;&lt;/span&gt;':'&lt;span class="l"&gt; ?@>83@0;&lt;/span&gt;'} &lt;b&gt;${c.name}&lt;/b&gt;&lt;/span&gt;`);}document.getElementById('ticker').innerHTML=`&lt;span class="ticker-live"&gt;Ï LIVE&lt;/span&gt;`+items.join('');}
+function renderCatalog(){const q=(document.getElementById('catSearch').value||'').toLowerCase();const cat=document.getElementById('catCategory').value;const sort=document.getElementById('catSort').value;let list=CARS_DB.filter(c=&gt;{if(q&amp;&amp;!c.name.toLowerCase().includes(q))return false;if(cat&amp;&amp;c.cat!==cat)return false;return true;});if(sort==='price-asc')list.sort((a,b)=&gt;a.price-b.price);else if(sort==='price-desc')list.sort((a,b)=&gt;b.price-a.price);else list.sort((a,b)=&gt;a.name.localeCompare(b.name));document.getElementById('catalogGrid').innerHTML=list.map(c=&gt;`&lt;div class="card"&gt;&lt;div class="card-img" id="catimg-${c.id}"&gt;${getCarSVG(c)}&lt;/div&gt;&lt;div class="card-title"&gt;${c.name}&lt;/div&gt;&lt;div style="font-size:11px;color:var(--muted);margin-bottom:6px"&gt;${c.year} · ${c.engine}&lt;/div&gt;&lt;div class="card-price mono"&gt;${c.price.toLocaleString('ru')} BYN&lt;/div&gt;&lt;button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="buyFromCatalog(${c.id})"&gt;C?8BL&lt;/button&gt;&lt;/div&gt;`).join('');list.forEach(c=&gt;loadImgInto('catimg-'+c.id,c));}
+function renderGarage(){const total=state.garage.reduce((s,c)=&gt;s+calcCarPrice(c),0);document.getElementById('garageStats').innerHTML=`&lt;div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px"&gt;&lt;div&gt;&lt;span style="color:var(--muted)"&gt;0H8=:&lt;/span&gt; &lt;b class="mono" style="color:var(--cyan);font-size:20px"&gt;${state.garage.length}&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;span style="color:var(--muted)"&gt;!B>8<>ABL:&lt;/span&gt; &lt;b class="mono" style="color:var(--gold);font-size:20px"&gt;${total.toLocaleString('ru')} BYN&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;`;const grid=document.getElementById('garageGrid');if(!state.garage.length){grid.innerHTML=`&lt;div class="empty" style="grid-column:1/-1"&gt;=— 0@06 ?CAB. >@0 =0 !" ;8:5@!&lt;/div&gt;`;return;}grid.innerHTML=state.garage.map((c,i)=&gt;{const cond=CONDITIONS.find(x=&gt;x.id===c.condition);const stage=c.stage||0;return `&lt;div class="card"&gt;${c.plate?`&lt;div class="badge badge-by"&gt;BY ${c.plate}&lt;/div&gt;`:''}&lt;div class="card-img" id="grimg-${i}"&gt;${getCarSVG(c,300,140,false)}&lt;/div&gt;&lt;div class="card-title"&gt;${c.name}&lt;/div&gt;&lt;div style="display:flex;gap:4px;flex-wrap:wrap;margin:6px 0"&gt;&lt;span class="badge badge-cond"&gt;${cond.emoji} ${cond.name}&lt;/span&gt;${stage&gt;0?`&lt;span class="badge badge-stage"&gt;Stage ${stage}&lt;/span&gt;`:''}${c.boss?'&lt;span class="badge badge-boss"&gt;=% !!&lt;/span&gt;':''}&lt;/div&gt;&lt;div class="card-price mono"&gt;${calcCarPrice(c).toLocaleString('ru')} BYN&lt;/div&gt;&lt;div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px"&gt;&lt;button class="btn btn-cyan" onclick="openInspection(${i})"&gt;= A<>B@&lt;/button&gt;&lt;button class="btn btn-gold" onclick="openTuning(${i})"&gt;=' "N=8=3&lt;/button&gt;&lt;button class="btn btn-green" onclick="sellCar(${i})"&gt;=° @>40BL&lt;/button&gt;&lt;button class="btn btn-red" onclick="stakeFromGarage(${i})"&gt;¡ !B02:0&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;}).join('');state.garage.forEach((c,i)=&gt;loadImgInto('grimg-'+i,c));}
+function renderHistory(){const list=document.getElementById('historyList');if(!state.history.length){list.innerHTML=`&lt;div class="empty"&gt;=Ü AB>@8O ?CAB0&lt;/div&gt;`;return;}list.innerHTML=state.history.slice().reverse().map(h=&gt;`&lt;div class="history-item ${h.win?'win':'loss'}"&gt;&lt;div&gt;&lt;div style="font-weight:700"&gt;${h.win?' ':'   +('}&lt;/div&gt;&lt;div&gt;&lt;small&gt;${h.stakeCars.map(s=&gt;s.name).join(', ')} ” ${h.targetName}&lt;/small&gt;&lt;/div&gt;&lt;div&gt;&lt;small&gt;(0=A: &lt;b class="mono"&gt;${h.pct.toFixed(2)}%&lt;/b&gt; · !B02:0: &lt;b class="mono"&gt;${h.stake} BYN&lt;/b&gt;&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="mono" style="color:${h.win?'var(--green)':'var(--red)'};font-size:14px"&gt;${h.win?'+':''}${(h.win?(h.targetPrice-h.stake):-h.stake).toLocaleString('ru')} BYN&lt;/div&gt;&lt;/div&gt;`).join('');}
+function renderCases(){document.getElementById('casesGrid').innerHTML=CASES.map(c=&gt;`&lt;div class="case-card" onclick="buyCase(${c.id})"&gt;&lt;span class="case-icon"&gt;${c.icon}&lt;/span&gt;&lt;div class="case-name"&gt;${c.name}&lt;/div&gt;&lt;div class="case-price mono"&gt;${c.price.toLocaleString('ru')} BYN&lt;/div&gt;&lt;div class="case-contents"&gt;2B> #${c.min} - #${c.max}&lt;/div&gt;&lt;/div&gt;`).join('');}
+function renderProfile(){const total=state.garage.reduce((s,c)=&gt;s+calcCarPrice(c),0);const wins=state.history.filter(h=&gt;h.win).length;const losses=state.history.filter(h=&gt;!h.win).length;const mod=state.chanceMod||1;document.getElementById('profileInfo').innerHTML=`&lt;div class="stat-grid"&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;>;L7>20B5;L&lt;/div&gt;&lt;div class="val" style="font-size:18px"&gt;${state.currentUser}&lt;/div&gt;&lt;/div&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;#@>25=L&lt;/div&gt;&lt;div class="val" style="color:var(--cyan)"&gt;LVL ${state.level||1}&lt;/div&gt;&lt;/div&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;0;0=A&lt;/div&gt;&lt;div class="val" style="color:var(--gold)"&gt;${state.balance.toLocaleString('ru')}&lt;/div&gt;&lt;/div&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;0H8=&lt;/div&gt;&lt;div class="val" style="color:var(--cyan)"&gt;${state.garage.length}&lt;/div&gt;&lt;/div&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;0?8B0;&lt;/div&gt;&lt;div class="val" style="color:var(--gold)"&gt;${(state.balance+total).toLocaleString('ru')}&lt;/div&gt;&lt;/div&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;>154&lt;/div&gt;&lt;div class="val" style="color:var(--green)"&gt;${wins}&lt;/div&gt;&lt;/div&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;@>83@KH59&lt;/div&gt;&lt;div class="val" style="color:var(--red)"&gt;${losses}&lt;/div&gt;&lt;/div&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;8=@59B&lt;/div&gt;&lt;div class="val" style="color:var(--cyan)"&gt;${wins+losses&gt;0?((wins/(wins+losses))*100).toFixed(1):0}%&lt;/div&gt;&lt;/div&gt;&lt;div class="stat-card"&gt;&lt;div class="lbl"&gt;>48D8:0B>@ C40G8&lt;/div&gt;&lt;div class="val" style="color:${mod&gt;1?'var(--green)':mod&lt;1?'var(--red)':'var(--cyan)'}"&gt;×${mod}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;h3 style="margin-top:20px"&gt;<Æ >AB865=8O (${(state.achievements||[]).length}/${ACHIEVEMENTS.length})&lt;/h3&gt;&lt;div class="stat-grid" style="margin-top:10px"&gt;${ACHIEVEMENTS.map(a=&gt;{const u=(state.achievements||[]).includes(a.id);return `&lt;div class="stat-card" style="opacity:${u?1:.4}"&gt;&lt;div style="font-size:32px"&gt;${a.icon}&lt;/div&gt;&lt;div style="font-weight:700;margin-top:6px"&gt;${a.name}&lt;/div&gt;&lt;div style="font-size:11px;color:${u?'var(--green)':'var(--muted)'}"&gt;${u?' >;CG5=>':'01;>:8@>20=>'}&lt;/div&gt;&lt;/div&gt;`;}).join('')}&lt;/div&gt;`;}
+function renderPlates(){const sel=document.getElementById('plateCar');sel.innerHTML=state.garage.length?state.garage.map((c,i)=&gt;`&lt;option value="${i}"&gt;${c.name}${c.plate?' (A =><5@><)':''}&lt;/option&gt;`).join(''):'&lt;option&gt;5B <0H8=&lt;/option&gt;';updatePlateUI();}
+function updatePlateUI(){const idx=parseInt(document.getElementById('plateCar').value);const car=state.garage[idx];const sec=document.getElementById('platesSection');if(!car){sec.innerHTML='&lt;div class="empty"&gt;K15@8B5 <0H8=C&lt;/div&gt;';return;}sec.innerHTML=PLATES.map(p=&gt;`&lt;div class="plate ${car.plate===p.id?'active':''}" onclick="buyPlate(${idx},'${p.id}',${p.mult})"&gt;${p.id}&lt;div class="by"&gt;BY&lt;/div&gt;&lt;div style="font-size:10px;color:#000;margin-top:6px;font-weight:400"&gt;3 500 BYN · +${Math.round(p.mult*100)}%&lt;/div&gt;&lt;/div&gt;`).join('');}
+
+function calcCarPrice(car){const cm=CONDITIONS.find(c=&gt;c.id===car.condition)?.mult||1;const sm=1+(car.stage||0)*.20;const pm=1+(car.plateMult||0);return Math.round(car.price*cm*sm*pm);}
+function calcStakePrice(cars){return cars.reduce((s,c)=&gt;s+calcCarPrice(c),0);}
+function calcChance(total,targetPrice){let K=.85;if(state.insurance)K*=.9;let pct=Math.min(95,(total/targetPrice)*100*K);pct=Math.min(95,pct*(state.chanceMod||1));return pct;}
+
+function switchTab(t){playUI('tab');document.querySelectorAll('.tab').forEach(x=&gt;x.classList.toggle('active',x.dataset.tab===t));document.querySelectorAll('.section').forEach(x=&gt;x.classList.toggle('active',x.id==='sec-'+t));if(t==='catalog')renderCatalog();if(t==='garage')renderGarage();if(t==='history')renderHistory();if(t==='profile')renderProfile();if(t==='plates')renderPlates();if(t==='cases')renderCases();}
+function toggleSound(){state.soundOn=!state.soundOn;document.getElementById('soundBtn').textContent=state.soundOn?'=
+':'=';save();}
+function buyFromCatalog(id){const car=CARS_DB.find(c=&gt;c.id===id);if(state.balance&lt;car.price){notify('L 54>AB0B>G=> BYN','error');return;}state.balance-=car.price;state.garage.push({id:car.id,name:car.name,price:car.price,wiki:car.wiki,cat:car.cat,engine:car.engine,cyl:car.cyl,year:car.year,boss:car.boss,condition:3,stage:0});addXP(5);notify(` C?;5=>: ${car.name}`);save();renderHeader();checkAchievements();}
+function sellCar(idx){const c=state.garage[idx];const price=calcCarPrice(c);if(!confirm(`@>40BL ${c.name} 70 ${price.toLocaleString('ru')} BYN?`))return;state.balance+=price;state.garage.splice(idx,1);addXP(2);notify(`=° @>40=> 70 ${price.toLocaleString('ru')} BYN`);save();renderHeader();renderGarage();updateStakeDisplay();}
+function stakeFromGarage(idx){const c=state.garage[idx];if(state.stakeCars.length&gt;=4){notify('  0:A8<C< 4 02B>','warn');return;}if(state.stakeCars.find(s=&gt;s.garageIdx===idx)){notify('  #65 2 AB02:5','warn');return;}state.stakeCars.push({...c,garageIdx:idx});updateStakeDisplay();switchTab('upgrade');}
+let pickerMode='stake',pickerSelected=[];
+function openStakePicker(){pickerMode='stake';pickerSelected=state.stakeCars.map(s=&gt;s.garageIdx);document.getElementById('pickerTitle').textContent='K15@8B5 2 AB02:C (<0:A 4)';renderPickerList();openModal('pickerModal');playUI('modal');}
+function openTargetPicker(){pickerMode='target';pickerSelected=state.target?[state.target.id]:[];document.getElementById('pickerTitle').textContent='K15@8B5 F5;L';renderPickerList();openModal('pickerModal');playUI('modal');}
+function renderPickerList(){const q=(document.getElementById('pickerSearch').value||'').toLowerCase();const list=pickerMode==='stake'?state.garage.filter(c=&gt;c.name.toLowerCase().includes(q)):CARS_DB.filter(c=&gt;c.name.toLowerCase().includes(q));document.getElementById('pickerList').innerHTML=list.map((c,i)=&gt;{const sel=pickerMode==='stake'?pickerSelected.includes(i):pickerSelected.includes(c.id);const price=pickerMode==='stake'?calcCarPrice(c):c.price;return `&lt;div class="car-option ${sel?'selected':''}" onclick="togglePickerItem(${pickerMode==='stake'?i:c.id})"&gt;&lt;div style="width:50px;height:35px;background:#1e293b;border-radius:6px;flex-shrink:0"&gt;${getCarSVG(c,50,35,false)}&lt;/div&gt;&lt;div class="car-option-info"&gt;&lt;b&gt;${c.name}&lt;/b&gt;&lt;small&gt;${price.toLocaleString('ru')} BYN · ${c.year||''}&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;`;}).join('')||'&lt;div class="empty"&gt;8G53> =5 =0945=>&lt;/div&gt;';}
+function togglePickerItem(id){if(pickerMode==='stake'){const idx=pickerSelected.indexOf(id);if(idx&gt;=0)pickerSelected.splice(idx,1);else{if(pickerSelected.length&gt;=4){notify('  0:A8<C< 4','warn');return;}pickerSelected.push(id);}}else{pickerSelected=[id];}renderPickerList();}
+function confirmPicker(){if(pickerMode==='stake'){state.stakeCars=pickerSelected.map(idx=&gt;({...state.garage[idx],garageIdx:idx}));}else{state.target={...CARS_DB.find(c=&gt;c.id===pickerSelected[0])};}updateStakeDisplay();closeModal('pickerModal');}
+function updateStakeDisplay(){const el=document.getElementById('stakeCars');if(!state.stakeCars.length){el.innerHTML='&lt;span class="empty" style="padding:20px"&gt;K15@8B5 <0H8=K&lt;/span&gt;';}else{el.innerHTML=state.stakeCars.map((c,i)=&gt;`&lt;div class="stake-chip"&gt;&lt;div style="width:30px;height:20px;background:#1e293b;border-radius:4px"&gt;${getCarSVG(c,30,20,false)}&lt;/div&gt;&lt;span&gt;${c.name}&lt;/span&gt;&lt;span class="x" onclick="removeStake(${i})"&gt;×&lt;/span&gt;&lt;/div&gt;`).join('');}const total=calcStakePrice(state.stakeCars);document.getElementById('totalStake').textContent=total.toLocaleString('ru')+' BYN';document.getElementById('stakeImg').innerHTML=state.stakeCars.length?`&lt;div style="font-size:11px;padding:2px"&gt;${state.stakeCars.length} 02B>&lt;/div&gt;`:'&lt;span style="font-size:10px;color:var(--muted)"&gt;!B02:0&lt;/span&gt;';document.getElementById('targetImg').innerHTML=state.target?`&lt;div style="font-size:10px;padding:2px;text-align:center"&gt;${state.target.name.substring(0,20)}&lt;/div&gt;`:'&lt;span style="font-size:10px;color:var(--muted)"&gt;&5;L&lt;/span&gt;';updateWheel();}
+function removeStake(i){state.stakeCars.splice(i,1);updateStakeDisplay();}
+function quickTarget(m){if(!state.stakeCars.length){notify('  !=0G0;0 2K15@8B5 AB02:C','warn');return;}const total=calcStakePrice(state.stakeCars);const tp=m==='auto'?total*3:total*m;const cand=CARS_DB.filter(c=&gt;c.price&gt;=tp*.9&amp;&amp;c.price&lt;=tp*1.1);if(!cand.length){notify('  5B ?>4E>4OI8E F5;59','warn');return;}state.target={...cand[Math.floor(Math.random()*cand.length)]};updateStakeDisplay();}
+function toggleInsurance(){state.insurance=!state.insurance;document.getElementById('insuranceSw').classList.toggle('on',state.insurance);updateWheel();save();}
+function toggleInvert(){state.invertSector=!state.invertSector;document.getElementById('invertSw').classList.toggle('on',state.invertSector);updateWheel();save();}
+function updateWheel(){const total=calcStakePrice(state.stakeCars);const tp=state.target?.price||0;const pct=tp&gt;0&amp;&amp;total&gt;0?calcChance(total,tp):0;document.getElementById('pctDisplay').textContent=pct.toFixed(2)+'%';document.getElementById('pctDisplay').classList.toggle('loss',pct&lt;20);const deg=pct*3.6,sA=-90,eA=sA+deg,cx=100,cy=100,r=85;function arc(a1,a2){const r1=a1*Math.PI/180,r2=a2*Math.PI/180;const x1=cx+r*Math.cos(r1),y1=cy+r*Math.sin(r1);const x2=cx+r*Math.cos(r2),y2=cy+r*Math.sin(r2);const lg=(a2-a1)&gt;180?1:0;return `M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${lg} 1 ${x2},${y2} Z`;}const w=document.getElementById('winArc');w.setAttribute('d',arc(sA,eA));w.setAttribute('fill','var(--green)');w.setAttribute('stroke','none');w.setAttribute('opacity','0.5');const l=document.getElementById('loseArc');l.setAttribute('d',arc(eA,sA+360));l.setAttribute('fill','var(--red)');l.setAttribute('opacity','0.15');l.setAttribute('stroke','none');const mod=state.chanceMod||1;document.getElementById('wheelStatus').textContent=(state.target?`&5;L: ${state.target.name} (${state.target.price.toLocaleString('ru')} BYN)`:'K15@8B5 F5;L')+(mod!==1?` · <² <>48D8:0B>@ ×${mod}`:'');}
+
+function doUpgrade(){if(!state.stakeCars.length){notify('L K15@8B5 AB02:C','error');return;}if(!state.target){notify('L K15@8B5 F5;L','error');return;}if(state.target.boss){notify('=% !!-02B> =5;L7O 0?3@5948BL','warn');return;}const total=calcStakePrice(state.stakeCars);const pct=calcChance(total,state.target.price);const ra=new Uint32Array(1);crypto.getRandomValues(ra);const rand=ra[0]/0xFFFFFFFF;const win=state.godMode||(rand*100&lt;pct);const stakeSnap=state.stakeCars.map(c=&gt;({...c}));const targetSnap={...state.target};const gi=state.stakeCars.map(c=&gt;c.garageIdx);gi.slice().sort((a,b)=&gt;b-a).forEach(i=&gt;state.garage.splice(i,1));animateWheel(pct,win,()=&gt;{if(win){state.garage.push({id:targetSnap.id,name:targetSnap.name,price:targetSnap.price,wiki:targetSnap.wiki,cat:targetSnap.cat,engine:targetSnap.engine,cyl:targetSnap.cyl,year:targetSnap.year,boss:targetSnap.boss,condition:3,stage:0});notify(`<‰ ! >;CG5=>: ${targetSnap.name}`);playWin();spawnConfetti();addXP(Math.floor(Math.log10(targetSnap.price+1)*20));}else{let refund=0;if(state.insurance){refund=Math.floor(total*.25);state.balance+=refund;}notify(`=¥ @>83@KH!${refund?' >72@0B '+refund.toLocaleString('ru')+' BYN':''}`,'error');playLoss();addXP(3);}state.history.push({win,targetName:targetSnap.name,targetPrice:targetSnap.price,stake:total,pct,stakeCars:stakeSnap,date:Date.now()});state.stakeCars=[];state.target=null;save();renderHeader();updateStakeDisplay();renderTicker();checkAchievements();});}
+function animateWheel(pct,win,cb){const arrow=document.getElementById('arrow');const ws=pct*3.6;let fd;if(win){const mn=state.invertSector?(360-ws/2+5):(-ws/2+5);const mx=state.invertSector?(360-5):(ws/2-5);fd=mn+Math.random()*(mx-mn);}else{const mn=state.invertSector?(ws/2+5):(-ws/2+5+ws);const mx=state.invertSector?(ws-5):(360-ws/2-5);fd=mn+Math.random()*(mx-mn);}const total=5*360+fd;arrow.style.transition='transform 3.5s cubic-bezier(0.25,0.1,0.25,1)';arrow.style.transform=`rotate(${total}deg)`;setTimeout(()=&gt;{arrow.style.transition='none';arrow.style.transform=`rotate(${fd}deg)`;setTimeout(()=&gt;{arrow.style.transition='transform 3.5s cubic-bezier(0.25,0.1,0.25,1)';},50);cb();},3550);}
+
+let stoTarget=1900;
+function stoClick(){playClick();state.balance+=10;addXP(1);renderHeader();updateStoUI();save();}
+function updateStoUI(){const pct=Math.min(100,(state.balance/stoTarget)*100);document.getElementById('stoBar').style.width=pct+'%';document.getElementById('stoStatus').textContent=`${state.balance.toLocaleString('ru')} / ${stoTarget.toLocaleString('ru')} BYN`;document.querySelectorAll('.sto-car').forEach((el,i)=&gt;{el.classList.toggle('affordable',state.balance&gt;=(i===0?1900:2200));});}
+function buyStoCar(t){const price=t===1?1900:2200;const name=t===1?'-968':'-2101';const id=t===1?1:2;if(state.balance&lt;price){notify('L 54>AB0B>G=> BYN','error');return;}state.balance-=price;state.garage.push({id,name,price,wiki:CARS_DB.find(c=&gt;c.id===id).wiki,cat:'budget',engine:t===1?'V4_air':'I4_soviet',cyl:4,year:1979,condition:3,stage:0});notify(`<‰ C?;5=>: ${name}`);playWin();addXP(10);save();renderHeader();updateStoUI();checkAchievements();}
+
+function buyCase(id){const c=CASES.find(x=&gt;x.id===id);if(state.balance&lt;c.price){notify('L 54>AB0B>G=> BYN','error');return;}state.balance-=c.price;const cand=CARS_DB.filter(car=&gt;car.id&gt;=c.min&amp;&amp;car.id&lt;=c.max&amp;&amp;!car.boss);if(!cand.length){notify('  CAB>9 :>=B59=5@','warn');return;}const won=cand[Math.floor(Math.random()*cand.length)];openCaseAnimation(won);save();renderHeader();}
+function openCaseAnimation(won){const track=document.getElementById('rouletteTrack');const items=[];for(let i=0;i&lt;50;i++){items.push(Math.random()&lt;.1?won:CARS_DB[Math.floor(Math.random()*CARS_DB.length)]);}items[45]=won;track.innerHTML=items.map(c=&gt;`&lt;div class="case-roulette-item"&gt;&lt;div style="width:100%;height:100px;background:#1e293b;border-radius:6px"&gt;${getCarSVG(c,150,100,false)}&lt;/div&gt;&lt;div style="font-size:10px;margin-top:4px;text-align:center"&gt;${c.name}&lt;/div&gt;&lt;/div&gt;`).join('');document.getElementById('caseResult').innerHTML='';document.getElementById('caseOpening').classList.add('active');track.style.transition='none';track.style.transform='translateX(0)';setTimeout(()=&gt;{track.style.transition='transform 4s cubic-bezier(0.25,0.1,0.25,1)';track.style.transform='translateX(-6500px)';},100);setTimeout(()=&gt;{state.garage.push({id:won.id,name:won.name,price:won.price,wiki:won.wiki,cat:won.cat,engine:won.engine,cyl:won.cyl,year:won.year,boss:won.boss,condition:3,stage:0});document.getElementById('caseResult').innerHTML=`&lt;div class="win-popup"&gt;<‰ + : ${won.name}&lt;br&gt;&lt;span style="font-size:18px;color:var(--gold)"&gt;${won.price.toLocaleString('ru')} BYN&lt;/span&gt;&lt;/div&gt;`;playWin();spawnConfetti();addXP(15);save();renderHeader();checkAchievements();setTimeout(()=&gt;{document.getElementById('caseOpening').classList.remove('active');},3000);},4100);}
+
+function openInspection(idx){const c=state.garage[idx];const cond=CONDITIONS.find(x=&gt;x.id===c.condition);document.getElementById('inspTitle').textContent=`= ${c.name}`;document.getElementById('inspContent').innerHTML=`&lt;div class="inspection"&gt;&lt;div&gt;&lt;div class="insp-img" id="inspImg"&gt;${getCarSVG(c,400,300,false)}&lt;div class="headlights" id="headlights"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="insp-controls"&gt;&lt;button class="btn btn-gold" onclick="toggleHeadlights()"&gt;=& $0@K&lt;/button&gt;&lt;button class="btn btn-red" onclick="playAlarm()"&gt;=¨ !83=0;:0&lt;/button&gt;&lt;button class="btn btn-green" style="grid-column:1/-1" onclick="playEngine('${c.engine}')"&gt;= 025AB8 / KE;>?&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div class="garage-stat-row"&gt;&lt;span&gt;>4:&lt;/span&gt;&lt;b&gt;${c.year}&lt;/b&gt;&lt;/div&gt;&lt;div class="garage-stat-row"&gt;&lt;span&gt;2830B5;L:&lt;/span&gt;&lt;b&gt;${c.engine}&lt;/b&gt;&lt;/div&gt;&lt;div class="garage-stat-row"&gt;&lt;span&gt;&8;8=4@>2:&lt;/span&gt;&lt;b&gt;${c.cyl||'-'}&lt;/b&gt;&lt;/div&gt;&lt;div class="garage-stat-row"&gt;&lt;span&gt;!>AB>O=85:&lt;/span&gt;&lt;b style="color:var(--cyan)"&gt;${cond.emoji} ${cond.name}&lt;/b&gt;&lt;/div&gt;&lt;div class="garage-stat-row"&gt;&lt;span&gt;Stage:&lt;/span&gt;&lt;b style="color:var(--orange)"&gt;${c.stage||0}&lt;/b&gt;&lt;/div&gt;&lt;div class="garage-stat-row"&gt;&lt;span&gt;><5@:&lt;/span&gt;&lt;b style="color:var(--red)"&gt;${c.plate||'=5B'}&lt;/b&gt;&lt;/div&gt;&lt;div class="garage-stat-row"&gt;&lt;span&gt;070:&lt;/span&gt;&lt;b class="mono" style="color:var(--gold)"&gt;${c.price.toLocaleString('ru')}&lt;/b&gt;&lt;/div&gt;&lt;div class="garage-stat-row"&gt;&lt;span&gt;"5:CI0O:&lt;/span&gt;&lt;b class="mono" style="color:var(--gold);font-size:18px"&gt;${calcCarPrice(c).toLocaleString('ru')} BYN&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;`;loadImgInto('inspImg',c);openModal('inspModal');playUI('modal');}
+function toggleHeadlights(){document.getElementById('headlights').classList.toggle('on');}
+function openTuning(idx){const c=state.garage[idx];const cond=c.condition;const stage=c.stage||0;const cp={2:2000,3:5000,4:15000,5:50000};const sp={1:Math.floor(c.price*.15),2:Math.floor(c.price*.25),3:Math.floor(c.price*.4)};document.getElementById('tuneContent').innerHTML=`&lt;h3 style="color:var(--cyan);margin:12px 0"&gt;=— ${c.name}&lt;/h3&gt;&lt;h4 style="margin:14px 0 8px"&gt;C7>2:&lt;/h4&gt;&lt;div style="display:grid;gap:6px"&gt;${[2,3,4,5].map(cid=&gt;{const cn=CONDITIONS.find(x=&gt;x.id===cid);if(cid&lt;=cond)return `&lt;div class="car-option" style="opacity:.5;cursor:not-allowed"&gt;&lt;span&gt; ${cn.emoji} ${cn.name}&lt;/span&gt;&lt;/div&gt;`;return `&lt;div class="car-option" onclick="tuneCondition(${idx},${cid},${cp[cid]})"&gt;&lt;div style="flex:1"&gt;&lt;b&gt;${cn.emoji} ${cn.name}&lt;/b&gt;&lt;br&gt;&lt;small&gt;×${cn.mult}&lt;/small&gt;&lt;/div&gt;&lt;b class="mono" style="color:var(--gold)"&gt;${cp[cid].toLocaleString('ru')} BYN&lt;/b&gt;&lt;/div&gt;`;}).join('')}&lt;/div&gt;&lt;h4 style="margin:14px 0 8px"&gt;=% !:&lt;/h4&gt;&lt;div style="display:grid;gap:6px"&gt;${[1,2,3].map(s=&gt;{if(s&lt;=stage)return `&lt;div class="car-option" style="opacity:.5;cursor:not-allowed"&gt;&lt;span&gt; Stage ${s}&lt;/span&gt;&lt;/div&gt;`;return `&lt;div class="car-option" onclick="tuneStage(${idx},${s},${sp[s]})"&gt;&lt;div style="flex:1"&gt;&lt;b&gt;Stage ${s}&lt;/b&gt;&lt;br&gt;&lt;small&gt;+${s*20}%&lt;/small&gt;&lt;/div&gt;&lt;b class="mono" style="color:var(--gold)"&gt;${sp[s].toLocaleString('ru')} BYN&lt;/b&gt;&lt;/div&gt;`;}).join('')}&lt;/div&gt;`;openModal('tuneModal');playUI('modal');}
+function tuneCondition(i,nc,p){if(state.balance&lt;p){notify('L 54>AB0B>G=> BYN','error');return;}state.balance-=p;state.garage[i].condition=nc;notify(' !>AB>O=85 C;CGH5=>');save();renderHeader();renderGarage();closeModal('tuneModal');checkAchievements();}
+function tuneStage(i,ns,p){if(state.balance&lt;p){notify('L 54>AB0B>G=> BYN','error');return;}state.balance-=p;state.garage[i].stage=ns;addXP(5);notify(` Stage ${ns}`);save();renderHeader();renderGarage();closeModal('tuneModal');checkAchievements();}
+function buyPlate(idx,pid,m){const c=state.garage[idx];if(!c){notify('  K15@8B5 <0H8=C','warn');return;}if(c.plate){notify('  #65 5ABL =><5@','warn');return;}if(state.balance&lt;3500){notify('L C6=> 3 500 BYN','error');return;}state.balance-=3500;c.plate=pid;c.plateMult=m;addXP(8);notify(`<ç ><5@ ${pid}!`);save();renderHeader();updatePlateUI();renderGarage();checkAchievements();}
+
+function checkAchievements(){if(!state.achievements)state.achievements=[];ACHIEVEMENTS.forEach(a=&gt;{if(!state.achievements.includes(a.id)&amp;&amp;a.check(state)){state.achievements.push(a.id);showAchievement(a);addXP(25);}});}
+function showAchievement(a){const t=document.getElementById('achievementToast');t.innerHTML=`&lt;span style="font-size:32px"&gt;${a.icon}&lt;/span&gt;&lt;div&gt;&lt;div style="font-size:11px;opacity:.7"&gt;!"&lt;/div&gt;&lt;div&gt;${a.name}&lt;/div&gt;&lt;/div&gt;`;t.classList.add('show');setTimeout(()=&gt;t.classList.remove('show'),4000);}
+
+function openModal(id){document.getElementById(id).classList.add('active');}
+function closeModal(id){document.getElementById(id).classList.remove('active');}
+function notify(msg,type='success'){const n=document.createElement('div');n.className='notification '+type;n.textContent=msg;document.body.appendChild(n);setTimeout(()=&gt;{n.style.animation='slideIn .3s reverse';setTimeout(()=&gt;n.remove(),300);},2500);}
+
+document.querySelectorAll('.auth-tab').forEach(t=&gt;{t.addEventListener('click',()=&gt;{document.querySelectorAll('.auth-tab').forEach(x=&gt;x.classList.remove('active'));document.querySelectorAll('.auth-form').forEach(x=&gt;x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.mode==='reg'?'formReg':'formLog').classList.add('active');playUI('click');});});
+function afterLogin(){document.getElementById('authOverlay').classList.add('hidden');renderHeader();renderTicker();renderCases();updateStoUI();updateStakeDisplay();}
+function register(){const u=document.getElementById('regUser').value.trim();const p=document.getElementById('regPass').value;const p2=document.getElementById('regPass2').value;if(!u||u.length&lt;2){notify('  8: <8=8<C< 2 A8<2>;0','warn');return;}if(u.toLowerCase()===ADMIN_LOGIN.toLowerCase()){notify('  -B>B =8: 70@575@28@>20=','warn');return;}if(p.length&lt;4){notify('  0@>;L <8=8<C< 4 A8<2>;0','warn');return;}if(p!==p2){notify('  0@>;8 =5 A>2?040NB','warn');return;}if(localStorage.getItem(SAVE_KEY+u)){notify('  "0:>9 =8: C65 5ABL','warn');return;}state=freshState(u);state.balance=100;state.garage=[{id:1,name:'-968 0?>@>65F',price:1900,wiki:'ZAZ-968',cat:'budget',engine:'V4_air',cyl:4,year:1979,condition:3,stage:0}];save();const db=getUsersDB();db[u]={pass:p,balance:100,cars:1,capital:2000,xp:0,level:1,achievements:[],chanceMod:1};localStorage.setItem(DB_KEY,JSON.stringify(db));afterLogin();notify(`< >1@> ?>60;>20BL, ${u}! >;CG5= -968 + 100 BYN`);setTimeout(()=&gt;showAchievement({icon:'<‰',name:'5@2K5 H038!'}),500);}
+function login(){const u=document.getElementById('loginUser').value.trim();const p=document.getElementById('loginPass').value;if(u===ADMIN_LOGIN&amp;&amp;p===ADMIN_PASS){if(!loadSave(ADMIN_LOGIN)){state=freshState(ADMIN_LOGIN);}state.isAdmin=true;state.currentUser=ADMIN_LOGIN;afterLogin();notify('=á  568< 04<8=8AB@0B>@0 0:B825=');return;}const db=getUsersDB();if(!db[u]||db[u].pass!==p){notify('L 525@=K9 ;>38= 8;8 ?0@>;L','error');return;}if(!loadSave(u)){notify('L !>E@0=5=85 =5 =0945=>','error');return;}state.isAdmin=false;afterLogin();notify(` ! 2>72@0I5=85<, ${u}!`);}
+function logout(){if(!confirm('K9B8 87 0::0C=B0?'))return;state=freshState(null);document.getElementById('authOverlay').classList.remove('hidden');closeModal('authModal');renderHeader();}
+function openAuth(){if(!state.currentUser)return;document.getElementById('authWho').textContent=state.currentUser+(state.isAdmin?' (04<8=)':'');openModal('authModal');playUI('modal');}
+
+// =====  =====
+function openAdmin(){if(!state.isAdmin){notify('L >ABC? 70?@5IQ=','error');return;}document.getElementById('adminCar').innerHTML=CARS_DB.map(c=&gt;`&lt;option value="${c.id}"&gt;${c.name} (${c.price.toLocaleString('ru')})&lt;/option&gt;`).join('');document.getElementById('godSw').classList.toggle('on',state.godMode);renderDBTable();pmPopulate();openModal('adminModal');playUI('modal');}
+function renderDBTable(){const db=getUsersDB();const users=Object.entries(db);document.getElementById('dbTable').innerHTML=users.length?`&lt;table class="db-table"&gt;&lt;tr&gt;&lt;th&gt;8:&lt;/th&gt;&lt;th&gt;0H8=&lt;/th&gt;&lt;th&gt;0?8B0;&lt;/th&gt;&lt;th&gt;LVL&lt;/th&gt;&lt;th&gt;(0=A&lt;/th&gt;&lt;/tr&gt;${users.map(([u,d])=&gt;`&lt;tr&gt;&lt;td&gt;${u}&lt;/td&gt;&lt;td&gt;${d.cars||0}&lt;/td&gt;&lt;td class="mono"&gt;${(d.capital||0).toLocaleString('ru')}&lt;/td&gt;&lt;td&gt;${d.level||1}&lt;/td&gt;&lt;td class="mono" style="color:${(d.chanceMod||1)&gt;1?'var(--green)':(d.chanceMod||1)&lt;1?'var(--red)':'var(--cyan)'}"&gt;×${d.chanceMod||1}&lt;/td&gt;&lt;/tr&gt;`).join('')}&lt;/table&gt;`:'&lt;p style="color:var(--muted)"&gt;>:0 =5B 83@>:>2&lt;/p&gt;';}
+function exportDB(){const data={users:getUsersDB(),currentSave:state};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='auto_upgrade_db_'+Date.now()+'.json';a.click();}
+function adminAdd(v){state.balance+=v;notify(`=° 0;0=A: ${state.balance.toLocaleString('ru')} BYN`);save();renderHeader();}
+function adminGiveCar(){const id=parseInt(document.getElementById('adminCar').value);const c=CARS_DB.find(x=&gt;x.id===id);state.garage.push({id:c.id,name:c.name,price:c.price,wiki:c.wiki,cat:c.cat,engine:c.engine,cyl:c.cyl,year:c.year,boss:c.boss,condition:5,stage:3,plate:'7777 AA-7',plateMult:.35});notify(`< K40=>: ${c.name}`);save();renderGarage();renderHeader();}
+function toggleGod(){state.godMode=!state.godMode;document.getElementById('godSw').classList.toggle('on',state.godMode);notify(state.godMode?'=% God Mode ON':'God Mode OFF');save();}
+
+// ===== #    =====
+function pmList(){return Object.keys(getUsersDB()).filter(u=&gt;u!==ADMIN_LOGIN);}
+function pmPopulate(){const sel=document.getElementById('pmUser');const users=pmList();const cur=sel.value;sel.innerHTML=users.length?users.map(u=&gt;`&lt;option value="${u}"&gt;${u}&lt;/option&gt;`).join(''):'&lt;option value=""&gt; =5B 83@>:>2 &lt;/option&gt;';if(users.includes(cur))sel.value=cur;pmRender();}
+function pmRender(){const u=document.getElementById('pmUser').value;const panel=document.getElementById('pmPanel');if(!u){panel.innerHTML='&lt;p style="color:var(--muted)"&gt;5B 70@538AB@8@>20==KE 83@>:>2&lt;/p&gt;';return;}const d=getPlayerSave(u);if(!d){panel.innerHTML='&lt;p style="color:var(--muted)"&gt;!592 83@>:0 =5 =0945=&lt;/p&gt;';return;}const mod=d.chanceMod||1;
+panel.innerHTML=`&lt;div class="garage-stat-row"&gt;&lt;span&gt;0;0=A:&lt;/span&gt;&lt;b class="mono"&gt;${(d.balance||0).toLocaleString('ru')} BYN&lt;/b&gt;&lt;/div&gt;
+&lt;div class="garage-stat-row"&gt;&lt;span&gt;0H8=:&lt;/span&gt;&lt;b class="mono"&gt;${(d.garage||[]).length}&lt;/b&gt;&lt;/div&gt;
+&lt;div class="garage-stat-row"&gt;&lt;span&gt;#@>25=L:&lt;/span&gt;&lt;b class="mono"&gt;LVL ${d.level||1}&lt;/b&gt;&lt;/div&gt;
+&lt;div class="garage-stat-row"&gt;&lt;span&gt;(0=A ?>154K:&lt;/span&gt;&lt;b class="mono" style="color:${mod&gt;1?'var(--green)':mod&lt;1?'var(--red)':'var(--cyan)'}"&gt;×${mod}&lt;/b&gt;&lt;/div&gt;
+&lt;h4 style="margin:12px 0 6px"&gt;=° 5=L38&lt;/h4&gt;
+&lt;div style="display:flex;gap:6px;flex-wrap:wrap"&gt;&lt;button class="btn btn-green" onclick="pmMoney('${u}',10000)"&gt;+10k&lt;/button&gt;&lt;button class="btn btn-green" onclick="pmMoney('${u}',100000)"&gt;+100k&lt;/button&gt;&lt;button class="btn btn-green" onclick="pmMoney('${u}',1000000)"&gt;+1M&lt;/button&gt;&lt;button class="btn btn-red" onclick="pmZero('${u}')"&gt;1=C;8BL&lt;/button&gt;&lt;/div&gt;
+&lt;input class="input" id="pmMoneyVal" type="number" placeholder="!2>O AC<<0 (<>6=> >B@8F0B5;L=CN)" style="margin-top:8px"&gt;
+&lt;button class="btn btn-cyan" onclick="pmMoney('${u}',parseInt(document.getElementById('pmMoneyVal').value)||0)"&gt;@8<5=8BL AC<<C&lt;/button&gt;
+&lt;h4 style="margin:12px 0 6px"&gt;<² (0=A ?>154K (<=>68B5;L 0.15)&lt;/h4&gt;
+&lt;div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"&gt;&lt;input class="input" id="pmChanceVal" type="number" step="0.1" min="0.1" max="5" value="${mod}" style="width:90px;margin:0"&gt;&lt;button class="btn btn-cyan" onclick="pmChance('${u}',parseFloat(document.getElementById('pmChanceVal').value))"&gt;#AB0=>28BL&lt;/button&gt;&lt;button class="btn" onclick="pmChance('${u}',0.5)"&gt;×0.5&lt;/button&gt;&lt;button class="btn" onclick="pmChance('${u}',1)"&gt;×1&lt;/button&gt;&lt;button class="btn" onclick="pmChance('${u}',1.5)"&gt;×1.5&lt;/button&gt;&lt;button class="btn" onclick="pmChance('${u}',2)"&gt;×2&lt;/button&gt;&lt;/div&gt;
+&lt;h4 style="margin:12px 0 6px"&gt;=— K40BL <0H8=C&lt;/h4&gt;
+&lt;select class="input" id="pmCar"&gt;${CARS_DB.map(c=&gt;`&lt;option value="${c.id}"&gt;${c.name}&lt;/option&gt;`).join('')}&lt;/select&gt;
+&lt;div style="display:flex;gap:6px;flex-wrap:wrap"&gt;&lt;button class="btn btn-gold" onclick="pmGiveCar('${u}',3)"&gt;< K40BL (=0 E>4C)&lt;/button&gt;&lt;button class="btn btn-gold" onclick="pmGiveCar('${u}',5)"&gt;=Q K40BL (:0?AC;0)&lt;/button&gt;&lt;/div&gt;
+&lt;h4 style="margin:12px 0 6px"&gt;=˜ 0@06 83@>:0 (${(d.garage||[]).length})&lt;/h4&gt;
+&lt;div style="max-height:160px;overflow-y:auto"&gt;${(d.garage||[]).map((c,i)=&gt;`&lt;div class="car-option"&gt;&lt;div class="car-option-info"&gt;&lt;b&gt;${c.name}&lt;/b&gt;&lt;small&gt;${calcCarPrice(c).toLocaleString('ru')} BYN&lt;/small&gt;&lt;/div&gt;&lt;button class="btn btn-red" onclick="pmRemoveCar('${u}',${i})"&gt;×&lt;/button&gt;&lt;/div&gt;`).join('')||'&lt;p style="color:var(--muted)"&gt;CAB>&lt;/p&gt;'}&lt;/div&gt;
+&lt;h4 style="margin:12px 0 6px"&gt;  ?0A=0O 7>=0&lt;/h4&gt;
+&lt;div style="display:flex;gap:6px;flex-wrap:wrap"&gt;&lt;button class="btn btn-red" onclick="pmReset('${u}')"&gt;{ !1@>A ?@>3@5AA0&lt;/button&gt;&lt;button class="btn btn-red" onclick="pmDelete('${u}')"&gt;=Ñ #40;8BL 83@>:0&lt;/button&gt;&lt;/div&gt;`;}
+function pmMoney(u,v){const d=getPlayerSave(u);if(!d)return;d.balance=Math.max(0,(d.balance||0)+v);setPlayerSave(u,d);notify(`=° ${u}: 10;0=A ${d.balance.toLocaleString('ru')} BYN`);pmRender();renderDBTable();}
+function pmZero(u){const d=getPlayerSave(u);if(!d)return;pmMoney(u,-(d.balance||0));}
+function pmChance(u,m){if(!(m&gt;0))m=1;m=Math.min(5,Math.max(0.1,m));const d=getPlayerSave(u);if(!d)return;d.chanceMod=m;setPlayerSave(u,d);notify(`<² ${u}: <>48D8:0B>@ H0=A0 ×${m}`);pmRender();renderDBTable();}
+function pmGiveCar(u,cond){const id=parseInt(document.getElementById('pmCar').value);const c=CARS_DB.find(x=&gt;x.id===id);const d=getPlayerSave(u);if(!d)return;d.garage=d.garage||[];d.garage.push({id:c.id,name:c.name,price:c.price,wiki:c.wiki,cat:c.cat,engine:c.engine,cyl:c.cyl,year:c.year,boss:c.boss,condition:cond||3,stage:0});setPlayerSave(u,d);notify(`< ${u} 2K40=>: ${c.name}`);pmRender();renderDBTable();}
+function pmRemoveCar(u,i){const d=getPlayerSave(u);if(!d)return;(d.garage||[]).splice(i,1);setPlayerSave(u,d);notify(`=Ñ # ${u} 87JOB0 <0H8=0`);pmRender();renderDBTable();}
+function pmReset(u){if(!confirm(`!1@>A8BL ?@>3@5AA 83@>:0 ${u}?`))return;const d=freshState(u);d.balance=100;d.garage=[{id:1,name:'-968 0?>@>65F',price:1900,wiki:'ZAZ-968',cat:'budget',engine:'V4_air',cyl:4,year:1979,condition:3,stage:0}];const db=getUsersDB();d.chanceMod=(db[u]||{}).chanceMod||1;setPlayerSave(u,d);notify(`{ @>3@5AA ${u} A1@>H5=`);pmRender();renderDBTable();}
+function pmDelete(u){if(!confirm(`#40;8BL 83@>:0 ${u} ?>;=>ABLN?`))return;localStorage.removeItem(SAVE_KEY+u);const db=getUsersDB();delete db[u];localStorage.setItem(DB_KEY,JSON.stringify(db));pmPopulate();renderDBTable();notify(`=Ñ 3@>: ${u} C40;Q=`);}
+
+document.querySelectorAll('.tab').forEach(t=&gt;t.addEventListener('click',()=&gt;switchTab(t.dataset.tab)));
+(function init(){const db=getUsersDB();const users=Object.keys(db);if(users.length===1&amp;&amp;loadSave(users[0])){state.isAdmin=false;document.getElementById('authOverlay').classList.add('hidden');}renderHeader();renderTicker();renderCases();updateStoUI();updateStakeDisplay();updateWheel();setInterval(renderTicker,60000);})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+<br /></p>
