@@ -36,7 +36,7 @@ header{background:rgba(15,23,42,.75);backdrop-filter:blur(14px);border-bottom:1p
 .header-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .logo{font-family:'Orbitron';font-weight:900;font-size:22px;background:linear-gradient(90deg,var(--orange),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:1px}
 .header-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.btn{background:var(--card2);color:var(--text);border:1px solid var(--border);padding:8px 14px;border-radius:8px;cursor:pointer;font-family:'Inter';font-weight:600;font-size:13px;transition:all .2s;display:inline-flex;align-items:center;gap:6px;position:relative;overflow:hidden}
+.btn{background:var(--card2);color:var(--text);border:1px solid var(--border);padding:8px 14px;border-radius:8px;cursor:pointer;font-family:'Inter';font-weight:}</svg>`;}600;font-size:13px;transition:all .2s;display:inline-flex;align-items:center;gap:6px;position:relative;overflow:hidden}
 .btn:hover{background:rgba(39,51,71,.9);border-color:var(--cyan);box-shadow:0 0 12px rgba(0,210,255,.3);transform:translateY(-1px)}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .btn-primary{background:linear-gradient(135deg,var(--orange),#e85900);border:none;color:#fff}
@@ -45,16 +45,18 @@ header{background:rgba(15,23,42,.75);backdrop-filter:blur(14px);border-bottom:1p
 .btn-red{background:linear-gradient(135deg,var(--red),#dc2626);border:none;color:#fff}
 .btn-cyan{background:linear-gradient(135deg,var(--cyan),#0284c7);border:none;color:#fff}
 .btn-gold{background:linear-gradient(135deg,var(--gold),#d97706);border:none;color:#fff}
-.stat{background:var(--card2);padding:8px 14px;border-radius:8px;border:1px solid var(--border);font-family:'Orbitron';font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;font-variant-numeric:tabular-nums;text-align:center}
-.stat.balance{color:var(--gold);border-color:rgba(245,158,11,.4);min-width:150px;display:inline-block}
+/* FIX: шапка не прыгает */
+.stat{background:var(--card2);padding:8px 14px;border-radius:8px;border:1px solid var(--border);font-family:'Orbitron';font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;font-variant-numeric:tabular-nums;text-align:center;display:inline-block}
+.stat.balance{color:var(--gold);border-color:rgba(245,158,11,.4);min-width:150px}
 .stat.balance:hover{background:rgba(245,158,11,.1)}
-.stat.cars{color:var(--cyan);min-width:70px;display:inline-block}
+.stat.cars{color:var(--cyan);min-width:70px}
 nav.tabs{display:flex;gap:4px;margin-top:12px;overflow-x:auto;scrollbar-width:none}
 nav.tabs::-webkit-scrollbar{display:none}
 .tab{flex:0 0 auto;padding:10px 16px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-family:'Inter';font-weight:600;font-size:13px;border-radius:8px;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:6px;position:relative;overflow:hidden}
 .tab:hover{color:var(--text);background:var(--card2)}
 .tab.active{background:linear-gradient(135deg,var(--orange),#e85900);color:#fff;box-shadow:0 0 15px rgba(255,107,0,.4)}
-.ticker{background:rgba(10,15,28,.8);border-top:1px solid var(--border);padding:8px 0;overflow:hidden;white-space:nowrap;font-family:'Orbitron';font-size:12px}
+.ticker{background:rgba(10,15,28,.8);border-top:1px solid var(--border);padding:8px 0;overflow:hidden;white-space:nowrap;font-family:'Orbitron';font-size
+async function get:12px}
 .ticker-inner{display:inline-block;animation:tick 60s linear infinite;padding-left:100%}
 .ticker-live{color:var(--green);font-weight:700;margin-right:12px;text-shadow:0 0 8px var(--green)}
 .ticker-item{color:var(--muted);margin-right:28px}
@@ -82,7 +84,7 @@ h3,h4{color:var(--cyan)}
 .badge{position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;font-family:'Orbitron'}
 .badge-by{background:var(--red);color:#fff}
 .badge-stage{background:var(--orange);color:#fff;margin-top:4px}
-.badge-cond{background:var(--card2);color:var(--cyan);border:1px solid var(--cyan);margin-top:4px}
+.badge-cond{background:var(--card2);color:var(--cyan);CarImg(car){border:1px solid var(--cyan);margin-top:4px}
 .badge-boss{background:linear-gradient(135deg,var(--gold),#b45309);color:#000;font-size:11px;padding:5px 10px}
 .upgrade-layout{display:grid;grid-template-columns:300px 1fr 300px;gap:20px;align-items:start}
 @media(max-width:1100px){.upgrade-layout{grid-template-columns:1fr}}
@@ -101,7 +103,7 @@ h3,h4{color:var(--cyan)}
 .switch-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
 .switch{position:relative;width:40px;height:22px;background:#374151;border-radius:11px;cursor:pointer;transition:all .2s;flex-shrink:0}
 .switch.on{background:var(--green)}
-.switch::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:all .2s}
+.switch::after{contentif(imgCache[:'';position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:all .2s}
 .switch.on::after{left:20px}
 .quick-btns{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
 .quick-btns button{flex:1;padding:8px;background:var(--card2);border:1px solid var(--border);color:var(--text);border-radius:6px;cursor:pointer;font-family:'Orbitron';font-weight:700;position:relative;overflow:hidden}
@@ -114,7 +116,7 @@ h3,h4{color:var(--cyan)}
 .sto-progress-bar::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);animation:shine 1.5s infinite}
 @keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 .sto-cars{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap}
-.sto-car{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;min-width:200px;cursor:pointer;transition:all .2s}
+.stocar.id])return-car{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;min-width:200px;cursor:pointer;transition:all .2s}
 .sto-car.affordable{border-color:var(--green);box-shadow:0 0 20px rgba(16,185,129,.3)}
 .sto-car.affordable:hover{transform:translateY(-3px)}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(8px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
@@ -133,12 +135,12 @@ h3,h4{color:var(--cyan)}
 .history-item.loss{border-left:4px solid var(--red)}
 .history-item small{color:var(--muted)}
 .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
-.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;backdrop-filter:blur(10px)}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;backdrop imgCache[car-filter:blur(10px)}
 .stat-card .val{font-family:'Orbitron';font-size:26px;font-weight:900;margin:8px 0}
 .stat-card .lbl{color:var(--muted);font-size:12px}
 .inspection{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 @media(max-width:768px){.inspection{grid-template-columns:1fr}}
-.insp-img{width:100%;height:300px;background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:12px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.insp-img{width:100%;height:300px;background:linear-gradient(135deg,#1e293b,#0f172a);border-radius:12.id];trypx;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .insp-img img,.insp-img svg{width:100%;height:100%;object-fit:cover}
 .headlights{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,255,200,.6),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
 .headlights.on{opacity:1}
@@ -162,7 +164,8 @@ h3,h4{color:var(--cyan)}
 .car-option-info{flex:1;min-width:0}
 .car-option-info b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .car-option-info small{color:var(--muted);font-size:11px}
-.arrow{transform-box:view-box;transform-origin:50% 50%;transition:transform 3.5s cubic-bezier(0.25,0.1,0.25,1)}
+/* FIX: стрелка вращается вокруг центра колеса */
+.arrow{transform-box:view-box;transform-origin:50% 50%;transition:transform 3.5s cubic-bezier(0.25,0.1,0.2{const r5,1)}
 .empty{text-align:center;padding:40px;color:var(--muted);font-size:14px}
 .filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .filter-bar select,.filter-bar input{padding:8px 12px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Inter'}
@@ -180,13 +183,13 @@ h3,h4{color:var(--cyan)}
 .case-roulette-item{min-width:150px;height:160px;background:var(--card2);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;flex-shrink:0}
 .case-roulette-item img,.case-roulette-item svg{width:100%;height:100px;object-fit:cover;border-radius:6px}
 .case-indicator{position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--red);box-shadow:0 0 20px var(--red);transform:translateX(-50%);z-index:10}
-.win-popup{font-family:'Orbitron';font-size:32px;font-weight:900;text-align:center;animation:pulse 1s infinite;color:var(--gold);text-shadow:0 0 30px var(--gold)}
+.win-popup{font-family:'Orbitron';font=await fetch(`-size:32px;font-weight:900;text-align:center;animation:pulse 1s infinite;color:var(--gold);text-shadow:0 0 30px var(--gold)}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
 .ripple-effect{position:absolute;border-radius:50%;background:rgba(255,255,255,.4);transform:scale(0);animation:rippleAnim .6s linear;pointer-events:none}
 @keyframes rippleAnim{to{transform:scale(4);opacity:0}}
 .confetti-piece{position:fixed;z-index:9999;pointer-events:none;animation:confettiFall linear forwards}
 @keyframes confettiFall{0%{transform:translateY(-20px) rotate(0) scale(1);opacity:1}100%{transform:translateY(100vh) rotate(720deg) scale(.6);opacity:0}}
-#achievementToast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(200px);background:linear-gradient(135deg,#f59e0b,#d97706);color:#000;padding:16px 24px;border-radius:12px;font-family:'Orbitron';font-weight:900;z-index:5000;box-shadow:0 0 40px rgba(245,158,11,.6);transition:transform .5s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;gap:12px;border:2px solid #fff;pointer-events:none}
+#achievementToast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(200px);background:linear-gradient(135deg,#f59e0b,#d97706);color:#000;padding:16px 24px;border-radius:12px;font-family:'Orbitron';font-weight:900;z-index:5000;box-shadow:0 0 40px rgba(245,158,11,.6);transition:transform .5s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;https://en.wikipediagap:12px;border:2px solid #fff;pointer-events:none}
 #achievementToast.show{transform:translateX(-50%) translateY(0)}
 .xp-wrap{display:flex;flex-direction:column;gap:2px;min-width:140px}
 .xp-label{font-size:10px;color:var(--muted);font-family:'Orbitron';display:flex;justify-content:space-between}
@@ -200,6 +203,7 @@ h3,h4{color:var(--cyan)}
 </head>
 <body>
 <canvas id="bgCanvas"></canvas>
+
 <div id="authOverlay">
   <div class="auth-card">
     <div class="auth-logo">⚡ AUTO UPGRADE 5.0</div>
@@ -211,7 +215,7 @@ h3,h4{color:var(--cyan)}
     </div>
     <div class="auth-form active" id="formReg">
       <label class="label">Придумайте ник</label>
-      <input class="input" id="regUser" placeholder="Например: TurboDriver_BY" maxlength="20">
+      <input class="input" id="regUser" placeholder="Например: TurboDriver_BY.org/api/rest_v" maxlength="20">
       <label class="label">Пароль</label>
       <input class="input" id="regPass" type="password" placeholder="Минимум 4 символа">
       <label class="label">Повторите пароль</label>
@@ -226,9 +230,10 @@ h3,h4{color:var(--cyan)}
       <button class="btn btn-primary" style="width:100%;padding:12px;font-size:15px" id="logBtn" onclick="login()">🔓 Войти</button>
     </div>
     <div id="cloudStatus" class="cloud-status"></div>
-    <div class="auth-note">Нажимая «Создать аккаунт», вы соглашаетесь с правилами игры.<br>Данные синхронизируются в облаке.</div>
+    <div class="auth-note">1/page/summaryНажимая «Создать аккаунт», вы соглашаетесь с правилами игры.<br>Данные синхронизируются в облаке Firebase.</div>
   </div>
 </div>
+
 <div class="app-wrap">
 <header>
   <div class="header-top">
@@ -261,7 +266,7 @@ h3,h4{color:var(--cyan)}
       <div class="stake-area">
         <h3 style="font-family:'Orbitron';margin-bottom:12px;color:var(--orange)">🎯 Ставка (до 4 авто)</h3>
         <div class="stake-cars" id="stakeCars"><span class="empty" style="padding:20px">Выберите машины из гаража</span></div>
-        <button class="btn btn-cyan" style="width:100%" onclick="openStakePicker()">➕ Выбрать авто</button>
+        <button class="btn btn-cyan" style="width:10/${encodeURIComponent(car.w0%" onclick="openStakePicker()">➕ Выбрать авто</button>
         <div style="margin-top:12px;padding:10px;background:var(--card2);border-radius:8px;font-size:13px"><div style="display:flex;justify-content:space-between"><span>Сумма ставки:</span><b class="mono" id="totalStake">0 BYN</b></div></div>
         <div class="switch-row"><span>🛡️ Страховка 25% (-10% шанса)</span><div class="switch" id="insuranceSw" onclick="toggleInsurance()"></div></div>
         <div class="switch-row"><span>⇄ Сектор: Конец/Начало</span><div class="switch" id="invertSw" onclick="toggleInvert()"></div></div>
@@ -285,7 +290,7 @@ h3,h4{color:var(--cyan)}
         <div class="wheel-info">
           <div id="stakeImg" style="width:60px;height:40px;background:#1e293b;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted)">Ставка</div>
           <span style="font-size:20px">➔</span>
-          <div id="targetImg" style="width:60px;height:40px;background:#1e293b;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted)">Цель</div>
+          <div id="targetImg" style="width:60px;height:40px;background:#1e293b;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--iki)}`);muted)">Цель</div>
         </div>
         <div style="margin-top:14px;font-size:12px;color:var(--muted)" id="wheelStatus">Выберите ставку и цель</div>
       </div>
@@ -303,7 +308,7 @@ h3,h4{color:var(--cyan)}
     <div class="sto-wrap">
       <p style="color:var(--muted);margin-bottom:20px;font-size:14px">Работайте на СТО, чтобы накопить на первую машину</p>
       <button class="sto-btn" onclick="stoClick()"><div style="font-size:50px">🔧</div><div>РАБОТАТЬ</div><div style="font-size:16px;color:var(--gold)">+10 BYN</div></button>
-      <div class="sto-progress"><div class="sto-progress-bar" id="stoBar" style="width:0%"></div></div>
+      <div class="sto-progress"><div classif(r.ok){="sto-progress-bar" id="stoBar" style="width:0%"></div></div>
       <p class="mono" id="stoStatus">0 / 1 900 BYN (ЗАЗ-968)</p>
       <div class="sto-cars">
         <div class="sto-car" onclick="buyStoCar(1)"><div style="font-size:40px">🚗</div><div style="font-weight:700;margin:6px 0">ЗАЗ-968М</div><div class="mono" style="color:var(--gold)">1 900 BYN</div></div>
@@ -329,10 +334,11 @@ h3,h4{color:var(--cyan)}
     <h3 style="font-family:'Orbitron';margin-top:20px;margin-bottom:10px">Доступные номера:</h3>
     <div class="plates-section" id="platesSection"></div>
   </section>
-  <section class="section" id="sec-history"><h2>🕒 ИСТОРИЯ</h2><div id="historyList"></div></section>
+  <section class="section" id="sec-history"><h2>🕒 ИСТОРИЯ</h2><div id="historyList"></const d=awaitdiv></section>
   <section class="section" id="sec-profile"><h2>🏆 ПРОФИЛЬ</h2><div id="profileInfo"></div></section>
 </main>
 </div>
+
 <div class="modal" id="authModal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('authModal')">×</button>
@@ -342,6 +348,7 @@ h3,h4{color:var(--cyan)}
     <p style="margin-top:16px;font-size:12px;color:var(--muted)">Прогресс автоматически синхронизируется с облаком Firebase.</p>
   </div>
 </div>
+
 <div class="modal" id="adminModal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('adminModal')">×</button>
@@ -358,7 +365,7 @@ h3,h4{color:var(--cyan)}
     <select class="input" id="adminCar"></select>
     <button class="btn btn-gold" style="width:100%" onclick="adminGiveCar()">🎁 Выдать (Капсула + Stage 3 + 7777)</button>
     <h3 style="color:var(--orange);margin:14px 0 10px">🔥 Читы</h3>
-    <div class="switch-row"><span>100% Победа в апгрейде (God Mode)</span><div class="switch" id="godSw" onclick="toggleGod()"></div></div>
+    <div class="switch-row"><span>100% Победа в апгрейде (God Mode)</span><div class=" r.json();ifswitch" id="godSw" onclick="toggleGod()"></div></div>
     <h3 style="color:var(--cyan);margin:14px 0 10px">👥 УПРАВЛЕНИЕ ИГРОКАМИ <button class="btn btn-cyan" style="font-size:11px;padding:4px 8px;margin-left:8px" onclick="pmRefresh()">🔄 Обновить</button></h3>
     <select class="input" id="pmUser" onchange="pmRender()"></select>
     <div id="pmPanel" class="pm-box"></div>
@@ -367,6 +374,7 @@ h3,h4{color:var(--cyan)}
     <button class="btn btn-gold" style="margin-top:10px" onclick="exportDB()">💾 Скачать БД (.JSON)</button>
   </div>
 </div>
+
 <div class="modal" id="pickerModal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal('pickerModal')">×</button>
@@ -396,11 +404,14 @@ h3,h4{color:var(--cyan)}
   <div id="caseResult"></div>
 </div>
 <div id="achievementToast"></div>
+
 <script>
-// ===== КОНФИГУРАЦИЯ =====
+// ================= КОНФИГ =================
 const ADMIN_LOGIN='Largus', ADMIN_PASS='Boss777';
 const FIREBASE_URL='https://largus-aa803-default-rtdb.firebaseio.com';
-const ENGINE_URLS={};
+const ENGINE_URLS={};           // сюда можно вставить ссылки на(d.thumbnail&&d реальные mp3: {V8_amg:'https://.../v8.mp3'}
+const SOUND_DIR='sounds/';      // или положить файлы sounds/V8_amg.mp3 рядом с index.html
+
 const CARS_DB=[
 {id:1,name:'ЗАЗ-968М Запорожец',price:1900,wiki:'ZAZ-968',cat:'budget',engine:'V4_air',cyl:4,year:1979},
 {id:2,name:'ВАЗ-2101 Копейка',price:2200,wiki:'VAZ-2101',cat:'budget',engine:'I4_soviet',cyl:4,year:1970},
@@ -412,7 +423,7 @@ const CARS_DB=[
 {id:8,name:'ВАЗ-2109',price:3400,wiki:'VAZ-2109',cat:'budget',engine:'I4_soviet',cyl:4,year:1987},
 {id:9,name:'ВАЗ-2110',price:4000,wiki:'VAZ-2110',cat:'budget',engine:'I4_soviet',cyl:4,year:1995},
 {id:10,name:'ГАЗ-24 Волга',price:5500,wiki:'GAZ-24',cat:'budget',engine:'I4_volga',cyl:4,year:1970},
-{id:11,name:'ГАЗ-3110',price:4500,wiki:'GAZ-3110',cat:'budget',engine:'I4_volga',cyl:4,year:1997},
+{id:11,name:'ГАЗ-3110',price:4500,wiki:'GAZ-3110',cat:'budget',engine:'I4.thumbnail.source){img_volga',cyl:4,year:1997},
 {id:12,name:'Москвич-2141',price:3800,wiki:'Moskvich-2141',cat:'budget',engine:'I4_soviet',cyl:4,year:1986},
 {id:13,name:'Daewoo Nexia',price:5500,wiki:'Daewoo_Nexia',cat:'budget',engine:'I4',cyl:4,year:1995},
 {id:14,name:'Daewoo Lanos',price:5000,wiki:'Daewoo_Lanos',cat:'budget',engine:'I4',cyl:4,year:1997},
@@ -424,7 +435,7 @@ const CARS_DB=[
 {id:20,name:'Mercedes W124',price:8500,wiki:'Mercedes-Benz_W124',cat:'budget',engine:'I6',cyl:6,year:1984},
 {id:21,name:'Ford Focus II',price:8000,wiki:'Ford_Focus_(second_generation)',cat:'budget',engine:'I4',cyl:4,year:2004},
 {id:22,name:'Renault Logan',price:7500,wiki:'Renault_Logan',cat:'budget',engine:'I4',cyl:4,year:2004},
-{id:23,name:'Lada Niva',price:9500,wiki:'Lada_Niva',cat:'budget',engine:'I4_soviet',cyl:4,year:1977},
+{id:23,name:'Lada Niva',price:9500,wiki:'Lada_Niva',Cache[car.idcat:'budget',engine:'I4_soviet',cyl:4,year:1977},
 {id:24,name:'Lada Kalina',price:6000,wiki:'Lada_Kalina',cat:'budget',engine:'I4_soviet',cyl:4,year:2004},
 {id:25,name:'Lada Priora',price:7500,wiki:'Lada_Priora',cat:'budget',engine:'I4_soviet',cyl:4,year:2007},
 {id:26,name:'Lada Granta',price:10000,wiki:'Lada_Granta',cat:'mid',engine:'I4',cyl:4,year:2011},
@@ -441,14 +452,14 @@ const CARS_DB=[
 {id:37,name:'Mazda 6',price:24000,wiki:'Mazda6#Third_generation_(GJ;_2012)',cat:'mid',engine:'I4',cyl:4,year:2012},
 {id:38,name:'Hyundai Sonata',price:22000,wiki:'Hyundai_Sonata#Seventh_generation_(LF;_2014)',cat:'mid',engine:'I4',cyl:4,year:2014},
 {id:39,name:'Kia K5',price:30000,wiki:'Kia_K5',cat:'mid',engine:'I4',cyl:4,year:2019},
-{id:40,name:'Renault Duster',price:18000,wiki:'Dacia_Duster#First_generation_(H79;_2010)',cat:'mid',engine:'I4',cyl:4,year:2010},
+{id:40,name:'Renault Duster',price:18000,wiki:'Dacia_Duster#First_generation_(H79;_2010)',cat:'mid',engine:'I]=d.thumbnail.source4',cyl:4,year:2010},
 {id:41,name:'Nissan Qashqai',price:25000,wiki:'Nissan_Qashqai',cat:'mid',engine:'I4',cyl:4,year:2006},
 {id:42,name:'Kia Sportage',price:28000,wiki:'Kia_Sportage#Fourth_generation_(QL;_2015)',cat:'mid',engine:'I4',cyl:4,year:2015},
 {id:43,name:'Hyundai Tucson',price:26000,wiki:'Hyundai_Tucson#Third_generation_(TL;_2015)',cat:'mid',engine:'I4',cyl:4,year:2015},
 {id:44,name:'Toyota RAV4',price:32000,wiki:'Toyota_RAV4_(XA40)',cat:'mid',engine:'I4',cyl:4,year:2012},
 {id:45,name:'Mitsubishi Outlander',price:27000,wiki:'Mitsubishi_Outlander#Third_generation_(GF)',cat:'mid',engine:'I4',cyl:4,year:2012},
 {id:46,name:'BMW E46',price:15000,wiki:'BMW_3_Series_(E46)',cat:'mid',engine:'I6',cyl:6,year:1998},
-{id:47,name:'BMW E39',price:20000,wiki:'BMW_5_Series_(E39)',cat:'mid',engine:'I6',cyl:6,year:1995},
+{id:47,name:'BMW E39',price:20000,wiki:'BMW_5_Series_(E;localStorage.setItem('39)',cat:'mid',engine:'I6',cyl:6,year:1995},
 {id:48,name:'BMW E60',price:28000,wiki:'BMW_5_Series_(E60)',cat:'mid',engine:'I6',cyl:6,year:2003},
 {id:49,name:'Mercedes W210',price:14000,wiki:'Mercedes-Benz_E-Class_(W210)',cat:'mid',engine:'V6',cyl:6,year:1995},
 {id:50,name:'Mercedes W211',price:22000,wiki:'Mercedes-Benz_E-Class_(W211)',cat:'mid',engine:'V6',cyl:6,year:2002},
@@ -460,7 +471,7 @@ const CARS_DB=[
 {id:56,name:'BMW X5 G05',price:95000,wiki:'BMW_X5_(G05)',cat:'premium',engine:'I6_turbo',cyl:6,year:2018},
 {id:57,name:'BMW M3 G80',price:120000,wiki:'BMW_M3#G80_(2021–present)',cat:'premium',engine:'I6_twin',cyl:6,year:2021},
 {id:58,name:'BMW M5 F90',price:150000,wiki:'BMW_5_Series_(G30)#M5',cat:'premium',engine:'V8_twinturbo',cyl:8,year:2018},
-{id:59,name:'Mercedes W213',price:80000,wiki:'Mercedes-Benz_E-Class_(W213)',cat:'premium',engine:'I6_turbo',cyl:6,year:2016},
+{id:59,name:'Mercedes W213',price:80000,wiki:'Mercedes-Benz_E-Class_(W213)',cat:'premium',engine:'I6_turbo',cimg_'+car.idyl:6,year:2016},
 {id:60,name:'Mercedes W223',price:150000,wiki:'Mercedes-Benz_S-Class_(W223)',cat:'premium',engine:'I6_turbo',cyl:6,year:2020},
 {id:61,name:'Mercedes G63 AMG',price:250000,wiki:'Mercedes-Benz_G-Class#Second_generation_(W463;_2018)',cat:'premium',engine:'V8_amg',cyl:8,year:2018},
 {id:62,name:'Mercedes AMG C63',price:120000,wiki:'Mercedes-Benz_C-Class_(W205)#C63_AMG',cat:'premium',engine:'V8_amg',cyl:8,year:2015},
@@ -474,77 +485,66 @@ const CARS_DB=[
 {id:70,name:'Porsche 911 Turbo S',price:350000,wiki:'Porsche_911_(992)#911_Turbo_and_Turbo_S',cat:'premium',engine:'Boxer6_twin',cyl:6,year:2020},
 {id:71,name:'Tesla Model 3',price:60000,wiki:'Tesla_Model_3',cat:'premium',engine:'Tesla',cyl:0,year:2017},
 {id:72,name:'Tesla Model Y',price:75000,wiki:'Tesla_Model_Y',cat:'premium',engine:'Tesla',cyl:0,year:2020},
-{id:73,name:'Tesla Model S Plaid',price:180000,wiki:'Tesla_Model_S#Plaid_(2021–present)',cat:'premium',engine:'Tesla_Plaid',cyl:0,year:2021},
+{id:73,name:'Tesla Model S Plaid',price:180000,wiki:'Tesla_Model_S#Plaid_(2021–present)',cat:'premium',,d.thumbnail.source);engine:'Tesla_Plaid',cyl:0,year:2021},
 {id:74,name:'Toyota Land Cruiser 300',price:140000,wiki:'Toyota_Land_Cruiser_(J300)',cat:'premium',engine:'V6_twin',cyl:6,year:2021},
 {id:75,name:'Lexus LX',price:180000,wiki:'Lexus_LX#Fourth_generation_(J310;_2022)',cat:'premium',engine:'V6_twin',cyl:6,year:2022},
 {id:76,name:'Range Rover L460',price:200000,wiki:'Range_Rover_(L460)',cat:'premium',engine:'V8_twin',cyl:8,year:2022},
-{id:77,name:'VW Touareg',price:90000,wiki:'Volkswagen_Touareg#Third_generation_(CR;_2018)',cat:'premium',engine:'V6_tdi',cyl:6,year:2018},
+{id:77,name:'VW Touareg',price:90000return d.thumbnail.source,wiki:'Volkswagen_Touareg#Third_generation_(CR;_2018)',cat:'premium',engine:'V6_tdi',cyl:6,year:2018},
 {id:78,name:'Lamborghini Huracan',price:450000,wiki:'Lamborghini_Huracán',cat:'premium',engine:'V10',cyl:10,year:2014},
 {id:79,name:'Ferrari F8 Tributo',price:500000,wiki:'Ferrari_F8',cat:'premium',engine:'V8_twin',cyl:8,year:2019},
 {id:80,name:'McLaren 720S',price:480000,wiki:'McLaren_720S',cat:'premium',engine:'V8_twin',cyl:8,year:2017},
 {id:81,name:'Rolls-Royce Cullinan Black Badge',price:2900000,wiki:'Rolls-Royce_Cullinan',cat:'boss',engine:'V12',cyl:12,year:2018,boss:true},
 {id:82,name:'Bugatti Chiron Super Sport',price:4800000,wiki:'Bugatti_Chiron',cat:'boss',engine:'W16',cyl:16,year:2016,boss:true},
 {id:83,name:'LADA Largus VIP [БОСС]',price:10000000,wiki:'Lada_Largus',cat:'boss',engine:'Boss',cyl:4,year:2024,boss:true}];
-const CONDITIONS=[{id:1,name:'После ДТП (Битая)',mult:0.55,emoji:'💥'},{id:2,name:'Перекуп-эдишн',mult:0.75,emoji:'🔄'},{id:3,name:'На бодром ходу',mult:1.00,emoji:'✅'},{id:4,name:'После деда (Идеал)',mult:1.25,emoji:'👴'},{id:5,name:'Капсула времени',mult:1.50,emoji:'⏳'}];
+const CONDITIONS=[{id:1,name:'После ДТП (Битая)',mult:0.55,emoji:'💥'},{id:2,name:'Перекуп-эдишн',mult:0.75,emoji:'🔄'},{id:3,name:'На бодром ходу',mult:1.00,emoji:'✅'},{id:4,name:'После деда (Идеал)',mult:1.25,emoji:'👴'},{id:5,name:'Капсула;}}}catch времени',mult:1.50,emoji:'⏳'}];
 const PLATES=[{id:'7777 AA-7',mult:0.35},{id:'0001 MI-7',mult:0.32},{id:'8888 OO-7',mult:0.25},{id:'0770 BP-7',mult:0.18}];
 const CASES=[{id:1,name:'Бомж-кейс',icon:'📦',price:5000,min:1,max:10},{id:2,name:'Средний контейнер',icon:'🎁',price:25000,min:10,max:50},{id:3,name:'Премиум кейс',icon:'💎',price:100000,min:50,max:80},{id:4,name:'VIP Контейнер',icon:'👑',price:500000,min:60,max:83},{id:5,name:'БОСС-контейнер',icon:'🔥',price:3000000,min:81,max:83}];
 const ACHIEVEMENTS=[{id:'first_win',name:'Первая победа',icon:'🏆',check:s=>s.history.some(h=>h.win)},{id:'millionaire',name:'Миллионер',icon:'💎',check:s=>s.balance>=1000000},{id:'collector10',name:'Коллекционер 10',icon:'🚗',check:s=>s.garage.length>=10},{id:'collector25',name:'Гараж мечты',icon:'🏁',check:s=>s.garage.length>=25},{id:'boss_hunter',name:'Охотник на боссов',icon:'🔥',check:s=>s.garage.some(c=>c.boss)},{id:'tuner',name:'Мастер тюнинга',icon:'🔧',check:s=>s.garage.some(c=>c.stage>=3)},{id:'lucky',name:'Везунчик',icon:'🍀',check:s=>s.history.filter(h=>h.win).length>=10},{id:'highroller',name:'Игрок по-крупному',icon:'💰',check:s=>s.history.some(h=>h.stake>=1000000)}];
 
 function freshState(user){return{balance:0,garage:[],history:[],stakeCars:[],target:null,currentUser:user,soundOn:true,insurance:false,invertSector:false,godMode:false,xp:0,level:1,achievements:[],isAdmin:false,chanceMod:1};}
-let state=freshState(null);
+let state=f(e){}constreshState(null);
 const SAVE_KEY='auto_upgrade_5_save_';
+const LOCAL_USERS_KEY='local_users_mirror';
 
-// ===== FIREBASE REST API =====
-let cloudCache={};
+// ================= FIREBASE REST =================
 let cloudOk=true;
-async function cloudGet(path){try{const r=await fetch(FIREBASE_URL+'/'+path+'.json',{method:'GET'});if(!r.ok)throw new Error('HTTP '+r.status);cloudOk=true;return await r.json();}catch(e){cloudOk=false;return null;}}
-async function cloudPut(path,data){try{const r=await fetch(FIREBASE_URL+'/'+path+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error('HTTP '+r.status);cloudOk=true;return true;}catch(e){cloudOk=false;return false;}}
-async function cloudPatch(path,data){try{const r=await fetch(FIREBASE_URL+'/'+path+'.json',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error('HTTP '+r.status);cloudOk=true;return true;}catch(e){cloudOk=false;return false;}}
+async function cloudGet(path){try{const r=await fetch(FIREBASE_URL+'/'+path+'.json');if(!r.ok)throw new Error('HTTP '+r.status);cloudOk=true;return await r.json();}catch(e){cloudOk=false;return null;}}
+async function cloudPut(path,data){try{const r=await fetch(FIREBASE_URL+'/'+path+'.json',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});cloudOk=r.ok;return r.ok;}catch(e){cloudOk=false;return false;}}
+async function cloudPatch(path,data){try{const r=await fetch(FIREBASE_URL+'/'+path+'.json',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});cloudOk=r.ok;return r.ok;}catch(e){cloudOk=false;return false;}}
 async function cloudDelete(path){try{const r=await fetch(FIREBASE_URL+'/'+path+'.json',{method:'DELETE'});cloudOk=r.ok;return r.ok;}catch(e){cloudOk=false;return false;}}
-async function cloudLoadAllUsers(){const data=await cloudGet('users');cloudCache.users=data||{};return cloudCache.users;}
+// FIX: корректный пинг корня базы (ранее был битый URL "..json")
+async function cloudPing(){try{const r=await fetch(FIREBASE_URL+'/.json?shallow=true');cloudOk=r.ok;return cloudOk;}catch(e){cloudOk=false;return false;}}
 
-// ===== ЛОКАЛЬНЫЙ СТЕК + ОБЛАКО =====
+// ================= ХРАНИЛИЩЕ =================
 function localSave(){if(!state.currentUser)return;localStorage.setItem(SAVE_KEY+state.currentUser,JSON.stringify(state));}
 function localLoad(user){const raw=localStorage.getItem(SAVE_KEY+user);if(!raw)return false;try{state={...freshState(user),...JSON.parse(raw)};state.currentUser=user;return true;}catch(e){return false;}}
-
-// Сохраняем в локаль + облако
+function getLocalUsers(){try{return JSON.parse(localStorage.getItem(LOCAL_USERS_KEY)||'{}')}catch(e){return{}}}
+function setLocalUsers(db){localStorage.setItem(LOCAL_USERS_KEY,JSON.stringify(db));}
 function save(){
   if(!state.currentUser)return;
   localSave();
   if(state.currentUser===ADMIN_LOGIN)return;
-  const summary={
-    balance:state.balance,
-    cars:state.garage.length,
+  cloudPatch('users/'+encodeURIComponent(state.currentUser),{
+    balance:state.balance,cars:state.garage.length,
     capital:state.balance+state.garage.reduce((s,c)=>s+calcCarPrice(c),0),
-    xp:state.xp||0,
-    level:state.level||1,
-    chanceMod:state.chanceMod||1,
-    updatedAt:Date.now()
-  };
-  cloudPatch('users/'+encodeURIComponent(state.currentUser),summary).catch(()=>{});
-  cloudPut('saves/'+encodeURIComponent(state.currentUser),state).catch(()=>{});
+    xp:state.xp||0,level:state.level||1,chanceMod:state.chanceMod||1,updatedAt:Date.now()
+  });
+  cloudPut('saves/'+ c=localStorage.getItemencodeURIComponent(state.currentUser),state);
 }
 async function loadSave(user){
-  // Пробуем облако
   const cloud=await cloudGet('saves/'+encodeURIComponent(user));
   if(cloud&&cloud.currentUser){state={...freshState(user),...cloud};state.currentUser=user;localSave();return true;}
-  // Фолбэк на локаль
   return localLoad(user);
 }
-async function getUsersDB(){
-  const fresh=await cloudLoadAllUsers();
-  return fresh||{};
-}
+async function getUsersDB(){const d=await cloudGet('users');return d||{};}
 async function getPlayerSave(u){
   const cloud=await cloudGet('saves/'+encodeURIComponent(u));
   if(cloud&&cloud.currentUser)return cloud;
-  // фолбэк
   try{return JSON.parse(localStorage.getItem(SAVE_KEY+u))||null}catch(e){return null}
 }
 async function setPlayerSave(u,d){
   localStorage.setItem(SAVE_KEY+u,JSON.stringify(d));
   await cloudPut('saves/'+encodeURIComponent(u),d);
-  // обновляем метаданные в users
   await cloudPatch('users/'+encodeURIComponent(u),{
     balance:d.balance,cars:(d.garage||[]).length,
     capital:(d.balance||0)+(d.garage||[]).reduce((s,c)=>s+calcCarPrice(c),0),
@@ -552,213 +552,435 @@ async function setPlayerSave(u,d){
   });
 }
 
-// ===== ЗВУК =====
+// ================= ЗВУК =================
 let audioCtx;
 function getCtx(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();return audioCtx;}
 function playUI(s){if(!state.soundOn)return;try{const ctx=getCtx();const P={hover:{f:1200,d:.03,v:.05,t:'sine'},click:{f:800,d:.05,v:.1,t:'square'},tab:{f:600,d:.08,v:.08,t:'triangle'},modal:{f:400,d:.15,v:.1,t:'sine'}};const p=P[s]||P.click;const o=ctx.createOscillator(),g=ctx.createGain();o.type=p.t;o.frequency.value=p.f;g.gain.setValueAtTime(p.v,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+p.d);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+p.d);}catch(e){}}
-function playClick(){if(!state.soundOn)return;try{const ctx=getCtx();const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=800;g.gain.setValueAtTime(.1,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.05);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.05);}catch(e){}}
+function playClick(){if(!state.soundOn)return;try{const ctx=getCtx();const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=800;g.gain.setValueAtTime(.1,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.05);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.05);}catch('img_'+car(e){}}
 function playWin(){if(!state.soundOn)return;try{const ctx=getCtx();[523.25,659.25,783.99].forEach((f,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(.2,ctx.currentTime+i*.1);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+i*.1+.3);o.connect(g);g.connect(ctx.destination);o.start(ctx.currentTime+i*.1);o.stop(ctx.currentTime+i*.1+.3);});}catch(e){}}
 function playLoss(){if(!state.soundOn)return;try{const ctx=getCtx();const o=ctx.createOscillator(),g=ctx.createGain();o.type='sawtooth';o.frequency.setValueAtTime(300,ctx.currentTime);o.frequency.exponentialRampToValueAtTime(80,ctx.currentTime+.5);g.gain.setValueAtTime(.2,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.5);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.5);}catch(e){}}
 function playAlarm(){if(!state.soundOn)return;try{const ctx=getCtx();for(let i=0;i<4;i++){const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';o.frequency.value=i%2===0?880:660;g.gain.setValueAtTime(.15,ctx.currentTime+i*.3);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+i*.3+.25);o.connect(g);g.connect(ctx.destination);o.start(ctx.currentTime+i*.3);o.stop(ctx.currentTime+i*.3+.25);}}catch(e){}}
-const ENGP={V4_air:{wave:'square',h:[1,2,3,4],idle:950,peak:4800,cyl:4,dur:3.2,rough:.45},I4_soviet:{wave:'sawtooth',h:[1,2,3,4],idle:900,peak:5200,cyl:4,dur:3.6,rough:.4},I4_volga:{wave:'sawtooth',h:[1,2,3,5],idle:850,peak:4800,cyl:4,dur:3.2,rough:.38},I4:{wave:'sawtooth',h:[1,2,3,4],idle:950,peak:5600,cyl:4,dur:2.8,rough:.3},I4_turbo:{wave:'sawtooth',h:[1,2,3,4],idle:1000,peak:6200,cyl:4,dur:2.8,rough:.3,turbo:1},I6:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:950,peak:6500,cyl:6,dur:3,rough:.22},I6_turbo:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:1000,peak:6800,cyl:6,dur:2.8,rough:.2,turbo:1},I6_twin:{wave:'sawtooth',h:[1,2,3,4,5,6,7],idle:1050,peak:7200,cyl:6,dur:2.8,rough:.18,turbo:1,pop:1},V6:{wave:'triangle',h:[1,2,3,4,5],idle:900,peak:6000,cyl:6,dur:3,rough:.25},V6_turbo:{wave:'triangle',h:[1,2,3,4,5],idle:950,peak:6400,cyl:6,dur:2.9,rough:.22,turbo:1},V6_twin:{wave:'triangle',h:[1,2,3,4,5,6],idle:1000,peak:6800,cyl:6,dur:2.9,rough:.2,turbo:1,pop:1},V6_tdi:{wave:'square',h:[1,2,3,4],idle:800,peak:3800,cyl:6,dur:3.6,rough:.5,diesel:1,turbo:1},V8_twinturbo:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:950,peak:6500,cyl:8,dur:3.2,rough:.28,turbo:1,pop:1},V8_amg:{wave:'sawtooth',h:[1,2,3,4,5],idle:900,peak:6800,cyl:8,dur:3.6,rough:.32,turbo:1,pop:1},V8_twin:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:1000,peak:7200,cyl:8,dur:3,rough:.25,turbo:1,pop:1},Boxer6:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:1000,peak:7400,cyl:6,dur:2.8,rough:.24},Boxer6_twin:{wave:'sawtooth',h:[1,2,3,4,5,6,7],idle:1050,peak:7600,cyl:6,dur:2.9,rough:.2,turbo:1,pop:1},V10:{wave:'sawtooth',h:[1,2,3,4,5,6,7,8],idle:1100,peak:8500,cyl:10,dur:3.1,rough:.16,pop:1},V12:{wave:'sawtooth',h:[1,2,3,4,5,6,7,8],idle:1050,peak:8200,cyl:12,dur:3.4,rough:.14},W16:{wave:'sawtooth',h:[1,2,3,4,5,6,7,8],idle:1000,peak:8000,cyl:16,dur:3.2,rough:.12,turbo:1,pop:1},Tesla:{ev:1,idle:1200,peak:9000,dur:2.4,cyl:2},Tesla_Plaid:{ev:1,idle:1400,peak:10000,dur:2.8,cyl:2},Boss:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:1000,peak:7000,cyl:4,dur:3.8,rough:.3,turbo:1,blow:1,pop:1}};
-const audioElCache={};
-function playEngine(type){if(!state.soundOn)return;if(ENGINE_URLS[type]){try{let a=audioElCache[type];if(!a){a=new Audio(ENGINE_URLS[type]);audioElCache[type]=a;}a.currentTime=0;a.volume=1;a.play();}catch(e){}return;}synthEngine(type);}
-function synthEngine(type){try{const ctx=getCtx();const t0=ctx.currentTime;const P=ENGP[type]||ENGP.I4;const dur=P.dur;const master=ctx.createGain();master.gain.setValueAtTime(0.0001,t0);master.gain.linearRampToValueAtTime(0.55,t0+0.05);master.gain.setValueAtTime(0.55,t0+Math.max(0.6,dur-0.7));master.gain.exponentialRampToValueAtTime(0.0001,t0+dur);master.connect(ctx.destination);const N=96;const rpm=new Float32Array(N);const pk=P.peak,idl=P.idle;for(let i=0;i<N;i++){const t=dur*i/(N-1);let r;if(t<0.45)r=180;else if(t<0.6)r=180+(800-180)*((t-0.45)/0.15);else if(t<1.2)r=800+(pk-800)*((t-0.6)/0.6);else if(t<1.9)r=pk-(pk-idl)*((t-1.2)/0.7);else if(t<2.5)r=idl;else if(t<2.9)r=idl+(pk*1.12-idl)*((t-2.5)/0.4);else if(t<3.4)r=pk*1.12-(pk*1.12-idl)*((t-2.9)/0.5);else r=idl;rpm[i]=r;}function curve(fn){const a=new Float32Array(N);for(let i=0;i<N;i++)a[i]=fn(rpm[i]);return a;}const st=ctx.createOscillator();st.type='square';st.frequency.value=52;const sg=ctx.createGain();sg.gain.setValueAtTime(0,t0);sg.gain.linearRampToValueAtTime(0.22,t0+0.04);sg.gain.setValueAtTime(0.22,t0+0.42);sg.gain.linearRampToValueAtTime(0,t0+0.55);st.connect(sg);sg.connect(master);st.start(t0);st.stop(t0+0.6);for(let i=0;i<8;i++){const tt=t0+i*0.055;const o=ctx.createOscillator();o.type='sawtooth';o.frequency.value=40+Math.random()*15;const g=ctx.createGain();g.gain.setValueAtTime(0.15,tt);g.gain.exponentialRampToValueAtTime(0.001,tt+0.05);o.connect(g);g.connect(master);o.start(tt);o.stop(tt+0.05);}const bus=ctx.createGain();bus.gain.value=1;bus.connect(master);const am=ctx.createOscillator();am.type='square';const amg=ctx.createGain();amg.gain.value=P.rough||0.3;am.frequency.setValueCurveAtTime(curve(r=>Math.max(10,r/60*(P.cyl||4)/2)),t0,dur);am.connect(amg);amg.connect(bus.gain);am.start(t0);am.stop(t0+dur);const nb=ctx.createBuffer(1,ctx.sampleRate*dur,ctx.sampleRate);const nd=nb.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;if(P.ev){const o=ctx.createOscillator();o.type='sine';o.frequency.setValueCurveAtTime(curve(r=>600+r*1.4),t0,dur);const g=ctx.createGain();g.gain.value=0.2;o.connect(g);g.connect(bus);o.start(t0);o.stop(t0+dur);const o2=ctx.createOscillator();o2.type='sawtooth';o2.frequency.setValueCurveAtTime(curve(r=>1200+r*2.8),t0,dur);const g2=ctx.createGain();g2.gain.value=0.05;o2.connect(g2);g2.connect(bus);o2.start(t0);o2.stop(t0+dur);}else{P.h.forEach((h,i)=>{const o=ctx.createOscillator();o.type=P.wave;o.frequency.setValueCurveAtTime(curve(r=>Math.max(20,r/60*2*h)),t0,dur);const g=ctx.createGain();g.gain.value=0.16/(i+1);o.connect(g);g.connect(bus);o.start(t0);o.stop(t0+dur);});}const ns=ctx.createBufferSource();ns.buffer=nb;const nf=ctx.createBiquadFilter();nf.type='lowpass';nf.frequency.setValueCurveAtTime(curve(r=>250+r*0.35),t0,dur);const ng=ctx.createGain();ng.gain.value=P.ev?0.03:0.14;ns.connect(nf);nf.connect(ng);ng.connect(master);ns.start(t0);ns.stop(t0+dur);if(P.turbo){const tb=ctx.createBufferSource();tb.buffer=nb;const bf=ctx.createBiquadFilter();bf.type='bandpass';bf.Q.value=8;bf.frequency.setValueCurveAtTime(curve(r=>1500+r*1.2),t0,dur);const bg=ctx.createGain();bg.gain.setValueCurveAtTime(curve(r=>Math.max(0.0001,(r-2500)/60000)),t0,dur);tb.connect(bf);bf.connect(bg);bg.connect(master);tb.start(t0);tb.stop(t0+dur);}if(P.blow){const tt=t0+3.0;const o=ctx.createOscillator();o.type='sawtooth';o.frequency.setValueAtTime(4500,tt);o.frequency.exponentialRampToValueAtTime(400,tt+0.45);const g=ctx.createGain();g.gain.setValueAtTime(0.0001,tt);g.gain.linearRampToValueAtTime(0.35,tt+0.04);g.gain.exponentialRampToValueAtTime(0.0001,tt+0.45);o.connect(g);g.connect(master);o.start(tt);o.stop(tt+0.5);}if(P.pop){for(let i=0;i<7;i++){const tt=t0+3.0+Math.random()*0.7;const o=ctx.createOscillator();o.type='sawtooth';o.frequency.value=50+Math.random()*50;const g=ctx.createGain();g.gain.setValueAtTime(0.0001,tt);g.gain.linearRampToValueAtTime(0.3,tt+0.01);g.gain.exponentialRampToValueAtTime(0.0001,tt+0.12);o.connect(g);g.connect(master);o.start(tt);o.stop(tt+0.13);}}if(P.diesel){for(let i=0;i<Math.floor(dur/0.09);i++){const tt=t0+0.6+i*0.09;const o=ctx.createOscillator();o.type='square';o.frequency.value=55+Math.random()*10;const g=ctx.createGain();g.gain.setValueAtTime(0.08,tt);g.gain.exponentialRampToValueAtTime(0.001,tt+0.05);o.connect(g);g.connect(master);o.start(tt);o.stop(tt+0.06);}}}catch(e){}}
+const ENGP={V4_air:{wave:'square',h:[1,2,3,4],idle:950,peak:4800,cyl:4,dur:3.2,rough:.45},I4_soviet:{wave:'sawtooth',h:[1,2,3,4],idle:900,peak:5200,cyl:4,dur:3.6,rough:.4},I4_volga:{wave:'sawtooth',h:[1,2,3,5],idle:850,peak:4800,cyl:4,dur:3.2,rough:.38},I4:{wave:'sawtooth',h:[1,2,3,4],idle:950,peak:5600,cyl:4,dur:2.8,rough:.3},I4_turbo:{wave:'sawtooth',h:[1,2,3,4],idle:1000,peak:6200,cyl:4,dur:2.8,rough:.3,turbo:1},I6:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:950,.id);if(cpeak:6500,cyl:6,dur:3,rough:.22},I6_turbo:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:1000,peak:6800,cyl:6,dur:2.8,rough:.2,turbo:1},I6_twin:{wave:'sawtooth',h:[1,2,3,4,5,6,7],idle:1050,peak:7200,cyl:6,dur:2.8,rough:.18,turbo:1,pop:1},V6:{wave:'triangle',h:[1,2,3,4,5],idle:900,peak:6000,cyl:6,dur:3,rough:.25},V6_turbo:{wave:'triangle',h:[1,2,3,4,5],idle:950,peak:6400,cyl:6,dur:2.9,rough:.22,turbo:1},V6_twin:{wave:'triangle',h:[1,2,3,4,5,6],idle:1000,peak:6800,cyl:6,dur:2.9,rough:.2,turbo:1,pop:1},V6_tdi:{wave:'square',h:[1,2,3,4],idle:800,peak:3800,cyl:6,dur:3.6,rough:.5,diesel:1,turbo:1},V8_twinturbo:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:950,peak:6500,cyl:8,dur:3.2,rough:.28,turbo:1,pop:1},V8_amg:{wave:'sawtooth',h:[1,2,3,4,5],idle:900,peak:6800,cyl:8,dur:3.6,rough:.32,turbo:1,pop:1},V8_twin:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:1000,peak:7200,cyl:8,dur:3,rough:.25,turbo:1,pop:1},Boxer6:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:1000,peak:7400,cyl:6,dur:2.8,rough:.24},Boxer6_twin:{wave:'sawtooth',h:[1,2,3,4,5,6,7],idle:1050,peak:7600,cyl:6,dur:2.9,rough:.2,turbo:1,pop:1},V10:{wave:'sawtooth',h:[1,2,){imgCache[3,4,5,6,7,8],idle:1100,peak:8500,cyl:10,dur:3.1,rough:.16,pop:1},V12:{wave:'sawtooth',h:[1,2,3,4,5,6,7,8],idle:1050,peak:8200,cyl:12,dur:3.4,rough:.14},W16:{wave:'sawtooth',h:[1,2,3,4,5,6,7,8],idle:1000,peak:8000,cyl:16,dur:3.2,rough:.12,turbo:1,pop:1},Tesla:{ev:1,idle:1200,peak:9000,dur:2.4car.id]=c,cyl:2},Tesla_Plaid:{ev:1,idle:1400,peak:10000,dur:2.8,cyl:2},Boss:{wave:'sawtooth',h:[1,2,3,4,5,6],idle:1000,peak:7000,cyl:4,dur:3.8,rough:.3,turbo:1,blow:1,pop:1}};
+const audioElCache={};const soundProbe={};
+function playEngine(type){
+  if(!state.soundOn)return;
+  const url=ENGINE_URLS[type]||null;
+  if(url){try{let a=audioElCache[type];if(!a){a=new Audio(url);audioElCache[type]=a;}a.currentTime=0;a.volume=1;a.play().catch(()=>synthEngine(type));}catch(e){synthEngine(type);}return;}
+  if(soundProbe[type]===true){const a=audioEl;return c;}Cache[type];if(a){a.currentTime=0;a.volume=1;a.play().catch(()=>synthEngine(type));return;}}
+  if(soundProbe[type]===false){synthEngine(type);return;}
+  const a=new Audio();audioElCache[type]=a;a.src=SOUND_DIR+type+'.mp3';
+  a.addEventListener('canplaythrough',()=>{soundProbe[type]=true;try{a.currentTime=0;a.volume=1;a.play();}catch(e){}},{once:true});
+  a.addEventListener('error',()=>{soundProbe[type]=false;synthEngine(type);},{once:true});
+  setTimeout(()=>{if(soundProbe[type]===undefined){soundProbe[type]=false;synthEngine(type);}},1200);
+}
+function synthEngine(type){try{
+const ctx=getCtx();const t0=ctx.currentTime;const P=ENGP[type]||ENGP.I4;const dur=P.dur;
+const master=ctx.createGain();master.gain.setValueAtTime(0.0001,t0);master.gain.linearRampToValueAtTime(0.55,t0+0.05);master.gain.setValueAtTime(0.55,t0+Math.max(0.6,dur-0.7));master.gain.exponentialRampToValueAtTime(0.0001,t0+dur);master.connect(ctx.destination);
+const N=96;const rpm=new Float32Array(N);const pk=P.peak,idl=P.idle;
+for(let i=0;i<N;i++){const t=dur*i/(N-1);let r;if(t<0.45)r=180;else if(t<0.6)r=180+(800-180)*((t-0.45)/0.15);else if(t<1.2)r=800+(pk-800)*((t-0.6)/0.6);else if(t<1.9)r=pk-(pk-idl)*((t-1.2)/0.7);else if(t<2.5)r=idl;else if(t<2.9)r=idl+(pk*1.12-idl)*((t-2.5)/0.4);else if(t<3.4)r=pk*1.12-(pk*1.12-idl)*((t-2.9)/0.return null;}
+5);else r=idl;rpm[i]=r;}
+function curve(fn){const a=new Float32Array(N);for(let i=0;i<N;i++)a[i]=fn(rpm[i]);return a;}
+const st=ctx.createOscillator();st.type='square';st.frequency.value=52;const sg=ctx.createGain();sg.gain.setValueAtTime(0,t0);sg.gain.linearRampToValueAtTime(0.22,t0+0.04);sg.gain.setValueAtTime(0.22,t0+0.42);sg.gain.linearRampToValueAtTime(0,t0+0.55);st.connect(sg);sg.connect(master);st.start(t0);st.stop(t0+0.6);
+for(let i=0;i<8;i++){const tt=t0+i*0.055;const o=ctx.createOscillator();o.type='sawtooth';o.frequency.value=40+Math.random()*15;const g=ctx.createGain();g.gain.setValueAtTime(0.15,tt);g.gain.exponentialRampToValueAtTime(0.001,tt+0.05);o.connect(g);g.connect(master);o.start(tt);o.stop(tt+0.05);}
+const bus=ctx.createGain();bus.gain.value=1;bus.connect(master);
+const am=ctx.createOscillator();am.type='square';const amg=ctx.createGain();amg.gain.value=P.rough||0.3;am.frequency.setValueCurveAtTime(curve(r=>Math.max(10,r/60*(P.cyl||4)/2)),t0,dur);am.connect(amg);amg.connect(bus.gain);am.start(t0);am.stop(t0+dur);
+const nb=ctx.createBuffer(1,ctx.sampleRate*dur,ctx.sampleRate);const nd=nb.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;
+if(P.ev){const o=ctx.createOscillator();o.type='sine';o.frequency.setValueCurveAtTime(curve(r=>600+r*1.4),t0,dur);const g=ctx.createGain();g.gain.value=0.2;o.connect(g);g.connect(bus);o.start(t0);o.stop(t0+dur);const o2=ctx.createOscillator();o2.type='sawtooth';o2.frequency.setValueCurveAtTime(curve(r=>1200+r*2.8),t0,dur);const g2=ctx.createGain();g2.gain.value=0.05;o2.connect(g2);g2.connect(bus);o2.start(t0);o2.stop(t0+dur);}
+else{P.h.forEach((h,i)=>{const o=ctx.createOscillator();o.type=P.wave;o.frequency.setValueCurveAtTime(curve(r=>Math.max(20,r/60*2*h)),t0,dur);const g=ctx.createGain();g.gain.value=0.16/(i+1);o.connect(g);g.connect(bus);o.start(t0);o.stop(t0+dur);});}
+const ns=ctx.createBufferSource();ns.buffer=async function loadImgnb;const nf=ctx.createBiquadFilter();nf.type='lowpass';nf.frequency.setValueCurveAtTime(curve(r=>250+r*0.35),t0,dur);const ng=ctx.createGain();ng.gain.value=P.ev?0.03:0.14;ns.connect(nf);nf.connect(ng);ng.connect(master);ns.start(t0);ns.stop(t0+dur);
+if(P.turbo){const tb=ctx.createBufferSource();tb.buffer=nb;const bf=ctx.createBiquadFilter();bf.type='bandpass';bf.Q.value=8;bf.frequency.setValueCurveAtTime(curve(r=>1500+r*1.2),t0,dur);const bg=ctx.createGain();bg.gain.setValueCurveAtTime(curve(r=>Math.maxInto(elId,(0.0001,(r-2500)/60000)),t0,dur);tb.connect(bf);bf.connect(bg);bg.connect(master);tb.start(t0);tb.stop(t0+dur);}
+if(P.blow){const tt=t0+3.0;const o=ctx.createOscillator();o.type='sawtooth';o.frequency.setValueAtTime(4500,tt);o.frequency.exponentialRampToValueAtTime(400,tt+0.45);const g=ctx.createGain();g.gain.setValueAtTime(0.0001,tt);g.gain.linearRampToValueAtTime(0.35,tt+0.04);g.gain.exponentialRampToValueAtTime(0.0001,tt+0.45);o.connect(g);g.connect(master);o.start(tt);o.stop(tt+0.5);}
+if(P.pop){for(let i=0;i<7;i++){const tt=t0+3.0+Math.random()*0.7;const o=ctx.createOscillator();o.type='sawtooth';o.frequency.value=50+Math.random()*50;const g=ctx.createGain();g.gain.setValueAtTime(0.0001,tt);g.gain.linearRampToValueAtTime(0.3,tt+0.01);g.gain.exponentialRampToValueAtTime(0.0001,tt+0.12);o.connect(g);g.connect(master);o.start(tt);o.stop(tt+0.13);}}
+if(P.diesel){for(let i=0;i<Math.floor(dur/0.09);i++){const tt=t0+0.6+i*0.09;const o=ctx.createOscillator();o.type='square';o.frequency.value=55+Math.random()*10;const g=ctx.createGain();g.gain.setValueAtTime(0.08,tt);g.gain.exponentialRampToValueAtTime(0.001,tt+0.05);o.connect(g);g.connect(master);o.start(tt);o.stop(tt+0.06);}}
+}catch(e){}}
 
-(function(){const cv=document.getElementById('bgCanvas');const ctx=cv.getContext('2d');let W,H,ps=[];function rz(){W=cv.width=innerWidth;H=cv.height=innerHeight}rz();addEventListener('resize',rz);const N=innerWidth<768?40:70;for(let i=0;i<N;i++)ps.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.5+.5,c:Math.random()>.5?'#ff6b00':'#00d2ff'});function draw(){ctx.fillStyle='rgba(7,10,16,0.18)';ctx.fillRect(0,0,W,H);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle=p.c;ctx.shadowBlur=10;ctx.shadowColor=p.c;ctx.fill();});for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){const dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y;const d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.strokeStyle=`rgba(0,210,255,${.15*(1-d/120)})`;ctx.lineWidth=.5;ctx.shadowBlur=0;ctx.beginPath();ctx.moveTo(ps[i].x,ps[i].y);ctx.lineTo(ps[j].x,ps[j].y);ctx.stroke();}}requestAnimationFrame(draw);}draw();})();
-document.addEventListener('click',e=>{const b=e.target.closest('.btn,.tab,.sto-btn,.case-card,.quick-btns button');if(!b)return;const r=document.createElement('span');r.className='ripple-effect';const d=Math.max(b.clientWidth,b.clientHeight);r.style.width=r.style.height=d+'px';r.style.left=(e.clientX-b.getBoundingClientRect().left-d/2)+'px';r.style.top=(e.clientY-b.getBoundingClientRect().top-d/2)+'px';b.appendChild(r);setTimeout(()=>r.remove(),600);});
+// ================= ФОН / ЭФФЕКТЫ =================
+(function(){const cv=document.getElementById('bgCanvas');const ctx=cv.getContext('2d');let W,H,ps=[];function rz(){W=cv.width=innerWidth;H=cv.height=innerHeight}rz();addEventListener('resize',rz);const N=innerWidth<768?40:70;for(let i=0;i<N;i++)ps.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.car,w=34,r:Math.random()*1.5+.5,c:Math.random()>.5?'#ff6b00':'#00d2ff'});function draw(){ctx.fillStyle='rgba(7,10,16,0.18)';ctx.fillRect(0,0,W,H);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle=p.c;ctx.shadowBlur=10;ctx.shadowColor=p.c;ctx.fill();});for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){const dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y;const d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.strokeStyle=`rgba(0,210,255,${.15*(1-d/120)})`;ctx.lineWidth=.5;ctx.shadowBlur=0;ctx.beginPath();ctx.moveTo(ps[i].x,ps[i].y);ctx.lineTo(ps[j].x,ps[j].y);ctx.stroke();}}requestAnimationFrame(draw);}draw();})();
+document.addEventListener('click',e=>{const b=e.target.closest('.btn,.tab,.sto-btn,.case-card,.quick-btns button');if(!b)return;const r=document00,h=.createElement('span');r.className='ripple-effect';const d=Math.max(b.clientWidth,b.clientHeight);r.style.width=r.style.height=d+'px';r.style.left=(e.clientX-b.getBoundingClientRect().left-d/2)+'px';r.style.top=(e.clientY-b.getBoundingClientRect().top-d/2)+'px';b.appendChild(r);setTimeout(()=>r.remove(),600);});
 function spawnConfetti(){const colors=['#ff6b00','#00d2ff','#10b981','#f59e0b','#ef4444','#fff'];for(let i=0;i<80;i++){const c=document.createElement('div');c.className='confetti-piece';c.style.left=Math.random()*100+'vw';c.style.top='-20px';c.style.background=colors[i%colors.length];c.style.width=(6+Math.random()*8)+'px';c.style.height=(6+Math.random()*8)+'px';c.style.borderRadius=Math.random()>.5?'50%':'2px';c.style.animationDuration=(2.5+Math.random()*2)+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),4500);}}
 
+// ================= ФОТО =================
 const imgCache={};
-function getCarSVG(car,w=300,h=200,showName=true){const grad=car.boss?'#f59e0b,#b45309':(car.cat==='premium'?'#ef4444,#7f1d1d':(car.cat==='mid'?'#00d2ff,#0284c7':'#10b981,#065f46'));const[c1,c2]=grad.split(',');return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g${car.id}_${w}" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient></defs><rect width="${w}" height="${h}" fill="url(#g${car.id}_${w})" opacity="0.3"/><rect width="${w}" height="${h}" fill="#0f172a" opacity="0.5"/><g transform="translate(${w/2},${h/2-10})"><path d="M-60,-20 L-50,-30 L-20,-30 L-10,-20 L30,-20 L40,-10 L50,-10 L55,0 L-65,0 Z" fill="${c1}" opacity="0.9"/><circle cx="-40" cy="5" r="10" fill="#000" stroke="#444" stroke-width="2"/><circle cx="40" cy="5" r="10" fill="#000" stroke="#444" stroke-width="2"/><rect x="-15" y="-25" width="18" height="8" fill="#7dd3fc" opacity="0.7"/></g>${showName?`<text x="${w/2}" y="${h-30}" text-anchor="middle" fill="#fff" font-family="Orbitron,sans-serif" font-size="14" font-weight="700">${car.name}</text><text x="${w/2}" y="${h-12}" text-anchor="middle" fill="#f59e0b" font-family="Orbitron,sans-serif" font-size="13" font-weight="700">${car.price.toLocaleString('ru')} BYN</text>`:''}</svg>`;}
-async function getCarImg(car){if(imgCache[car.id])return imgCache[car.id];try{const r=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(car.wiki)}`);if(r.ok){const d=await r.json();if(d.thumbnail&&d.thumbnail.source){imgCache[car.id]=d.thumbnail.source;localStorage.setItem('img_'+car.id,d.thumbnail.source);return d.thumbnail.source;}}}catch(e){}const c=localStorage.getItem('img_'+car.id);if(c){imgCache[car.id]=c;return c;}return null;}
-async function loadImgInto(elId,car,w=300,h=140,showName=true){const url=await getCarImg(car);const el=document.getElementById(elId);if(el&&url){const svg=getCarSVG(car,w,h,showName).replace(/`/g,'\\`');el.innerHTML=`<img src="${url}" alt="${car.name}" onerror="this.parentNode.innerHTML=\`${svg}\`">`;}}
+function getCarSVG(car,w=300,h=200,showName=true){const grad=car.boss?'#f59e0b,#b45309':(car.cat==='premium'?'#ef4444,#7f1d1d':(car.cat==='mid'?'#00d2ff,#0284c7':'#10b981,#065f46'));const[c1,c2]=grad.split(',');return `<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g${car.id}_${w}" x1="0" y1="0" x2="1" y2="1"><stop offset="0140,%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient></defs><rect width="${w}" height="${h}" fill="url(#g${car.id}_${w})" opacity="0.3"/><rect width="${w}" height="${h}" fill="#0f172a" opacity="0.5"/><g transform="translate(${w/2},${h/2-10})"><path d="M-60,-20 L-50,-30 L-20,-30 L-10,-20 L30,-20 L40,-10 L50,-10 L55,0 L-65,0 Z" fill="${c1}" opacity="0.9"/><circle cx="-40" cy="5" r="10" fill="#000" stroke="#444" stroke-width="2"/><circle cx="40" cy="5" r="10" fill="#000" stroke="#444" stroke-width="2"/><rect x="-15" y="-25" width="18" height="8" fill="#7dd3fc" opacity="0.7"/></g>${showName?`<text x="${w/2}" y="${h-30}" text-anchor="middle" fill="#fff" font-family="Orbitron,sans-serif" font-size="14" font-weight="700">${car.name}</text><text x="${w/2}" y="${h-12}" text-anchor="middle" fill="#f59e0b" font-family="Orbitron,sans-serif" font-size="13" font-weight="700">${car.price.toLocaleString('ru')} BYN</text>`:''}</svg>`;}
+async function getCarImg(car){if(imgCache[car.id])returnshowName=true){ imgCache[car.id];try{const r=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(car.wiki)}`);if(r.ok){const d=await r.json();if(d.thumbnail&&d.thumbnail.source){imgCache[car.id]=d.thumbnail.source;localStorage.setItem('img_'+car.id,d.thumbnail.source);return d.thumbnail.source;}}}catch(e){}const c=localStorage.getItem('img_'+car.id);if(c){imgCache[car.id]=c;return c;}return null;}
+async function loadImgInto(elId,car,w=300,h=140,showName=true){const url=awaitconst url=await getCarImg(car getCarImg(car);const el=document);const el=document.getElementById(elId);.getElementById(elId);if(el&&url){const svg=getCarSVG(car,wif(el&&url){const svg=getCarSVG(car,w,h,showName,h,showName).replace(/`).replace(/`/g,'\\/g,'\\`');el.innerHTML`');el.innerHTML=`<img src=`<img src="${url}" alt="${url}" alt="${car.name}"="${car.name}" onerror="this onerror="this.parentNode.innerHTML=\`${.parentNode.innerHTML=\`${svg}\`">svg}\`">`;}}
 
-// ===== UI RENDER =====
-function renderHeader(){document.getElementById('balance').textContent=state.balance.toLocaleString('ru');document.getElementById('carsCount').textContent=state.garage.length;document.getElementById('adminBtn').style.display=state.isAdmin?'inline-flex':'none';updateXP();}
-function updateXP(){const lvl=state.level||1;const need=lvl*100;const cur=(state.xp||0)%need;document.getElementById('xpLevel').textContent='LVL '+lvl;document.getElementById('xpCur').textContent=cur+'/'+need;document.getElementById('xpFill').style.width=(cur/need*100)+'%';}
-function addXP(a){state.xp=(state.xp||0)+a;let need=(state.level||1)*100;while(state.xp>=need){state.xp-=need;state.level=(state.level||1)+1;notify(`🎉 Уровень ${state.level}!`);spawnConfetti();need=state.level*100;}updateXP();}
-function renderTicker(){const items=[];const bots=['Alex_91','TurboKing','BY_Driver','SpeedMax','Garazh_777','MinskRacer'];state.history.slice(-5).forEach(h=>{items.push(`<span class="ticker-item"><b>${state.currentUser}</b> ${h.win?'<span class="w">✓ выиграл</span>':'<span class="l">✗ проиграл</span>'} <b>${h.targetName}</b> (${h.pct.toFixed(1)}%)</span>`);});for(let i=0;i<8;i++){const c=CARS_DB[Math.floor(Math.random()*CARS_DB.length)];const win=Math.random()>.3;const b=bots[Math.floor(Math.random()*bots.length)];items.push(`<span class="ticker-item"><b>${b}</b> ${win?'<span class="w">✓ выиграл</span>':'<span class="l">✗ проиграл</span>'} <b>${c.name}</b></span>`);}document.getElementById('ticker').innerHTML=`<span class="ticker-live">● LIVE</span>`+items.join('');}
-function renderCatalog(){const q=(document.getElementById('catSearch').value||'').toLowerCase();const cat=document.getElementById('catCategory').value;const sort=document.getElementById('catSort').value;let list=CARS_DB.filter(c=>{if(q&&!c.name.toLowerCase().includes(q))return false;if(cat&&c.cat!==cat)return false;return true;});if(sort==='price-asc')list.sort((a,b)=>a.price-b.price);else if(sort==='price-desc')list.sort((a,b)=>b.price-a.price);else list.sort((a,b)=>a.name.localeCompare(b.name));document.getElementById('catalogGrid').innerHTML=list.map(c=>`<div class="card"><div class="card-img" id="catimg-${c.id}">${getCarSVG(c)}</div><div class="card-title">${c.name}</div><div style="font-size:11px;color:var(--muted);margin-bottom:6px">${c.year} · ${c.engine}</div><div class="card-price mono">${c.price.toLocaleString('ru')} BYN</div><button class="btn btn-primary" style="width:100%;margin-top:8px" onclick="buyFromCatalog(${c.id})">Купить</button></div>`).join('');list.forEach(c=>loadImgInto('catimg-'+c.id,c));}
-function renderGarage(){const total=state.garage.reduce((s,c)=>s+calcCarPrice(c),0);document.getElementById('garageStats').innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px"><div><span style="color:var(--muted)">Машин:</span> <b class="mono" style="color:var(--cyan);font-size:20px">${state.garage.length}</b></div><div><span style="color:var(--muted)">Стоимость:</span> <b class="mono" style="color:var(--gold);font-size:20px">${total.toLocaleString('ru')} BYN</b></div></div>`;const grid=document.getElementById('garageGrid');if(!state.garage.length){grid.innerHTML=`<div class="empty" style="grid-column:1/-1">🚗 Гараж пуст. Пора на СТО Кликер!</div>`;return;}grid.innerHTML=state.garage.map((c,i)=>{const cond=CONDITIONS.find(x=>x.id===c.condition);const stage=c.stage||0;return `<div class="card">${c.plate?`<div class="badge badge-by">BY ${c.plate}</div>`:''}<div class="card-img" id="grimg-${i}">${getCarSVG(c,300,140,false)}</div><div class="card-title">${c.name}</div><div style="display:flex;gap:4px;flex-wrap:wrap;margin:6px 0"><span class="badge badge-cond">${cond.emoji} ${cond.name}</span>${stage>0?`<span class="badge badge-stage">Stage ${stage}</span>`:''}${c.boss?'<span class="badge badge-boss">🔥 БОСС</span>':''}</div><div class="card-price mono">${calcCarPrice(c).toLocaleString('ru')} BYN</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px"><button class="btn btn-cyan" onclick="openInspection(${i})">🔍 Осмотр</button><button class="btn btn-gold" onclick="openTuning(${i})">🔧 Тюнинг</button><button class="btn btn-green" onclick="sellCar(${i})">💰 Продать</button><button class="btn btn-red" onclick="stakeFromGarage(${i})">⚡ Ставка</button></div></div>`;}).join('');state.garage.forEach((c,i)=>loadImgInto('grimg-'+i,c));}
-function renderHistory(){const list=document.getElementById('historyList');if(!state.history.length){list.innerHTML=`<div class="empty">📜 История пуста</div>`;return;}list.innerHTML=state.history.slice().reverse().map(h=>`<div class="history-item ${h.win?'win':'loss'}"><div><div style="font-weight:700">${h.win?'✓ ПОБЕДА':'✗ ПРОИГРЫШ'}</div><div><small>${h.stakeCars.map(s=>s.name).join(', ')} ➔ ${h.targetName}</small></div><div><small>Шанс: <b class="mono">${h.pct.toFixed(2)}%</b> · Ставка: <b class="mono">${h.stake} BYN</b></small></div></div><div class="mono" style="color:${h.win?'var(--green)':'var(--red)'};font-size:14px">${h.win?'+':''}${(h.win?(h.targetPrice-h.stake):-h.stake).toLocaleString('ru')} BYN</div></div>`).join('');}
-function renderCases(){document.getElementById('casesGrid').innerHTML=CASES.map(c=>`<div class="case-card" onclick="buyCase(${c.id})"><span class="case-icon">${c.icon}</span><div class="case-name">${c.name}</div><div class="case-price mono">${c.price.toLocaleString('ru')} BYN</div><div class="case-contents">Авто #${c.min} - #${c.max}</div></div>`).join('');}
-function renderProfile(){const total=state.garage.reduce((s,c)=>s+calcCarPrice(c),0);const wins=state.history.filter(h=>h.win).length;const losses=state.history.filter(h=>!h.win).length;const mod=state.chanceMod||1;document.getElementById('profileInfo').innerHTML=`<div class="stat-grid"><div class="stat-card"><div class="lbl">Пользователь</div><div class="val" style="font-size:18px">${state.currentUser}</div></div><div class="stat-card"><div class="lbl">Уровень</div><div class="val" style="color:var(--cyan)">LVL ${state.level||1}</div></div><div class="stat-card"><div class="lbl">Баланс</div><div class="val" style="color:var(--gold)">${state.balance.toLocaleString('ru')}</div></div><div class="stat-card"><div class="lbl">Машин</div><div class="val" style="color:var(--cyan)">${state.garage.length}</div></div><div class="stat-card"><div class="lbl">Капитал</div><div class="val" style="color:var(--gold)">${(state.balance+total).toLocaleString('ru')}</div></div><div class="stat-card"><div class="lbl">Побед</div><div class="val" style="color:var(--green)">${wins}</div></div><div class="stat-card"><div class="lbl">Проигрышей</div><div class="val" style="color:var(--red)">${losses}</div></div><div class="stat-card"><div class="lbl">Винрейт</div><div class="val" style="color:var(--cyan)">${wins+losses>0?((wins/(wins+losses))*100).toFixed(1):0}%</div></div><div class="stat-card"><div class="lbl">Модификатор удачи</div><div class="val" style="color:${mod>1?'var(--green)':mod<1?'var(--red)':'var(--cyan)'}">×${mod}</div></div></div><h3 style="margin-top:20px">🏆 Достижения (${(state.achievements||[]).length}/${ACHIEVEMENTS.length})</h3><div class="stat-grid" style="margin-top:10px">${ACHIEVEMENTS.map(a=>{const u=(state.achievements||[]).includes(a.id);return `<div class="stat-card" style="opacity:${u?1:.4}"><div style="font-size:32px">${a.icon}</div><div style="font-weight:700;margin-top:6px">${a.name}</div><div style="font-size:11px;color:${u?'var(--green)':'var(--muted)'}">${u?'✓ Получено':'Заблокировано'}</div></div>`;}).join('')}</div>`;}
-function renderPlates(){const sel=document.getElementById('plateCar');sel.innerHTML=state.garage.length?state.garage.map((c,i)=>`<option value="${i}">${c.name}${c.plate?' (с номером)':''}</option>`).join(''):'<option>Нет машин</option>';updatePlateUI();}
-function updatePlateUI(){const idx=parseInt(document.getElementById('plateCar').value);const car=state.garage[idx];const sec=document.getElementById('platesSection');if(!car){sec.innerHTML='<div class="empty">Выберите машину</div>';return;}sec.innerHTML=PLATES.map(p=>`<div class="plate ${car.plate===p.id?'active':''}" onclick="buyPlate(${idx},'${p.id}',${p.mult})">${p.id}<div class="by">BY</div><div style="font-size:10px;color:#000;margin-top:6px;font-weight:400">3 500 BYN · +${Math.round(p.mult*100)}%</div></div>`).join('');}
-function calcCarPrice(car){const cm=CONDITIONS.find(c=>c.id===car.condition)?.mult||1;const sm=1+(car.stage||0)*.20;const pm=1+(car.plateMult||0);return Math.round(car.price*cm*sm*pm);}
-function calcStakePrice(cars){return cars.reduce((s,c)=>s+calcCarPrice(c),0);}
-function calcChance(total,targetPrice){let K=.85;if(state.insurance)K*=.9;let pct=Math.min(95,(total/targetPrice)*100*K);pct=Math.min(95,pct*(state.chanceMod||1));return pct;}
-function switchTab(t){playUI('tab');document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===t));document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id==='sec-'+t));if(t==='catalog')renderCatalog();if(t==='garage')renderGarage();if(t==='history')renderHistory();if(t==='profile')renderProfile();if(t==='plates')renderPlates();if(t==='cases')renderCases();}
-function toggleSound(){state.soundOn=!state.soundOn;document.getElementById('soundBtn').textContent=state.soundOn?'🔊':'🔇';save();}
-function buyFromCatalog(id){const car=CARS_DB.find(c=>c.id===id);if(state.balance<car.price){notify('❌ Недостаточно BYN','error');return;}state.balance-=car.price;state.garage.push({id:car.id,name:car.name,price:car.price,wiki:car.wiki,cat:car.cat,engine:car.engine,cyl:car.cyl,year:car.year,boss:car.boss,condition:3,stage:0});addXP(5);notify(`✓ Куплено: ${car.name}`);save();renderHeader();checkAchievements();}
-function sellCar(idx){const c=state.garage[idx];const price=calcCarPrice(c);if(!confirm(`Продать ${c.name} за ${price.toLocaleString('ru')} BYN?`))return;state.balance+=price;state.garage.splice(idx,1);addXP(2);notify(`💰 Продано за ${price.toLocaleString('ru')} BYN`);save();renderHeader();renderGarage();updateStakeDisplay();}
-function stakeFromGarage(idx){const c=state.garage[idx];if(state.stakeCars.length>=4){notify('⚠️ Максимум 4 авто','warn');return;}if(state.stakeCars.find(s=>s.garageIdx===idx)){notify('⚠️ Уже в ставке','warn');return;}state.stakeCars.push({...c,garageIdx:idx});updateStakeDisplay();switchTab('upgrade');}
-let pickerMode='stake',pickerSelected=[];
-function openStakePicker(){pickerMode='stake';pickerSelected=state.stakeCars.map(s=>s.garageIdx);document.getElementById('pickerTitle').textContent='Выберите в ставку (макс 4)';renderPickerList();openModal('pickerModal');playUI('modal');}
-function openTargetPicker(){pickerMode='target';pickerSelected=state.target?[state.target.id]:[];document.getElementById('pickerTitle').textContent='Выберите цель';renderPickerList();openModal('pickerModal');playUI('modal');}
-function renderPickerList(){const q=(document.getElementById('pickerSearch').value||'').toLowerCase();const list=pickerMode==='stake'?state.garage.filter(c=>c.name.toLowerCase().includes(q)):CARS_DB.filter(c=>c.name.toLowerCase().includes(q));document.getElementById('pickerList').innerHTML=list.map((c,i)=>{const sel=pickerMode==='stake'?pickerSelected.includes(i):pickerSelected.includes(c.id);const price=pickerMode==='stake'?calcCarPrice(c):c.price;return `<div class="car-option ${sel?'selected':''}" onclick="togglePickerItem(${pickerMode==='stake'?i:c.id})"><div id="pkimg-${c.id}" style="width:50px;height:35px;background:#1e293b;border-radius:6px;flex-shrink:0">${getCarSVG(c,50,35,false)}</div><div class="car-option-info"><b>${c.name}</b><small>${price.toLocaleString('ru')} BYN · ${c.year||''}</small></div></div>`;}).join('')||'<div class="empty">Ничего не найдено</div>';list.forEach(c=>loadImgInto('pkimg-'+c.id,c,50,35,false));}
-function togglePickerItem(id){if(pickerMode==='stake'){const idx=pickerSelected.indexOf(id);if(idx>=0)pickerSelected.splice(idx,1);else{if(pickerSelected.length>=4){notify('⚠️ Максимум 4','warn');return;}pickerSelected.push(id);}}else{pickerSelected=[id];}renderPickerList();}
-function confirmPicker(){if(pickerMode==='stake'){state.stakeCars=pickerSelected.map(idx=>({...state.garage[idx],garageIdx:idx}));}else{state.target={...CARS_DB.find(c=>c.id===pickerSelected[0])};}updateStakeDisplay();closeModal('pickerModal');}
-function updateStakeDisplay(){const el=document.getElementById('stakeCars');if(!state.stakeCars.length){el.innerHTML='<span class="empty" style="padding:20px">Выберите машины</span>';}else{el.innerHTML=state.stakeCars.map((c,i)=>`<div class="stake-chip"><div id="chipimg-${i}" style="width:30px;height:20px;background:#1e293b;border-radius:4px">${getCarSVG(c,30,20,false)}</div><span>${c.name}</span><span class="x" onclick="removeStake(${i})">×</span></div>`).join('');state.stakeCars.forEach((c,i)=>loadImgInto('chipimg-'+i,c,30,20,false));}const total=calcStakePrice(state.stakeCars);document.getElementById('totalStake').textContent=total.toLocaleString('ru')+' BYN';document.getElementById('stakeImg').innerHTML=state.stakeCars.length?`<div style="font-size:11px;padding:2px">${state.stakeCars.length} авто</div>`:'<span style="font-size:10px;color:var(--muted)">Ставка</span>';if(state.target){loadImgInto('targetImg',state.target,60,40,false);}else{document.getElementById('targetImg').innerHTML='<span style="font-size:10px;color:var(--muted)">Цель</span>';}updateWheel();}
-function removeStake(i){state.stakeCars.splice(i,1);updateStakeDisplay();}
-function quickTarget(m){if(!state.stakeCars.length){notify('⚠️ Сначала выберите ставку','warn');return;}const total=calcStakePrice(state.stakeCars);const tp=m==='auto'?total*3:total*m;const cand=CARS_DB.filter(c=>c.price>=tp*.9&&c.price<=tp*1.1);if(!cand.length){notify('⚠️ Нет подходящих целей','warn');return;}state.target={...cand[Math.floor(Math.random()*cand.length)]};updateStakeDisplay();}
-function toggleInsurance(){state.insurance=!state.insurance;document.getElementById('insuranceSw').classList.toggle('on',state.insurance);updateWheel();save();}
-function toggleInvert(){state.invertSector=!state.invertSector;document.getElementById('invertSw').classList.toggle('on',state.invertSector);updateWheel();save();}
-function updateWheel(){const total=calcStakePrice(state.stakeCars);const tp=state.target?.price||0;const pct=tp>0&&total>0?calcChance(total,tp):0;document.getElementById('pctDisplay').textContent=pct.toFixed(2)+'%';document.getElementById('pctDisplay').classList.toggle('loss',pct<20);const deg=pct*3.6,sA=-90,eA=sA+deg,cx=100,cy=100,r=85;function arc(a1,a2){const r1=a1*Math.PI/180,r2=a2*Math.PI/180;const x1=cx+r*Math.cos(r1),y1=cy+r*Math.sin(r1);const x2=cx+r*Math.cos(r2),y2=cy+r*Math.sin(r2);const lg=(a2-a1)>180?1:0;return `M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${lg} 1 ${x2},${y2} Z`;}const w=document.getElementById('winArc');w.setAttribute('d',arc(sA,eA));w.setAttribute('fill','var(--green)');w.setAttribute('stroke','none');w.setAttribute('opacity','0.5');const l=document.getElementById('loseArc');l.setAttribute('d',arc(eA,sA+360));l.setAttribute('fill','var(--red)');l.setAttribute('opacity','0.15');l.setAttribute('stroke','none');const mod=state.chanceMod||1;document.getElementById('wheelStatus').textContent=(state.target?`Цель: ${state.target.name} (${state.target.price.toLocaleString('ru')} BYN)`:'Выберите цель')+(mod!==1?` · 🎲 модификатор ×${mod}`:'');}
-function doUpgrade(){if(!state.stakeCars.length){notify('❌ Выберите ставку','error');return;}if(!state.target){notify('❌ Выберите цель','error');return;}if(state.target.boss){notify('🔥 БОСС-авто нельзя апгрейдить','warn');return;}const total=calcStakePrice(state.stakeCars);const pct=calcChance(total,state.target.price);const ra=new Uint32Array(1);crypto.getRandomValues(ra);const rand=ra[0]/0xFFFFFFFF;const win=state.godMode||(rand*100<pct);const stakeSnap=state.stakeCars.map(c=>({...c}));const targetSnap={...state.target};const gi=state.stakeCars.map(c=>c.garageIdx);gi.slice().sort((a,b)=>b-a).forEach(i=>state.garage.splice(i,1));animateWheel(pct,win,()=>{if(win){state.garage.push({id:targetSnap.id,name:targetSnap.name,price:targetSnap.price,wiki:targetSnap.wiki,cat:targetSnap.cat,engine:targetSnap.engine,cyl:targetSnap.cyl,year:targetSnap.year,boss:targetSnap.boss,condition:3,stage:0});notify(`🎉 ПОБЕДА! Получено: ${targetSnap.name}`);playWin();spawnConfetti();addXP(Math.floor(Math.log10(targetSnap.price+1)*20));}else{let refund=0;if(state.insurance){refund=Math.floor(total*.25);state.balance+=refund;}notify(`💥 Проигрыш!${refund?' Возврат '+refund.toLocaleString('ru')+' BYN':''}`,'error');playLoss();addXP(3);}state.history.push({win,targetName:targetSnap.name,targetPrice:targetSnap.price,stake:total,pct,stakeCars:stakeSnap,date:Date.now()});state.stakeCars=[];state.target=null;save();renderHeader();updateStakeDisplay();renderTicker();checkAchievements();});}
-function animateWheel(pct,win,cb){const arrow=document.getElementById('arrow');const ws=pct*3.6;let fd;if(win){const mn=state.invertSector?(360-ws/2+5):(-ws/2+5);const mx=state.invertSector?(360-5):(ws/2-5);fd=mn+Math.random()*(mx-mn);}else{const mn=state.invertSector?(ws/2+5):(-ws/2+5+ws);const mx=state.invertSector?(ws-5):(360-ws/2-5);fd=mn+Math.random()*(mx-mn);}const total=5*360+fd;arrow.style.transition='transform 3.5s cubic-bezier(0.25,0.1,0.25,1)';arrow.style.transform=`rotate(${total}deg)`;setTimeout(()=>{arrow.style.transition='none';arrow.style.transform=`rotate(${fd}deg)`;setTimeout(()=>{arrow.style.transition='transform 3.5s cubic-bezier(0.25,0.1,0.25,1)';},50);cb();},3550);}
-let stoTarget=1900;
-function stoClick(){playClick();state.balance+=10;addXP(1);renderHeader();updateStoUI();save();}
-function updateStoUI(){const pct=Math.min(100,(state.balance/stoTarget)*100);document.getElementById('stoBar').style.width=pct+'%';document.getElementById('stoStatus').textContent=`${state.balance.toLocaleString('ru')} / ${stoTarget.toLocaleString('ru')} BYN`;document.querySelectorAll('.sto-car').forEach((el,i)=>{el.classList.toggle('affordable',state.balance>=(i===0?1900:2200));});}
-function buyStoCar(t){const price=t===1?1900:2200;const name=t===1?'ЗАЗ-968М':'ВАЗ-2101';const id=t===1?1:2;if(state.balance<price){notify('❌ Недостаточно BYN','error');return;}state.balance-=price;state.garage.push({id,name,price,wiki:CARS_DB.find(c=>c.id===id).wiki,cat:'budget',engine:t===1?'V4_air':'I4_soviet',cyl:4,year:1979,condition:3,stage:0});notify(`🎉 Куплено: ${name}`);playWin();addXP(10);save();renderHeader();updateStoUI();checkAchievements();}
-function buyCase(id){const c=CASES.find(x=>x.id===id);if(state.balance<c.price){notify('❌ Недостаточно BYN','error');return;}state.balance-=c.price;const cand=CARS_DB.filter(car=>car.id>=c.min&&car.id<=c.max&&!car.boss);if(!cand.length){notify('⚠️ Пустой контейнер','warn');return;}const won=cand[Math.floor(Math.random()*cand.length)];openCaseAnimation(won);save();renderHeader();}
-function openCaseAnimation(won){const track=document.getElementById('rouletteTrack');const items=[];for(let i=0;i<50;i++){items.push(Math.random()<.1?won:CARS_DB[Math.floor(Math.random()*CARS_DB.length)]);}items[45]=won;track.innerHTML=items.map((c,i)=>`<div class="case-roulette-item"><div id="rlimg-${i}" style="width:100%;height:100px;background:#1e293b;border-radius:6px">${getCarSVG(c,150,100,false)}</div><div style="font-size:10px;margin-top:4px;text-align:center">${c.name}</div></div>`).join('');items.forEach((c,i)=>loadImgInto('rlimg-'+i,c,150,100,false));document.getElementById('caseResult').innerHTML='';document.getElementById('caseOpening').classList.add('active');track.style.transition='none';track.style.transform='translateX(0)';setTimeout(()=>{const el=track.children[45];const box=track.parentElement;const off=el.offsetLeft+el.offsetWidth/2-box.clientWidth/2;const jit=(Math.random()-.5)*el.offsetWidth*.4;track.style.transition='transform 4s cubic-bezier(0.25,0.1,0.25,1)';track.style.transform=`translateX(${-(off+jit)}px)`;},80);setTimeout(()=>{state.garage.push({id:won.id,name:won.name,price:won.price,wiki:won.wiki,cat:won.cat,engine:won.engine,cyl:won.cyl,year:won.year,boss:won.boss,condition:3,stage:0});document.getElementById('caseResult').innerHTML=`<div class="win-popup">🎉 ВЫИГРАНО: ${won.name}<br><span style="font-size:18px;color:var(--gold)">${won.price.toLocaleString('ru')} BYN</span></div>`;playWin();spawnConfetti();addXP(15);save();renderHeader();checkAchievements();setTimeout(()=>{document.getElementById('caseOpening').classList.remove('active');},3000);},4200);}
-function openInspection(idx){const c=state.garage[idx];const cond=CONDITIONS.find(x=>x.id===c.condition);document.getElementById('inspTitle').textContent=`🔍 ${c.name}`;document.getElementById('inspContent').innerHTML=`<div class="inspection"><div><div class="insp-img" id="inspImg">${getCarSVG(c,400,300,false)}<div class="headlights" id="headlights"></div></div><div class="insp-controls"><button class="btn btn-gold" onclick="toggleHeadlights()">🔦 Фары</button><button class="btn btn-red" onclick="playAlarm()">🚨 Сигналка</button><button class="btn btn-green" style="grid-column:1/-1" onclick="playEngine('${c.engine}')">🔑 Завести / Выхлоп</button></div></div><div><div class="garage-stat-row"><span>Год:</span><b>${c.year}</b></div><div class="garage-stat-row"><span>Двигатель:</span><b>${c.engine}</b></div><div class="garage-stat-row"><span>Цилиндров:</span><b>${c.cyl||'-'}</b></div><div class="garage-stat-row"><span>Состояние:</span><b style="color:var(--cyan)">${cond.emoji} ${cond.name}</b></div><div class="garage-stat-row"><span>Stage:</span><b style="color:var(--orange)">${c.stage||0}</b></div><div class="garage-stat-row"><span>Номер:</span><b style="color:var(--red)">${c.plate||'нет'}</b></div><div class="garage-stat-row"><span>База:</span><b class="mono" style="color:var(--gold)">${c.price.toLocaleString('ru')}</b></div><div class="garage-stat-row"><span>Текущая:</span><b class="mono" style="color:var(--gold);font-size:18px">${calcCarPrice(c).toLocaleString('ru')} BYN</b></div></div></div>`;loadImgInto('inspImg',c,400,300,false);openModal('inspModal');playUI('modal');}
-function toggleHeadlights(){document.getElementById('headlights').classList.toggle('on');}
-function openTuning(idx){const c=state.garage[idx];const cond=c.condition;const stage=c.stage||0;const cp={2:2000,3:5000,4:15000,5:50000};const sp={1:Math.floor(c.price*.15),2:Math.floor(c.price*.25),3:Math.floor(c.price*.4)};document.getElementById('tuneContent').innerHTML=`<h3 style="color:var(--cyan);margin:12px 0">🚗 ${c.name}</h3><h4 style="margin:14px 0 8px">Кузов:</h4><div style="display:grid;gap:6px">${[2,3,4,5].map(cid=>{const cn=CONDITIONS.find(x=>x.id===cid);if(cid<=cond)return `<div class="car-option" style="opacity:.5;cursor:not-allowed"><span>✓ ${cn.emoji} ${cn.name}</span></div>`;return `<div class="car-option" onclick="tuneCondition(${idx},${cid},${cp[cid]})"><div style="flex:1"><b>${cn.emoji} ${cn.name}</b><br><small>×${cn.mult}</small></div><b class="mono" style="color:var(--gold)">${cp[cid].toLocaleString('ru')} BYN</b></div>`;}).join('')}</div><h4 style="margin:14px 0 8px">🔥 ДВС:</h4><div style="display:grid;gap:6px">${[1,2,3].map(s=>{if(s<=stage)return `<div class="car-option" style="opacity:.5;cursor:not-allowed"><span>✓ Stage ${s}</span></div>`;return `<div class="car-option" onclick="tuneStage(${idx},${s},${sp[s]})"><div style="flex:1"><b>Stage ${s}</b><br><small>+${s*20}%</small></div><b class="mono" style="color:var(--gold)">${sp[s].toLocaleString('ru')} BYN</b></div>`;}).join('')}</div>`;openModal('tuneModal');playUI('modal');}
-function tuneCondition(i,nc,p){if(state.balance<p){notify('❌ Недостаточно BYN','error');return;}state.balance-=p;state.garage[i].condition=nc;notify('✓ Состояние улучшено');save();renderHeader();renderGarage();closeModal('tuneModal');checkAchievements();}
-function tuneStage(i,ns,p){if(state.balance<p){notify('❌ Недостаточно BYN','error');return;}state.balance-=p;state.garage[i].stage=ns;addXP(5);notify(`✓ Stage ${ns}`);save();renderHeader();renderGarage();closeModal('tuneModal');checkAchievements();}
-function buyPlate(idx,pid,m){const c=state.garage[idx];if(!c){notify('⚠️ Выберите машину','warn');return;}if(c.plate){notify('⚠️ Уже есть номер','warn');return;}if(state.balance<3500){notify('❌ Нужно 3 500 BYN','error');return;}state.balance-=3500;c.plate=pid;c.plateMult=m;addXP(8);notify(`🇧 Номер ${pid}!`);save();renderHeader();updatePlateUI();renderGarage();checkAchievements();}
-function checkAchievements(){if(!state.achievements)state.achievements=[];ACHIEVEMENTS.forEach(a=>{if(!state.achievements.includes(a.id)&&a.check(state)){state.achievements.push(a.id);showAchievement(a);addXP(25);}});}
-function showAchievement(a){const t=document.getElementById('achievementToast');t.innerHTML=`<span style="font-size:32px">${a.icon}</span><div><div style="font-size:11px;opacity:.7">ДОСТИЖЕНИЕ</div><div>${a.name}</div></div>`;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4000);}
-function openModal(id){document.getElementById(id).classList.add('active');}
-function closeModal(id){document.getElementById(id).classList.remove('active');}
-function notify(msg,type='success'){const n=document.createElement('div');n.className='notification '+type;n.textContent=msg;document.body.appendChild(n);setTimeout(()=>{n.style.animation='slideIn .3s reverse';setTimeout(()=>n.remove(),300);},2500);}
+//`;}}
 
-// ===== AUTH =====
-document.querySelectorAll('.auth-tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.auth-tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.auth-form').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById(t.dataset.mode==='reg'?'formReg':'formLog').classList.add('active');playUI('click');});});
-function updateCloudStatus(){const el=document.getElementById('cloudStatus');if(cloudOk){el.className='cloud-status cloud-ok';el.innerHTML='☁️ Подключено к облаку';}else{el.className='cloud-status cloud-err';el.innerHTML='⚠️ Нет связи с облаком — локальный режим';}}
-function afterLogin(){document.getElementById('authOverlay').classList.add('hidden');renderHeader();renderTicker();renderCases();updateStoUI();updateStakeDisplay();}
+// ================= РЕНД ================= РЕНДЕР =================
+functionЕР =================
+function renderHeader(){document renderHeader(){document.getElementById('balance')..getElementById('balance').textContent=state.balancetextContent=state.balance.toLocaleString('ru.toLocaleString('ru');document.getElementById('');document.getElementById('carsCount').textContentcarsCount').textContent=state.gar=state.garage.length;documentage.length;document.getElementById('adminBtn.getElementById('adminBtn').style.display=').style.display=state.isAdmin?'inlinestate.isAdmin?'inline-flex':'none-flex':'none';updateXP();';updateXP();}
+function update}
+function updateXP(){constXP(){const lvl=state.level lvl=state.level||1;const||1;const need=l need=lvl*10vl*100;const cur0;const cur=(state.xp=(state.xp||0)%need||0)%need;document.getElementById(';document.getElementById('xpLevel').textContentxpLevel').textContent='LVL '+='LVL '+lvl;document.getElementByIdlvl;document.getElementById('xpCur').('xpCur').textContent=cur+'/'+textContent=cur+'/'+need;documentneed;document.getElementById('xpFill.getElementById('xpFill').style.width=(').style.width=(cur/need*cur/need*100)+'100)+'%';}%';}
+function addXP
+function addXP(a){state.x(a){state.xp=(state.xp=(state.xp||0)+p||0)+a;let needa;let need=(state.level||=(state.level||1)*101)*100;while(state0;while(state.xp>=need.xp>=need){state.xp){state.xp-=need;state-=need;state.level=(state.level.level=(state.level||1)+1||1)+1;notify(`🎉 Уровень ${;notify(`🎉 Уровень ${state.level}!state.level}!`);spawnConf`);spawnConfetti();need=etti();need=state.level*1state.level*100;}update00;}updateXP();}
+XP();}
+function renderTicker(){function renderTicker(){const items=[];const items=[];const bots=['Alexconst bots=['Alex_91','TurboKing','_91','TurboKing','BY_Driver','BY_Driver','SpeedMax','GarSpeedMax','Garazh_7azh_777','M77','MinskRacer'];inskRacer'];state.history.slice(-state.history.slice(-5).forEach(h5).forEach(h=>{items.push=>{items.push(`<span class="(`<span class="ticker-item"><bticker-item"><b>${state.currentUser}</>${state.currentUser}</b> ${hb> ${h.win?'<span.win?'<span class="w"> class="w">✓ выиграл✓ выиграл</span>':'</span>':'<span class="<span class="l">✗l">✗ проиграл</ проиграл</span>'} <span>'} <b>${h.targetb>${h.targetName}</b>Name}</b> (${h.pct (${h.pct.toFixed(1)}.toFixed(1)}%)</span>`%)</span>`);});for);});for(let i=0(let i=0;i<8;i;i<8;i++){const c=C++){const c=CARS_DB[Math.floorARS_DB[Math.floor(Math.random()*C(Math.random()*CARS_DB.length)];ARS_DB.length)];const win=Math.randomconst win=Math.random()>.3;()>.3;const b=botsconst b=bots[Math.floor(Math.random[Math.floor(Math.random()*bots.length)];()*bots.length)];items.push(`<spanitems.push(`<span class="ticker-item class="ticker-item"><b>${b"><b>${b}</b> ${}</b> ${win?'<spanwin?'<span class="w"> class="w">✓ выиграл✓ выиграл</span>':'</span>':'<span class="<span class="l">✗ проигралl">✗ проиграл</span>'</span>'} <b>${} <b>${c.name}</bc.name}</b></span>`);}></span>`);}document.getElementById('tickerdocument.getElementById('ticker').innerHTML=`<').innerHTML=`<span class="tickerspan class="ticker-live">● LIVE-live">● LIVE</span>`+</span>`+items.join('');items.join('');}
+function render}
+function renderCatalog(){constCatalog(){const q=(document.getElementById q=(document.getElementById('catSearch').('catSearch').value||'').value||'').toLowerCase();const cattoLowerCase();const cat=document.getElementById('cat=document.getElementById('catCategory').value;Category').value;const sort=document.getElementByIdconst sort=document.getElementById('catSort').('catSort').value;letvalue;let list=CARS_DB list=CARS_DB.filter(c=>{.filter(c=>{if(q&&!cif(q&&!c.name.toLowerCase().includes.name.toLowerCase().includes(q))return false(q))return false;if(cat&&c;if(cat&&c.cat!==cat)return.cat!==cat)return false;return true false;return true;});if(sort;});if(sort==='price-asc==='price-asc')list.sort((')list.sort((a,b)=>aa,b)=>a.price-b.price);.price-b.price);else if(sort==='else if(sort==='price-desc')listprice-desc')list.sort((a,b.sort((a,b)=>b.price-a)=>b.price-a.price);else list.price);else list.sort((a,b.sort((a,b)=>a.name.locale)=>a.name.localeCompare(b.name));Compare(b.name));document.getElementById('catalogdocument.getElementById('catalogGrid').innerHTML=listGrid').innerHTML=list.map(c=>`.map(c=>`<div class="<div class="card"><div classcard"><div class="card-img"="card-img" id="catimg id="catimg-${c.id}">${getCarSVG-${c.id}">${getCarSVG(c)}</div><(c)}</div><div class="carddiv class="card-title">${c.name-title">${c.name}</div><div}</div><div style="font-size style="font-size:11px:11px;color:var(--;color:var(--muted);marginmuted);margin-bottom:6px-bottom:6px">${c.year}">${c.year} · ${c.engine · ${c.engine}</div><div}</div><div class="card-price class="card-price mono">${c.price mono">${c.price.toLocaleString('ru.toLocaleString('ru')} BYN</')} BYN</div><button classdiv><button class="btn btn-primary="btn btn-primary" style="width" style="width:100:100%;margin-top:%;margin-top:8px" onclick8px" onclick="buyFromCatalog="buyFromCatalog(${c.id})(${c.id})">Купить</button">Купить</button></div>`></div>`).join('');).join('');list.forEach(c=>list.forEach(c=>loadImgInto('loadImgInto('catimg-'+ccatimg-'+c.id,c));.id,c));}
+function render}
+function renderGarage(){constGarage(){const total=state.g total=state.garage.reduce((arage.reduce((s,c)=>ss,c)=>s+calcCarPrice+calcCarPrice(c),0);(c),0);document.getElementById('gardocument.getElementById('garageStats').innerHTMLageStats').innerHTML=`<div style=`<div style="display:grid="display:grid;grid-template-columns;grid-template-columns:repeat(auto-fit:repeat(auto-fit,minmax(1,minmax(180px,80px,1fr));gap1fr));gap:14px:14px"><div><span"><div><span style="color: style="color:var(--mutedvar(--muted)">Машин)">Машин:</span>:</span> <b class=" <b class="mono" style="mono" style="color:var(--color:var(--cyan);font-sizecyan);font-size:20px:20px">${state.gar">${state.garage.length}</bage.length}</b></div><></div><div><spandiv><span style="color: style="color:var(--mutedvar(--muted)">Стоимость:</)">Стоимость:</span> <bspan> <b class="mono" class="mono" style style="color:var="color:var(--gold);font(--gold);font-size:20-size:20px">${total.toLocalepx">${total.toLocaleString('ru')}String('ru')} BYN</b BYN</b></div></div></div></div>`;const>`;const grid=document.getElementById(' grid=document.getElementById('garageGrid');garageGrid');if(!state.gif(!state.garage.length){arage.length){grid.innerHTML=`<grid.innerHTML=`<div class="emptydiv class="empty" style="grid" style="grid-column:1/--column:1/-1">🚗 Г1">🚗 Гараж пуст.араж пуст. Пора на СТО Пора на СТО Кликер!</ Кликер!</div>`;returndiv>`;return;}grid;}grid.innerHTML=state.g.innerHTML=state.garage.map((arage.map((c,i)=>{c,i)=>{const cond=CONDITIONconst cond=CONDITIONS.find(x=>S.find(x=>x.id===cx.id===c.condition);const stage.condition);const stage=c.stage=c.stage||0;return||0;return `<div class=" `<div class="card">${c.card">${c.plate?`<plate?`<div class="badgediv class="badge badge-by">BY badge-by">BY ${c.plate ${c.plate}</div>`:''}</div>`:''}<div class="}<div class="card-img" idcard-img" id="grimg-${="grimg-${i}">${geti}">${getCarSVG(c,CarSVG(c,300,300,140,false140,false)}</div><)}</div><div class="carddiv class="card-title">${c.name-title">${c.name}</div><div}</div><div style="display:flex style="display:flex;gap:4;gap:4px;flex-wrappx;flex-wrap:wrap;margin::wrap;margin:6px 06px 0"><span class=""><span class="badge badge-cond">${badge badge-cond">${cond.emoji}cond.emoji} ${cond.name}</ ${cond.name}</span>${stage>span>${stage>0?`<0?`<span class="badgespan class="badge badge-stage">Stage badge-stage">Stage ${stage}</span ${stage}</span>`:''}${c>`:''}${c.boss?'<.boss?'<span class="badgespan class="badge badge-boss"> badge-boss">🔥 БО🔥 БОСС</span>СС</span>':''}</div><':''}</div><div class="carddiv class="card-price mono">${calc-price mono">${calcCarPrice(c).CarPrice(c).toLocaleString('rutoLocaleString('ru')} BYN</')} BYN</div><div stylediv><div style="display:grid="display:grid;grid-template-columns;grid-template-columns:1fr :1fr 1fr;gap1fr;gap:6px;margin:6px;margin-top:8px-top:8px"><button class=""><button class="btn btn-cyanbtn btn-cyan" onclick="open" onclick="openInspection(${iInspection(${i})">🔍 Осмотр</})">🔍 Осмотр</button><button classbutton><button class="btn btn-g="btn btn-gold" onclick="old" onclick="openTuning(${openTuning(${i})">🔧 Тюнингi})">🔧 Тюнинг</button><button</button><button class="btn btn class="btn btn-green" onclick="-green" onclick="sellCar(${isellCar(${i})">💰})">💰 Продать</button Продать</button><button class="><button class="btn btn-red"btn btn-red" onclick="stake onclick="stakeFromGarage(${FromGarage(${i})">⚡ Ставкаi})">⚡ Ставка</button></div</button></div></div>`;></div>`;}).join('');}).join('');state.garagestate.garage.forEach((c,i.forEach((c,i)=>loadImgInto)=>loadImgInto('grimg-'+('grimg-'+i,ci,c));}
+function));}
+function renderHistory(){const renderHistory(){const list=document.getElementById(' list=document.getElementById('historyList');ifhistoryList');if(!state.history.length(!state.history.length){list.innerHTML=`){list.innerHTML=`<div class="<div class="empty">📜 Историяempty">📜 История пуста</div пуста</div>`;return;}>`;return;}list.innerHTML=statelist.innerHTML=state.history.slice().reverse.history.slice().reverse().map(h=>().map(h=>`<div class`<div class="history-item ${="history-item ${h.win?'winh.win?'win':'loss'}"><':'loss'}"><div><div stylediv><div style="font-weight:="font-weight:700">${700">${h.win?'✓h.win?'✓ ПОБЕДА ПОБЕДА':'✗ ПРО':'✗ ПРОИГРЫШИГРЫШ'}</div><'}</div><div><smalldiv><small>${h.stake>${h.stakeCars.map(s=>Cars.map(s=>s.name).joins.name).join(', ')} ➔ ${h.target(', ')} ➔ ${h.targetName}</small></Name}</small></div><div><div><div><small>Шанsmall>Шанс: <bс: <b class="mono">${ class="mono">${h.pct.toFixedh.pct.toFixed(2)}%</(2)}%</b> · Стаb> · Ставка: <bвка: <b class="mono">${ class="mono">${h.stake}h.stake} BYN</b BYN</b></small></div></small></div></div><></div><div class="monodiv class="mono" style="color" style="color:${h.win?':${h.win?'var(--green)var(--green)':'var(--red':'var(--red)'};font)'};font-size:14-size:14px">${h.winpx">${h.win?'+':''}${?'+':''}${(h.win(h.win?(h.targetPrice?(h.targetPrice-h.st-h.stake):-h.stake):-h.stake).toLocaleStringake).toLocaleString('ru')} BY('ru')} BYN</div></N</div></div>`).joindiv>`).join('');}
+('');}
+function renderCases(){function renderCases(){document.getElementById('casesdocument.getElementById('casesGrid').innerHTML=Grid').innerHTML=CASES.map(cCASES.map(c=>`<div=>`<div class="case-card class="case-card" onclick="buy" onclick="buyCase(${c.idCase(${c.id})"><span})"><span class="case-icon class="case-icon">${c.icon}</">${c.icon}</span><div classspan><div class="case-name">${="case-name">${c.name}</divc.name}</div><div class="><div class="case-price mono">${case-price mono">${c.price.toLocaleStringc.price.toLocaleString('ru')} BY('ru')} BYN</div><N</div><div class="casediv class="case-contents">Авто-contents">Авто #${c.min #${c.min} - #${} - #${c.max}</divc.max}</div></div>`).></div>`).join('');}join('');}
+function renderProfile
+function renderProfile(){const total=(){const total=state.garagestate.garage.reduce((s,c.reduce((s,c)=>s+calc)=>s+calcCarPrice(c),CarPrice(c),0);const wins0);const wins=state.history.filter=state.history.filter(h=>h.win(h=>h.win).length;const).length;const losses=state.history losses=state.history.filter(h=>!.filter(h=>!h.win).lengthh.win).length;const mod=;const mod=state.chanceModstate.chanceMod||1;document||1;document.getElementById('profileInfo.getElementById('profileInfo').innerHTML=`<').innerHTML=`<div class="statdiv class="stat-grid"><div class-grid"><div class="stat-card"><="stat-card"><div class="lbldiv class="lbl">Пользов">Пользователь</div><атель</div><div class="valdiv class="val" style="font" style="font-size:18-size:18px">${state.currentUserpx">${state.currentUser}</div></div}</div></div><div class="><div class="stat-card"><divstat-card"><div class="lbl"> class="lbl">Уровень</divУровень</div><div class="><div class="val" style="val" style="color:var(--color:var(--cyan)">LVLcyan)">LVL ${state.level|| ${state.level||1}</div></1}</div></div><div classdiv><div class="stat-card"><="stat-card"><div class="lbldiv class="lbl">Баланс">Баланс</div><div</div><div class="val" class="val" style="color: style="color:var(--gold)var(--gold)">${state.balance.toLocale">${state.balance.toLocaleString('ru')}</String('ru')}</div></div><div></div><div class="statdiv class="stat-card"><div class-card"><div class="lbl">М="lbl">Машин</divашин</div><div class="><div class="val" style="val" style="color:var(--color:var(--cyan)cyan)">${state.gar">${state.garage.length}</divage.length}</div></div><div></div><div class="stat-card class="stat-card"><div class=""><div class="lbl">Капитlbl">Капитал</div><ал</div><div class="valdiv class="val" style="color" style="color:var(--gold:var(--gold)">${(state)">${(state.balance+total)..balance+total).toLocaleString('rutoLocaleString('ru')}</div></div')}</div></div><div class="><div class="stat-card"><divstat-card"><div class="lbl"> class="lbl">Побед</Побед</div><div classdiv><div class="val" style="val" style="color:var="color:var(--green)">${(--green)">${wins}</div></wins}</div></div><div classdiv><div class="stat-card"><="stat-card"><div class="lbldiv class="lbl">Проигрышей">Проигрышей</div><div</div><div class="val" class="val" style="color: style="color:var(--red)var(--red)">${losses}</">${losses}</div></div><div></div><div class="statdiv class="stat-card"><div class-card"><div class="lbl">В="lbl">Винрейт</инрейт</div><div classdiv><div class="val" style="val" style="color:="color:var(--cyan)var(--cyan)">${wins+loss">${wins+losses>0?es>0?((wins/(wins((wins/(wins+losses))*+losses))*100).100).toFixed(1):toFixed(1):0}%</div0}%</div></div><></div><div class="statdiv class="stat-card"><div class-card"><div class="lbl">М="lbl">Модификатородификатор удачи</div удачи</div><div class="><div class="val" style="val" style="color:${mod>color:${mod>1?'var(--1?'var(--green)':mod<green)':mod<1?'var(--1?'var(--red)':'varred)':'var(--cyan)'}(--cyan)'}">×${mod">×${mod}</div></div}</div></div></div><></div><h3 style="h3 style="margin-top:2margin-top:20px">🏆 Дости0px">🏆 Достижения (${(stateжения (${(state.achievements||.achievements||[]).length}/${[]).length}/${ACHIEVEMENTACHIEVEMENTS.length})</S.length})</h3><divh3><div class="stat-grid class="stat-grid" style="margin" style="margin-top:10-top:10px">${ACHpx">${ACHIEVEMENTSIEVEMENTS.map(a=>{.map(a=>{const u=(stateconst u=(state.achievements||.achievements||[]).includes(a[]).includes(a.id);return `<.id);return `<div class="statdiv class="stat-card" style="-card" style="opacity:${u?opacity:${u?1:.4}1:.4}"><div style=""><div style="font-size:3font-size:32px">${a2px">${a.icon}</div><.icon}</div><div style="fontdiv style="font-weight:70-weight:700;margin-top:0;margin-top:6px">${a6px">${a.name}</div><.name}</div><div style="fontdiv style="font-size:11-size:11px;color:${px;color:${u?'u?'var(--green)var(--green)':'var(--m':'var(--muted)'}">${uted)'}">${u?'u?'✓ Получено':'✓ Получено':'Заблокировано'Заблокировано'}</div></div}</div></div>`;}).>`;}).join('')}</join('')}</div>`;}div>`;}
+function renderPl
+function renderPlates(){const selates(){const sel=document.getElementById('plate=document.getElementById('plateCar');sel.innerHTMLCar');sel.innerHTML=state.gar=state.garage.length?stateage.length?state.garage.map.garage.map((c,i)=>((c,i)=>`<option value`<option value="${i}">${="${i}">${c.name}${c.name}${c.c.plate?' (сplate?' (с номером)':'' номером)':''}</option>`).}</option>`).join(''):'join(''):'<option>Нет<option>Нет машин</option>'; машин</option>';updatePlateUI();updatePlateUI();}
+function update}
+function updatePlateUI(){constPlateUI(){const idx=parseInt(document idx=parseInt(document.getElementById('plateCar.getElementById('plateCar').value);').value);const car=stateconst car=state.garage[idx.garage[idx];const sec];const sec=document.getElementById('plates=document.getElementById('platesSection');if(!Section');if(!car){sec.innerHTMLcar){sec.innerHTML='<div class="='<div class="empty">Выберempty">Выберите машину</divите машину</div>';return;}sec>';return;}sec.innerHTML=PLATES.innerHTML=PLATES.map(p=>.map(p=>`<div class`<div class="plate ${car="plate ${car.plate===p.plate===p.id?'active':''.id?'active':''}" onclick="buy}" onclick="buyPlate(${idx},'Plate(${idx},'${p.id}',${p.id}',${p.mult})${p.mult})">${p.id}<">${p.id}<div class="bydiv class="by">BY</div">BY</div><div style="><div style="font-size:1font-size:10px;color:#0px;color:#000;margin000;margin-top:6px-top:6px;font-weight:4;font-weight:400">300">3 500 500 BYN · BYN · +${Math.round +${Math.round(p.mult*1(p.mult*100)}%</00)}%</div></div>`div></div>`).join('');).join('');}
 
+// =================}
+
+// ================= ЦЕНЫ / ЦЕНЫ / ШАН ШАНС =================
+functionС =================
+function calcCarPrice(car calcCarPrice(car){const cm=){const cm=CONDITIONS.find(cCONDITIONS.find(c=>c.id====>c.id===car.condition)?.multcar.condition)?.mult||1;const||1;const sm=1+( sm=1+(car.stage||0car.stage||0)*.20)*.20;const pm=;const pm=1+(car.1+(car.plateMult||0plateMult||0);return Math.round);return Math.round(car.price*cm(car.price*cm*sm*pm*sm*pm);}
+function calc);}
+function calcStakePrice(cStakePrice(cars){return carsars){return cars.reduce((s,c.reduce((s,c)=>s+calc)=>s+calcCarPrice(c),CarPrice(c),0);}
+function0);}
+function calcChance(total,target calcChance(total,targetPrice){let KPrice){let K=.85;if=.85;if(state.insurance)(state.insurance)K*=.9K*=.9;let pct=Math;let pct=Math.min(95.min(95,(total/targetPrice,(total/targetPrice)*100)*100*K);pct*K);pct=Math.min(9=Math.min(95,pct*(5,pct*(state.chanceModstate.chanceMod||1));return||1));return pct;}
+
+ pct;}
+
+// ================= НА// ================= НАВИГАВИГАЦИЯ / ДЦИЯ / ДЕЙСТВИЯЕЙСТВИЯ =================
+function switch =================
+function switchTab(t){playTab(t){playUI('tab');UI('tab');document.querySelectorAll('.tabdocument.querySelectorAll('.tab').forEach(x=>').forEach(x=>x.classList.toggle('x.classList.toggle('active',x.datasetactive',x.dataset.tab===t));.tab===t));document.querySelectorAll('.sectiondocument.querySelectorAll('.section').forEach(x=>').forEach(x=>x.classList.toggle('x.classList.toggle('active',x.idactive',x.id==='sec-'+t==='sec-'+t));if(t==='));if(t==='catalog')renderCatalogcatalog')renderCatalog();if(t==='();if(t==='garage')rendergarage')renderGarage();ifGarage();if(t==='history')(t==='history')renderHistory();ifrenderHistory();if(t==='profile')(t==='profile')renderProfile();ifrenderProfile();if(t==='plates')(t==='plates')renderPlates();renderPlates();if(t==='casesif(t==='cases')renderCases();')renderCases();}
+function toggle}
+function toggleSound(){state.soundSound(){state.soundOn=!state.soundOn=!state.soundOn;document.getElementByIdOn;document.getElementById('soundBtn').('soundBtn').textContent=state.soundtextContent=state.soundOn?'🔊':'On?'🔊':'';save();}
+function';save();}
+function buyFromCatalog(id buyFromCatalog(id){const car=C){const car=CARS_DB.find(cARS_DB.find(c=>c.id====>c.id===id);if(stateid);if(state.balance<car.price.balance<car.price){notify('❌ Недостаточно){notify('❌ Недостаточно BYN','error BYN','error');return;}state');return;}state.balance-=car.balance-=car.price;state.g.price;state.garage.push({arage.push({id:car.idid:car.id,name:car.name,name:car.name,price:car,price:car.price,wiki:.price,wiki:car.wiki,car.wiki,cat:car.catcat:car.cat,engine:car,engine:car.engine,cyl:.engine,cyl:car.cyl,car.cyl,year:car.yearyear:car.year,boss:car,boss:car.boss,condition.boss,condition:3,stage:3,stage:0});add:0});addXP(5);XP(5);notify(`✓ Кnotify(`✓ Куплено: ${уплено: ${car.name}`);car.name}`);save();renderHeadersave();renderHeader();checkAchievements();checkAchievements();}
+function();}
+function sellCar(idx){ sellCar(idx){const c=stateconst c=state.garage[idx.garage[idx];const price=];const price=calcCarPrice(ccalcCarPrice(c);if(!confirm);if(!confirm(`Продать(`Продать ${c.name} ${c.name} за ${price.toLocale за ${price.toLocaleString('ru')}String('ru')} BYN? BYN?`))return;`))return;state.balance+=pricestate.balance+=price;state.gar;state.garage.splice(idxage.splice(idx,1);add,1);addXP(2);XP(2);notify(`💰notify(`💰 Продано за ${ Продано за ${price.toLocaleString('price.toLocaleString('ru')} BYNru')} BYN`);save();`);save();renderHeader();renderrenderHeader();renderGarage();updateGarage();updateStakeDisplay();StakeDisplay();}
+function stake}
+function stakeFromGarage(idxFromGarage(idx){const c=){const c=state.garagestate.garage[idx];if(state[idx];if(state.stakeCars.length.stakeCars.length>=4){notify>=4){notify('⚠('⚠️ Максимум ️ Максимум 4 авто','warn4 авто','warn');return;}if');return;}if(state.stakeCars(state.stakeCars.find(s=>s.find(s=>s.garageIdx.garageIdx===idx)){notify===idx)){notify('⚠('⚠️ Уже️ Уже в став в ставке','warn');ке','warn');return;}statereturn;}state.stakeCars.push.stakeCars.push({...c,gar({...c,garageIdx:idxageIdx:idx});updateStake});updateStakeDisplay();switchTabDisplay();switchTab('upgrade');}('upgrade');}
+let pickerMode
+let pickerMode='stake',='stake',pickerSelected=[];pickerSelected=[];
+function openSt
+function openStakePicker(){pickerakePicker(){pickerMode='stakeMode='stake';pickerSelected=';pickerSelected=state.stakeCarsstate.stakeCars.map(s=>s.map(s=>s.garageIdx.garageIdx);document.getElementById(');document.getElementById('pickerTitle').textContentpickerTitle').textContent='Выб='Выберите в ставкуерите в ставку (макс  (макс 4)';render4)';renderPickerList();openPickerList();openModal('pickerModalModal('pickerModal');playUI('');playUI('modal');}
+modal');}
+function openTargetPickerfunction openTargetPicker(){pickerMode='(){pickerMode='target';pickerSelectedtarget';pickerSelected=state.target?[=state.target?[state.target.id]:state.target.id]:[];document.getElementById('pickerTitle').[];document.getElementById('pickerTitle').textContent='ВыбtextContent='Выберите цель';ерите цель';renderPickerList();renderPickerList();openModal('pickeropenModal('pickerModal');playUIModal');playUI('modal');}('modal');}
+function renderPicker
+function renderPickerList(){const qList(){const q=(document.getElementById('=(document.getElementById('pickerSearch').valuepickerSearch').value||'').toLowerCase||'').toLowerCase();const list=();const list=pickerMode==='stpickerMode==='stake'?state.gake'?state.garage.filter(carage.filter(c=>c.name.toLowerCase=>c.name.toLowerCase().includes(q)):().includes(q)):CARS_DB.filterCARS_DB.filter(c=>c.name(c=>c.name.toLowerCase().includes(q.toLowerCase().includes(q));document.getElementById('));document.getElementById('pickerList').innerHTMLpickerList').innerHTML=list.map=list.map((c,i)=>((c,i)=>{const sel={const sel=pickerMode==='stpickerMode==='stake'?pickerSelectedake'?pickerSelected.includes(i):picker.includes(i):pickerSelected.includes(c.idSelected.includes(c.id);const price=);const price=pickerMode==='stpickerMode==='stake'?calcCarake'?calcCarPrice(c):cPrice(c):c.price;return.price;return `<div class=" `<div class="car-option ${selcar-option ${sel?'selected':''}"?'selected':''}" onclick="togglePicker onclick="togglePickerItem(${pickerModeItem(${pickerMode==='stake'?==='stake'?i:c.id})i:c.id})"><div id"><div id="pkimg-${="pkimg-${c.id}" stylec.id}" style="width:5="width:50px;height:0px;height:35px;background35px;background:#1e2:#1e293b;border93b;border-radius:6px-radius:6px;flex-shrink;flex-shrink:0">${get:0">${getCarSVG(c,CarSVG(c,50,350,35,false)}</div5,false)}</div><div class="><div class="car-option-info"><car-option-info"><b>${c.nameb>${c.name}</b><small}</b><small>${price.toLocaleString>${price.toLocaleString('ru')} BY('ru')} BYN · ${cN · ${c.year||''}</.year||''}</small></div></small></div></div>`;}).div>`;}).join('')||join('')||'<div class="'<div class="empty">Ничempty">Ничего не найденоего не найдено</div>';list</div>';list.forEach(c=>load.forEach(c=>loadImgInto('pkImgInto('pkimg-'+c.idimg-'+c.id,c,50,c,50,35,false,35,false));}
+function));}
+function togglePickerItem(id togglePickerItem(id){if(picker){if(pickerMode==='stakeMode==='stake'){const idx='){const idx=pickerSelected.indexOf(idpickerSelected.indexOf(id);if(idx>=);if(idx>=0)pickerSelected0)pickerSelected.splice(idx,1.splice(idx,1);else{if);else{if(pickerSelected.length(pickerSelected.length>=4){notify>=4){notify('⚠('⚠️ Максимум ️ Максимум 4','warn');4','warn');return;}pickerSelectedreturn;}pickerSelected.push(id);}}.push(id);}}else{pickerSelectedelse{pickerSelected=[id];}=[id];}renderPickerList();renderPickerList();}
+function confirm}
+function confirmPicker(){if(pPicker(){if(pickerMode==='stickerMode==='stake'){state.stake'){state.stakeCars=pickerakeCars=pickerSelected.map(idx=>Selected.map(idx=>({...state.gar({...state.garage[idx],garage[idx],garageIdx:idxageIdx:idx}));}else}));}else{state.target={{state.target={...CARS_DB...CARS_DB.find(c=>c.find(c=>c.id===pickerSelected.id===pickerSelected[0])};[0])};}updateStake}updateStakeDisplay();closeModalDisplay();closeModal('pickerModal');('pickerModal');}
+function update}
+function updateStakeDisplay(){StakeDisplay(){const el=document.getElementByIdconst el=document.getElementById('stakeCars('stakeCars');if(!state');if(!state.stakeCars.length.stakeCars.length){el.innerHTML='<){el.innerHTML='<span class="emptyspan class="empty" style="padding" style="padding:20px:20px">Выберите">Выберите машины</span>' машины</span>';}else{el;}else{el.innerHTML=state.st.innerHTML=state.stakeCars.map((akeCars.map((c,i)=>`c,i)=>`<div class="<div class="stake-chipstake-chip"><div id=""><div id="chipimg-${ichipimg-${i}" style="width}" style="width:30px:30px;height:20;height:20px;background:#1px;background:#1e293e293b;border-radius:b;border-radius:4px">${get4px">${getCarSVG(c,CarSVG(c,30,230,20,false)}</0,false)}</div><div><span>${c.namespan>${c.name}</span><span}</span><span class="x" class="x" onclick="removeSt onclick="removeStake(${i})ake(${i})">×</span></div">×</span></div>`).join('>`).join('');state.st');state.stakeCars.forEach((akeCars.forEach((c,i)=>loadc,i)=>loadImgInto('chipImgInto('chipimg-'+i,cimg-'+i,c,30,,30,20,false));20,false));}const total=}const total=calcStakePricecalcStakePrice(state.stakeCars(state.stakeCars);document.getElementById(');document.getElementById('totalStake').totalStake').textContent=total.toLocaletextContent=total.toLocaleString('ru')String('ru')+' BYN';+' BYN';document.getElementById('stdocument.getElementById('stakeImg').innerHTMLakeImg').innerHTML=state.stake=state.stakeCars.length?`Cars.length?`<div style="<div style="font-size:1font-size:11px;padding:1px;padding:2px">${state2px">${state.stakeCars.length.stakeCars.length} авто} авто</div>`</div>`:'<span:'<span style="font-size style="font-size:10px:10px;color:var(--;color:var(--muted)">Стаmuted)">Ставка</spanвка</span>';if(state.target>';if(state.target){loadImgInto){loadImgInto('targetImg',('targetImg',state.target,6state.target,60,400,40,false);}else{,false);}else{document.getElementById('targetdocument.getElementById('targetImg').innerHTML='<Img').innerHTML='<span style="fontspan style="font-size:10-size:10px;color:varpx;color:var(--muted)">(--muted)">Цель</spanЦель</span>'>';}updateWheel;}updateWheel();}
+function();}
+function removeStake(i removeStake(i){state.stake){state.stakeCars.splice(i,Cars.splice(i,1);updateSt1);updateStakeDisplay();}akeDisplay();}
+function quickTarget
+function quickTarget(m){if(!(m){if(!state.stakeCarsstate.stakeCars.length){notify('.length){notify('⚠️⚠️ Сначала выберите ставку',' Сначала выберите ставку','warn');return;}warn');return;}const total=calcconst total=calcStakePrice(stateStakePrice(state.stakeCars);.stakeCars);const tp=m==='const tp=m==='auto'?total*auto'?total*3:total*m3:total*m;const cand=C;const cand=CARS_DB.filter(cARS_DB.filter(c=>c.price>==>c.price>=tp*.9&&tp*.9&&c.price<=tpc.price<=tp*1.1*1.1);if(!c);if(!cand.length){notifyand.length){notify('⚠('⚠️ Нет️ Нет подходящих целей',' подходящих целей','warn');return;}warn');return;}state.target={...state.target={...cand[Math.floorcand[Math.floor(Math.random()*c(Math.random()*cand.length)]};and.length)]};updateStakeDisplayupdateStakeDisplay();}
+function();}
+function toggleInsurance(){state toggleInsurance(){state.insurance=!state.insurance=!state.insurance;document.insurance;document.getElementById('insuranceSw.getElementById('insuranceSw').classList.toggle('').classList.toggle('on',state.inson',state.insurance);updateWheelurance);updateWheel();save();}();save();}
+function toggleIn
+function toggleInvert(){state.invert(){state.invertSector=!statevertSector=!state.invertSector;.invertSector;document.getElementById('invertdocument.getElementById('invertSw').classList.toggleSw').classList.toggle('on',state('on',state.invertSector);.invertSector);updateWheel();saveupdateWheel();save();}
+function();}
+function updateWheel(){const updateWheel(){const total=calcSt total=calcStakePrice(state.stakePrice(state.stakeCars);constakeCars);const tp=state.target tp=state.target?.price||0?.price||0;const pct=;const pct=tp>0&&tp>0&&total>0?total>0?calcChance(total,tpcalcChance(total,tp):0;document):0;document.getElementById('pct.getElementById('pctDisplay').textContent=pDisplay').textContent=pct.toFixed(2ct.toFixed(2)+'%';document)+'%';document.getElementById('pct.getElementById('pctDisplay').classList.toggleDisplay').classList.toggle('loss',p('loss',pct<20ct<20);const deg=p);const deg=pct*3.ct*3.6,sA=-6,sA=-90,eA90,eA=sA+deg=sA+deg,cx=1,cx=100,cy00,cy=100=100,r=85,r=85;function arc(a;function arc(a1,a21,a2){const r1){const r1=a1*Math.PI=a1*Math.PI/180/180,r2=a2,r2=a2*Math.PI/1*Math.PI/180;const80;const x1=cx x1=cx+r*Math.cos(r+r*Math.cos(r1),y11),y1=cy+r*Math=cy+r*Math.sin(r1);.sin(r1);const x2=cconst x2=cx+r*Math.cosx+r*Math.cos(r2),y(r2),y2=cy+r2=cy+r*Math.sin(r2*Math.sin(r2);const lg=();const lg=(a2-a1a2-a1)>180)>180?1:0?1:0;return `M;return `M${cx},${cy${cx},${cy} L${x} L${x1},${y1},${y1} A1} A${r},${r${r},${r} 0 ${} 0 ${lg} 1lg} 1 ${x2},${ ${x2},${y2} Zy2} Z`;}const`;}const w=document.getElementById(' w=document.getElementById('winArc');wwinArc');w.setAttribute('d',.setAttribute('d',arc(sA,earc(sA,eA));w.setAttributeA));w.setAttribute('fill','var('fill','var(--green)');(--green)');w.setAttribute('strokew.setAttribute('stroke','none');w','none');w.setAttribute('opacity','.setAttribute('opacity','0.5');0.5');const l=document.getElementByIdconst l=document.getElementById('loseArc');('loseArc');l.setAttribute('dl.setAttribute('d',arc(eA',arc(eA,sA+3,sA+360));l60));l.setAttribute('fill','.setAttribute('fill','var(--red)var(--red)');l.setAttribute('');l.setAttribute('opacity','0.opacity','0.15');l15');l.setAttribute('stroke','.setAttribute('stroke','none');const modnone');const mod=state.chance=state.chanceMod||1;Mod||1;document.getElementById('wheeldocument.getElementById('wheelStatus').textContent=(Status').textContent=(state.target?`state.target?`Цель: ${Цель: ${state.target.name}state.target.name} (${state.target.price (${state.target.price.toLocaleString('ru.toLocaleString('ru')} BYN)`')} BYN)`:'Выберите:'Выберите цель')+( цель')+(mod!==1?mod!==1?` · 🎲 мод` · 🎲 модификатор ×ификатор ×${mod}`:'${mod}`:'');}
+function');}
+function doUpgrade(){if doUpgrade(){if(!state.stake(!state.stakeCars.length){notifyCars.length){notify('❌ Выберите('❌ Выберите ставку','error'); ставку','error');return;}if(!return;}if(!state.target){notifystate.target){notify('❌ Выберите('❌ Выберите цель','error'); цель','error');return;}ifreturn;}if(state.target.boss(state.target.boss){notify('🔥 БОСС){notify('🔥 БОСС-авто нельзя ап-авто нельзя апгрейдгрейдить','warn');ить','warn');return;}const totalreturn;}const total=calcStake=calcStakePrice(state.stakePrice(state.stakeCars);const pctCars);const pct=calcChance(total=calcChance(total,state.target.price);,state.target.price);const ra=new Uintconst ra=new Uint32Array(32Array(1);crypto.getRandom1);crypto.getRandomValues(ra);constValues(ra);const rand=ra[ rand=ra[0]/0xFFFFFFFF0]/0xFFFFFFFF;const win=;const win=state.godModestate.godMode||(rand*1||(rand*100<pct00<pct);const stakeSnap);const stakeSnap=state.stake=state.stakeCars.map(cCars.map(c=>({...c}));const targetSnap=>({...c}));const targetSnap={...={...state.target};conststate.target};const gi=state.st gi=state.stakeCars.map(cakeCars.map(c=>c.gar=>c.garageIdx);giageIdx);gi.slice().sort((.slice().sort((a,b)=>ba,b)=>b-a).forEach(i-a).forEach(i=>state.gar=>state.garage.splice(i,age.splice(i,1));animate1));animateWheel(pct,Wheel(pct,win,()=>{win,()=>{if(win){stateif(win){state.garage.push.garage.push({id:target({id:targetSnap.id,name:Snap.id,name:targetSnap.name,targetSnap.name,price:targetSnapprice:targetSnap.price,w.price,wiki:targetSnapiki:targetSnap.wiki,cat.wiki,cat:targetSnap.cat:targetSnap.cat,engine:target,engine:targetSnap.engine,cylSnap.engine,cyl:targetSnap.c:targetSnap.cyl,yl,year:targetSnapyear:targetSnap.year,boss:.year,boss:targetSnap.bosstargetSnap.boss,condition:3,condition:3,stage:0,stage:0});notify(`🎉 ПОБ});notify(`🎉 ПОБЕДА! ПолучЕДА! Получено: ${targetено: ${targetSnap.name}`);Snap.name}`);playWin();spawnplayWin();spawnConfetti();addConfetti();addXP(Math.floor(MathXP(Math.floor(Math.log10(target.log10(targetSnap.price+1Snap.price+1)*20));)*20));}else{let}else{let refund=0;if refund=0;if(state.insurance){(state.insurance){refund=Math.floor(totalrefund=Math.floor(total*.25);*.25);state.balance+=refundstate.balance+=refund;}notify(`💥 Проигрыш;}notify(`💥 Проигрыш!${refund?'!${refund?' Возврат '+ Возврат '+refund.toLocaleString('refund.toLocaleString('ru')+' BYru')+' BYN':''}`,'N':''}`,'error');playLosserror');playLoss();addXP(();addXP(3);}state.history3);}state.history.push({win,target.push({win,targetName:Name:targetSnap.name,targettargetSnap.name,targetPrice:targetSnapPrice:targetSnap.price,stake:.price,stake:total,pct,sttotal,pct,stakeCars:stakeCars:stakeSnap,date:akeSnap,date:Date.now()});Date.now()});state.stakeCarsstate.stakeCars=[];state.target=[];state.target=null;save=null;save();renderHeader();();renderHeader();updateStakeDisplayupdateStakeDisplay();renderTicker();();renderTicker();checkAchievements();checkAchievements();});}
+function});}
+function animateWheel(pct animateWheel(pct,win,cb,win,cb){const arrow=document){const arrow=document.getElementById('arrow');.getElementById('arrow');const ws=pctconst ws=pct*3.6*3.6;let fd;if;let fd;if(win){(win){const mn=stateconst mn=state.invertSector?(.invertSector?(360-w360-ws/2+s/2+5):(-ws5):(-ws/2+5/2+5);const mx);const mx=state.invert=state.invertSector?(36Sector?(360-5):(0-5):(ws/2-ws/2-5);fd=5);fd=mn+Math.randommn+Math.random()*(mx()*(mx-mn);}else-mn);}else{const mn={const mn=state.invertSectorstate.invertSector?(ws/2?(ws/2+5):(-+5):(-ws/2+ws/2+5+ws);5+ws);const mx=stateconst mx=state.invertSector?(.invertSector?(ws-5):(ws-5):(360-w360-ws/2-s/2-5);fd5);fd=mn+Math=mn+Math.random()*(mx.random()*(mx-mn);}const-mn);}const total=5* total=5*360+360+fd;arrow.stylefd;arrow.style.transition='transform .transition='transform 3.5s3.5s cubic-bezier( cubic-bezier(0.250.25,0.1,0.1,0.2,0.25,1)5,1)';arrow.style.transform';arrow.style.transform=`rotate(${total=`rotate(${total}deg)`}deg)`;setTimeout(()=>{;setTimeout(()=>{arrow.style.transition='arrow.style.transition='none';arrow.stylenone';arrow.style.transform=`rotate(${.transform=`rotate(${fd}deg)`fd}deg)`;setTimeout(()=>{;setTimeout(()=>{arrow.style.transition='arrow.style.transition='transform 3.transform 3.5s cubic-be5s cubic-bezier(0.zier(0.25,025,0.1,0.1,0.25,.25,1)';},1)';},50);cb50);cb();},35();},3550);}50);}
+let stoTarget
+let stoTarget=190=1900;0;
+function stoClick
+function stoClick(){playClick();(){playClick();state.balance+=1state.balance+=10;addXP0;addXP(1);render(1);renderHeader();updateStHeader();updateStoUI();saveoUI();save();}
+function();}
+function updateStoUI updateStoUI(){const pct=Math(){const pct=Math.min(10.min(100,(state.balance0,(state.balance/stoTarget)*/stoTarget)*100);100);document.getElementById('stodocument.getElementById('stoBar').style.widthBar').style.width=pct+'%=pct+'%';document.getElementById('';document.getElementById('stoStatus').textContentstoStatus').textContent=`${state.balance=`${state.balance.toLocaleString('ru.toLocaleString('ru')} /')} / ${stoTarget.toLocale ${stoTarget.toLocaleString('ru')}String('ru')} BYN`;document BYN`;document.querySelectorAll('.sto-car.querySelectorAll('.sto-car').forEach((el').forEach((el,i)=>{el,i)=>{el.classList.toggle('aff.classList.toggle('affordable',state.balanceordable',state.balance>=(i===>=(i===0?190?1900:200:2200));200));});}});}
+function buySt
+function buyStoCar(t){oCar(t){const price=t===const price=t===1?191?1900:200:2200;200;const name=t===const name=t===1?'ЗАЗ1?'ЗАЗ-968-968М':'ВАЗМ':'ВАЗ-21-2101';const01';const id=t id=t===1?1===1?1:2;if:2;if(state.balance<price(state.balance<price){notify('❌ Недостаточно){notify('❌ Недостаточно BYN',' BYN','error');return;}error');return;}state.balance-=pricestate.balance-=price;state.gar;state.garage.push({idage.push({id,name,,name,price,wiki:Cprice,wiki:CARS_DB.find(cARS_DB.find(c=>c.id====>c.id===id).wiki,id).wiki,cat:'budget',cat:'budget',engine:t===1engine:t===1?'V4_air?'V4_air':'I4_s':'I4_soviet',coviet',cyl:4,yl:4,year:19year:1979,condition79,condition:3,stage:3,stage:0});notify:0});notify(`🎉(`🎉 Куплено: Куплено: ${name}`); ${name}`);playWin();addplayWin();addXP(10XP(10);save();render);save();renderHeader();updateStHeader();updateStoUI();checkoUI();checkAchievements();}Achievements();}
+function buyCase
+function buyCase(id){const c(id){const c=CASES.find=CASES.find(x=>x.id(x=>x.id===id);if===id);if(state.balance<c(state.balance<c.price){notify('.price){notify('❌ Недост❌ Недостаточно BYN','аточно BYN','error');return;}error');return;}state.balance-=cstate.balance-=c.price;const cand.price;const cand=CARS_DB.filter=CARS_DB.filter(car=>car.id(car=>car.id>=c.min&&>=c.min&&car.id<=ccar.id<=c.max&&!car.b.max&&!car.boss);if(!oss);if(!cand.length){cand.length){notify('⚠️ Пустnotify('⚠️ Пустой контейнер','ой контейнер','warn');return;}warn');return;}const wonconst won=cand[Math.floor=cand[Math.floor(Math.random()*c(Math.random()*cand.length)];openand.length)];openCaseAnimation(wonCaseAnimation(won);save();render);save();renderHeader();}
+Header();}
+function openCaseAnimationfunction openCaseAnimation(won){const(won){const track=document.getElementById(' track=document.getElementById('rouletteTrack');constrouletteTrack');const items=[];for items=[];for(let i=0(let i=0;i<5;i<50;i++){items0;i++){items.push(Math.random()<.push(Math.random()<.1?.1?won:CARS_DBwon:CARS_DB[Math.floor(Math.random[Math.floor(Math.random()*CARS_DB()*CARS_DB.length)]);}.length)]);}items[4items[45]=won;5]=won;tracktrack.innerHTML=items.map.innerHTML=items.map((c,i)=>((c,i)=>`<div class`<div class="case-roulette="case-roulette-item"><div id-item"><div id="rlimg-${="rlimg-${i}" style="i}" style="width:10width:100%;height:0%;height:100px100px;background:#1e;background:#1e293b293b;border-radius:6;border-radius:6px">${getCarpx">${getCarSVG(c,1SVG(c,150,150,100,false)}</00,false)}</div><div><div style="fontdiv style="font-size:10-size:10px;margin-top:4px;text-align:center">${c.namepx;margin-top:4px;text-align:center">${c.name}</div></}</div></div>`).joindiv>`).join('');items.forEach('');items.forEach((c,i)=>((c,i)=>loadImgInto('loadImgInto('rlimg-'+irlimg-'+i,c,15,c,150,100,false));document0,100,false));document.getElementById('caseResult.getElementById('caseResult').innerHTML='';').innerHTML='';document.getElementById('casedocument.getElementById('caseOpening').classList.addOpening').classList.add('active');track('active');track.style.transition='none.style.transition='none';track.style.transform';track.style.transform='translateX(='translateX(0)';
+0)';
+// FIX: точ// FIX: точная остановка руная остановка рулеткилетки на выигрышной на выигрышной машине машине
+setTimeout(()=>{
+setTimeout(()=>{const el=trackconst el=track.children[45.children[45];const box=];const box=track.parentElement;consttrack.parentElement;const off=el.offset off=el.offsetLeft+el.offsetWidthLeft+el.offsetWidth/2-box.clientWidth/2-box.clientWidth/2;const/2;const jit=(Math.random jit=(Math.random()-.5)*()-.5)*el.offsetWidth*.4el.offsetWidth*.4;track.style.transition;track.style.transition='transform 4='transform 4s cubic-beziers cubic-bezier(0.2(0.25,0.5,0.1,0.1,0.25,125,1)';track.style)';track.style.transform=`translateX.transform=`translateX(${-((${-(off+jit)}off+jit)}px)`;},px)`;},80);
+80);
+setTimeout(()=>{statesetTimeout(()=>{state.garage.push.garage.push({id:w({id:won.id,name:won.id,name:won.name,priceon.name,price:won.price,w:won.price,wiki:woniki:won.wiki,cat.wiki,cat:won.cat:won.cat,engine:w,engine:won.engine,cylon.engine,cyl:won.cyl:won.cyl,year:w,year:won.year,bosson.year,boss:won.boss:won.boss,condition:3,condition:3,stage:0,stage:0});document.getElementById('});document.getElementById('caseResult').innerHTMLcaseResult').innerHTML=`<div class=`<div class="win-popup">="win-popup">🎉 ВЫ🎉 ВЫИГРАНО:ИГРАНО: ${won.name}< ${won.name}<br><span stylebr><span style="font-size:="font-size:18px;color18px;color:var(--gold:var(--gold)">${won.price)">${won.price.toLocaleString('ru.toLocaleString('ru')} BYN</')} BYN</span></div>`span></div>`;playWin();;playWin();spawnConfetti();spawnConfetti();addXP(1addXP(15);save();5);save();renderHeader();checkrenderHeader();checkAchievements();setTimeoutAchievements();setTimeout(()=>{document.getElementById(()=>{document.getElementById('caseOpening').('caseOpening').classList.remove('activeclassList.remove('active');},30');},3000);},00);},42004200);}
+function open);}
+function openInspection(idx){Inspection(idx){const c=stateconst c=state.garage[idx.garage[idx];const cond=];const cond=CONDITIONS.find(xCONDITIONS.find(x=>x.id====>x.id===c.condition);documentc.condition);document.getElementById('insp.getElementById('inspTitle').textContent=`Title').textContent=`🔍 ${c.name🔍 ${c.name}`;document}`;document.getElementById('insp.getElementById('inspContent').innerHTML=`Content').innerHTML=`<div class="<div class="inspection"><div><inspection"><div><div class="insdiv class="insp-img" idp-img" id="inspImg="inspImg">${getCarSVG">${getCarSVG(c,40(c,400,300,300,false)}0,false)}<div class="<div class="headlights" idheadlights" id="headlights"></="headlights"></div></div><div></div><div class="insdiv class="insp-controls"><buttonp-controls"><button class="btn btn class="btn btn-gold" onclick-gold" onclick="toggleHeadlights="toggleHeadlights()">🔦()">🔦 Фары</button Фары</button><button class="><button class="btn btn-red"btn btn-red" onclick="playAlarm onclick="playAlarm()">🚨()">🚨 Сигналка Сигналка</button><button</button><button class="btn btn class="btn btn-green" style="-green" style="grid-column:1grid-column:1/-1" onclick/-1" onclick="playEngine('${="playEngine('${c.engine}')">c.engine}')">🔑 З🔑 Завести / Вавести / Выхлоп</ыхлоп</button></div></button></div></div><div><div><div><div class="gardiv class="garage-stat-row"><age-stat-row"><span>Годspan>Год:</span><b:</span><b>${c.year}</>${c.year}</b></div><b></div><div class="gardiv class="garage-stat-row"><age-stat-row"><span>Двspan>Двигатель:</spanигатель:</span><b>${c><b>${c.engine}</b></.engine}</b></div><div classdiv><div class="garage-stat="garage-stat-row"><span-row"><span>Цилин>Цилиндров:</spanдров:</span><b>${c><b>${c.cyl||'.cyl||'-'}</b></-'}</b></div><div classdiv><div class="garage-stat="garage-stat-row"><span>-row"><span>Состояние:</Состояние:</span><b stylespan><b style="color:var="color:var(--cyan)">${(--cyan)">${cond.emoji}cond.emoji} ${cond.name}</ ${cond.name}</b></div><b></div><div class="gardiv class="garage-stat-row"><age-stat-row"><span>Stage:</span>Stage:</span><b stylespan><b style="color:var="color:var(--orange)">${(--orange)">${c.stage||0c.stage||0}</b></div}</b></div><div class="><div class="garage-stat-rowgarage-stat-row"><span>Но"><span>Номер:</span><мер:</span><b style="colorb style="color:var(--red:var(--red)">${c.)">${c.plate||'нетplate||'нет'}</b></'}</b></div><div classdiv><div class="garage-stat="garage-stat-row"><span-row"><span>База:</>База:</span><b classspan><b class="mono" style="mono" style="color:var="color:var(--gold)">${(--gold)">${c.price.toLocaleStringc.price.toLocaleString('ru')}</('ru')}</b></div><b></div><div class="gardiv class="garage-stat-row"><age-stat-row"><span>Текуspan>Текущая:</span><щая:</span><b class="monob class="mono" style="color" style="color:var(--gold:var(--gold);font-size:);font-size:18px">${18px">${calcCarPrice(ccalcCarPrice(c).toLocaleString(').toLocaleString('ru')} BYNru')} BYN</b></div</b></div></div></div></div></div>`;loadImg>`;loadImgInto('inspInto('inspImg',c,Img',c,400,400,300,false300,false);openModal(');openModal('inspModal');inspModal');playUI('modalplayUI('modal');}
+function');}
+function toggleHeadlights(){ toggleHeadlights(){document.getElementById('headdocument.getElementById('headlights').classList.togglelights').classList.toggle('on');}('on');}
+function openT
+function openTuning(idx){constuning(idx){const c=state.g c=state.garage[idx];arage[idx];const cond=c.conditionconst cond=c.condition;const stage=c;const stage=c.stage||0;.stage||0;const cp={2const cp={2:200:2000,3:0,3:50005000,4:1,4:150005000,5:5,5:500000000};const sp={};const sp={1:Math.floor1:Math.floor(c.price*.1(c.price*.15),2:5),2:Math.floor(c.priceMath.floor(c.price*.25),*.25),3:Math.floor3:Math.floor(c.price*.4(c.price*.4)};document)};document.getElementById('tune.getElementById('tuneContent').innerHTML=`Content').innerHTML=`<h3 style<h3 style="color:var="color:var(--cyan);margin(--cyan);margin:12px:12px 0">🚗 ${c 0">🚗 ${c.name}</h3.name}</h3><h4><h4 style="margin: style="margin:14px 14px 0 8px0 8px">Кузов:</">Кузов:</h4><divh4><div style="display: style="display:grid;gap:grid;gap:6px">${[6px">${[2,3,2,3,4,5].4,5].map(cid=>{map(cid=>{const cn=CONDITIONconst cn=CONDITIONS.find(x=>S.find(x=>x.id===cidx.id===cid);if(cid<=);if(cid<=cond)return `<cond)return `<div class="cardiv class="car-option" style="-option" style="opacity:.5;opacity:.5;cursor:not-allowedcursor:not-allowed"><span>✓"><span>✓ ${cn.emoji ${cn.emoji} ${cn.name} ${cn.name}</span></div}</span></div>`;return `<>`;return `<div class="cardiv class="car-option" onclick="-option" onclick="tuneCondition(${tuneCondition(${idx},${cid},${idx},${cid},${cp[cid]cp[cid]})"><div style})"><div style="flex:1="flex:1"><b>${cn"><b>${cn.emoji} ${.emoji} ${cn.name}</bcn.name}</b><br><small><br><small>×${cn>×${cn.mult}</small></.mult}</small></div><b classdiv><b class="mono" style="mono" style="color:var="color:var(--gold)">${(--gold)">${cp[cid].cp[cid].toLocaleString('rutoLocaleString('ru')} BYN</')} BYN</b></div>`b></div>`;}).join(';}).join('')}</div><')}</div><h4 style="h4 style="margin:14margin:14px 0 px 0 8px">🔥 ДВС8px">🔥 ДВС:</h4><:</h4><div style="displaydiv style="display:grid;gap:grid;gap:6px">${:6px">${[1,2[1,2,3].map,3].map(s=>{(s=>{if(s<=stageif(s<=stage)return `<div class)return `<div class="car-option"="car-option" style="opacity:. style="opacity:.5;cursor:not5;cursor:not-allowed"><span-allowed"><span>✓ Stage ${>✓ Stage ${s}</span></s}</span></div>`;returndiv>`;return `<div class=" `<div class="car-option" onclickcar-option" onclick="tuneStage="tuneStage(${idx},${s(${idx},${s},${sp},${sp[s]})"><[s]})"><div style="flexdiv style="flex:1"><b:1"><b>Stage ${s>Stage ${s}</b><br}</b><br><small>+${><small>+${s*20s*20}%</small></}%</small></div><bdiv><b class="mono" class="mono" style="color: style="color:var(--gold)var(--gold)">${sp[s].">${sp[s].toLocaleString('rutoLocaleString('ru')} BYN</')} BYN</b></div>`b></div>`;}).join(';}).join('')}</div>`')}</div>`;openModal(';openModal('tuneModal');tuneModal');playUI('modalplayUI('modal');}
+function');}
+function tuneCondition(i, tuneCondition(i,nc,p){nc,p){if(state.balance<pif(state.balance<p){notify('❌ Недостаточно){notify('❌ Недостаточно BYN','error BYN','error');return;}state');return;}state.balance-=p;.balance-=p;state.garagestate.garage[i].condition=[i].condition=nc;notify('nc;notify('✓ Состояние✓ Состояние улучшено улучшено');save();render');save();renderHeader();renderGarHeader();renderGarage();closeModalage();closeModal('tuneModal('tuneModal');checkAchievements');checkAchievements();}
+function();}
+function tuneStage(i, tuneStage(i,ns,p){ifns,p){if(state.balance<p){(state.balance<p){notify('❌notify('❌ Недостаточно BY Недостаточно BYN','error');N','error');return;}state.balancereturn;}state.balance-=p;state-=p;state.garage[i.garage[i].stage=ns].stage=ns;addXP(;addXP(5);notify(`5);notify(`✓ Stage ${ns✓ Stage ${ns}`);save();}`);save();renderHeader();renderrenderHeader();renderGarage();closeGarage();closeModal('tuneModal('tuneModal');checkModal');checkAchievements();}Achievements();}
+function buyPlate
+function buyPlate(idx,pid,m(idx,pid,m){const c=){const c=state.garagestate.garage[idx];if(![idx];if(!c){notify('c){notify('⚠️⚠️ Выберите машину','warn Выберите машину','warn');return;}if');return;}if(c.plate){(c.plate){notify('⚠️ Ужеnotify('⚠️ Уже есть номер',' есть номер','warn');return;}warn');return;}if(state.balance<if(state.balance<35003500){notify('❌ Нужно 3){notify('❌ Нужно 3 500 500 BYN','error BYN','error');return;}state');return;}state.balance-=35.balance-=3500;c.00;c.plate=pid;cplate=pid;c.plateMult=m.plateMult=m;addXP(;addXP(8);notify(`8);notify(`🇧 Номер🇧 Номер ${pid}! ${pid}!`);save();`);save();renderHeader();updaterenderHeader();updatePlateUI();renderPlateUI();renderGarage();checkGarage();checkAchievements();}Achievements();}
+function checkAchie
+function checkAchievements(){if(!vements(){if(!state.achievementsstate.achievements)state.achie)state.achievements=[];ACHvements=[];ACHIEVEMENTSIEVEMENTS.forEach(a=>{.forEach(a=>{if(!state.if(!state.achievements.includes(aachievements.includes(a.id)&&a.check.id)&&a.check(state)){(state)){state.achievementsstate.achievements.push(a.id);.push(a.id);showAchievement(ashowAchievement(a);addXP();addXP(25);}}25);}});}
+function show);}
+function showAchievement(a){Achievement(a){const t=document.getElementByIdconst t=document.getElementById('achievementToast');('achievementToast');t.innerHTML=`<t.innerHTML=`<span style="fontspan style="font-size:32-size:32px">${a.iconpx">${a.icon}</span><div}</span><div><div style><div style="font-size:="font-size:11px;11px;opacity:.7">opacity:.7">ДОСТИЖЕНИЕДОСТИЖЕНИЕ</div><div</div><div>${a.name}</>${a.name}</div></div>`div></div>`;t.classList.add;t.classList.add('show');setTimeout('show');setTimeout(()=>t.classList.remove(()=>t.classList.remove('show'),4('show'),4000);}000);}
+function openModal
+function openModal(id){document.getElementById(id){document.getElementById(id).classList.add(id).classList.add('active');}('active');}
+function closeModal(id
+function closeModal(id){document.getElementById(id){document.getElementById(id).classList.remove(').classList.remove('active');}
+active');}
+function notify(msg,typefunction notify(msg,type='success'){const='success'){const n=document.createElement(' n=document.createElement('div');n.classNamediv');n.className='notification '+type='notification '+type;n.textContent=msg;;n.textContent=msg;document.body.appendChild(ndocument.body.appendChild(n);setTimeout(()=>{);setTimeout(()=>{n.style.animation='n.style.animation='slideIn .3slideIn .3s reverse';setTimeouts reverse';setTimeout(()=>n.remove(),(()=>n.remove(),300);300);},250},2500);}
+
+//0);}
+
+// ================= АВТОРИ ================= АВТОРИЗАЦИЯ =================
+ЗАЦИЯ =================
+document.querySelectorAll('.authdocument.querySelectorAll('.auth-tab').forEach(t-tab').forEach(t=>{t.addEventListener=>{t.addEventListener('click',()=>('click',()=>{document.querySelectorAll('.{document.querySelectorAll('.auth-tab').forEachauth-tab').forEach(x=>x.classList(x=>x.classList.remove('active'));.remove('active'));document.querySelectorAll('.authdocument.querySelectorAll('.auth-form').forEach(x-form').forEach(x=>x.classList.remove=>x.classList.remove('active'));('active'));t.classList.add('t.classList.add('active');document.getElementByIdactive');document.getElementById(t.dataset.mode==='(t.dataset.mode==='reg'?'formreg'?'formReg':'formLogReg':'formLog').classList.add('').classList.add('active');playUIactive');playUI('click');});('click');});});
+});
+function updateCloudStatusfunction updateCloudStatus(){const el=document(){const el=document.getElementById('cloud.getElementById('cloudStatus');if(!Status');if(!el)returnel)return;if(cl;if(cloudOk){eloudOk){el.className='cloud-status.className='cloud-status cloud-ok';el cloud-ok';el.innerHTML='☁.innerHTML='☁️ Подключено️ Подключено к облаку'; к облаку';}else{el}else{el.className='cloud-status.className='cloud-status cloud-err'; cloud-err';el.innerHTML='⚠️ Нетel.innerHTML='⚠️ Нет связи с облаком связи с облаком — локальный режим — локальный режим';}}
+function';}}
+function afterLogin(){localStorage afterLogin(){localStorage.setItem('au_last.setItem('au_last',state.currentUser||',state.currentUser||''');document.getElementById('');document.getElementById('authOverlay').classListauthOverlay').classList.add('hidden');.add('hidden');renderHeader();renderrenderHeader();renderTicker();renderCasesTicker();renderCases();updateSto();updateStoUI();updateStUI();updateStakeDisplay();}akeDisplay();}
+async function register
 async function register(){
-  const u=document.getElementById('regUser').value.trim();
-  const p=document.getElementById('regPass').value;
-  const p2=document.getElementById('regPass2').value;
-  if(!u||u.length<2){notify('⚠️ Ник минимум 2 символа','warn');return;}
-  if(u.toLowerCase()===ADMIN_LOGIN.toLowerCase()){notify('⚠️ Этот ник зарезервирован','warn');return;}
-  if(p.length<4){notify('⚠️ Пароль минимум 4 символа','warn');return;}
-  if(p!==p2){notify('⚠️ Пароли не совпадают','warn');return;}
-  const btn=document.getElementById('regBtn');btn.disabled=true;btn.innerHTML='Проверка...<span class="spinner"></span>';
-  // Проверка занятости ника в облаке и локально
-  let existsLocally=!!localStorage.getItem(SAVE_KEY+u);
-  let existsInCloud=false;
-  try{
-    const cloudUser=await cloudGet('users/'+encodeURIComponent(u));
-    existsInCloud=!!cloudUser;
-  }catch(e){}
-  if(existsLocally||existsInCloud){btn.disabled=false;btn.innerHTML='🚀 Создать аккаунт';notify('⚠️ Такой ник уже занят','warn');return;}
-  state=freshState(u);state.balance=100;
-  state.garage=[{id:1,name:'ЗАЗ-968М Запорожец',price:1900,wiki:'ZAZ-968',cat:'budget',engine:'V4_air',cyl:4,year:1979,condition:3,stage:0}];
-  localSave();
-  // Запись в Firebase
-  const userMeta={pass:p,balance:100,cars:1,capital:2000,xp:0,level:1,chanceMod:1,createdAt:Date.now(),updatedAt:Date.now()};
-  await cloudPut('users/'+encodeURIComponent(u),userMeta);
-  await cloudPut('saves/'+encodeURIComponent(u),state);
+  const(){
+  const u=document.getElementById(' u=document.getElementById('regUser').valueregUser').value.trim();
+ .trim();
+  const p=document.getElementById const p=document.getElementById('regPass').('regPass').value;
+ value;
+  const p2=document const p2=document.getElementById('regPass.getElementById('regPass2').value;2').value;
+  if(!
+  if(!u||u.lengthu||u.length<2){notify<2){notify('⚠('⚠️ Ник минимум️ Ник минимум 2 симво 2 символа','warn');ла','warn');return;}return;}
+  if(u
+  if(u.toLowerCase()===ADMIN.toLowerCase()===ADMIN_LOGIN.toLowerCase()){notify_LOGIN.toLowerCase()){notify('⚠('⚠️ Этот ник зар️ Этот ник зарезервировезервирован','warn');ан','warn');return;}return;}
+  if(p
+  if(p.length<4){.length<4){notify('⚠️ Парnotify('⚠️ Пароль минимум 4оль минимум 4 символа','warn символа','warn');return;}
+');return;}
+  if(p!==  if(p!==p2){notifyp2){notify('⚠('⚠️ Пароли️ Пароли не совпадают',' не совпадают','warn');return;}warn');return;}
+  const btn
+  const btn=document.getElementById('reg=document.getElementById('regBtn');btn.disabledBtn');btn.disabled=true;btn.innerHTML=true;btn.innerHTML='Про='Проверка...верка...<span class="<span class="spinner"></span>';spinner"></span>';
+  const exists
+  const existsLocalLocal=!!localStorage.getItem=!!localStorage.getItem(SAVE_KEY+(SAVE_KEY+u)||!!getu)||!!getLocalUsers()[LocalUsers()[u];
+ u];
+  const cloudUser const cloudUser=await cloudGet=await cloudGet('users/'+encodeURIComponent('users/'+encodeURIComponent(u));
+ (u));
+  if(existsLocal if(existsLocal||cloud||cloudUser){btnUser){btn.disabled=false;btn.disabled=false;btn.innerHTML='🚀 Создать ак.innerHTML='🚀 Создать аккаунт';каунт';notify('⚠️ Такойnotify('⚠️ Такой ник уже ник уже занят','warn'); занят','warn');return;}
+ return;}
+  state=freshState state=freshState(u);state.balance(u);state.balance=100=100;
+  state;
+  state.garage=[.garage=[{id:1{id:1,name:'З,name:'ЗАЗ-96АЗ-968М Зап8М Запорожец',орожец',price:19price:1900,wiki00,wiki:'ZAZ-:'ZAZ-968',968',cat:'budget',cat:'budget',engine:'V4engine:'V4_air',cyl_air',cyl:4,year:4,year:197:1979,condition:9,condition:3,stage:3,stage:0}];
+0}];
+  localSave();  localSave();
+  const lu
+  const lu=getLocalUsers();=getLocalUsers();lu[u]={passlu[u]={pass:p};set:p};setLocalUsers(luLocalUsers(lu);
+  await);
+  await cloudPut('users cloudPut('users/'+encodeURIComponent(u),/'+encodeURIComponent(u),{pass:p,b{pass:p,balance:10alance:100,cars:0,cars:1,capital1,capital:200:2000,xp:0,xp:0,level:0,level:1,chanceMod1,chanceMod:1,createdAt:1,createdAt:Date.now(),:Date.now(),updatedAt:Date.nowupdatedAt:Date.now()});
+ ()});
+  await cloudPut(' await cloudPut('saves/'+encodeURIComponentsaves/'+encodeURIComponent(u),state);(u),state);
+  updateCloud
   updateCloudStatus();
-  btn.disabled=false;btn.innerHTML='🚀 Создать аккаунт';
+ Status();
+  btn.disabled=false; btn.disabled=false;btn.innerHTML='🚀 Создатьbtn.innerHTML='🚀 Создать аккаунт аккаунт';
+  after';
   afterLogin();
-  notify(`🎁 Добро пожаловать, ${u}! Получен ЗАЗ-968М + 100 BYN`);
-  setTimeout(()=>showAchievement({icon:'🎉',name:'Первые шаги!'}),500);
+ Login();
+  notify(`🎁 Добро пожаловать notify(`🎁 Добро пожаловать, ${u}, ${u}! Получен З! Получен ЗАЗ-96АЗ-968М + 8М + 100 BY100 BYN`);
+N`);
+  setTimeout(()=>show  setTimeout(()=>showAchievement({iconAchievement({icon:'🎉:'🎉',name:'Пер',name:'Первые шаги!'}вые шаги!'}),500),500);
 }
+);
+}
+async function login(){async function login(){
+  const u
+  const u=document.getElementById('login=document.getElementById('loginUser').value.trimUser').value.trim();
+  const();
+  const p=document p=document.getElementById('loginPass.getElementById('loginPass').value;
+').value;
+  const btn=document  const btn=document.getElementById('logBtn.getElementById('logBtn');btn.disabled=true');btn.disabled=true;btn.innerHTML;btn.innerHTML='Вход...='Вход...<span class="<span class="spinner"></span>';spinner"></span>';
+  if(u
+  if(u===ADMIN_LOGIN&&===ADMIN_LOGIN&&p===ADMIN_PASS){
+p===ADMIN_PASS){
+    await loadSave    await loadSave(ADMIN_LOGIN);(ADMIN_LOGIN);
+    if
+    if(!state.currentUser){(!state.currentUser){state=fstate=freshState(reshState(ADMIN_LOGIN);}
+ADMIN_LOGIN);}
+    state.isAdmin=true    state.isAdmin=true;state.currentUser=;state.currentUser=ADMIN_LOGIN;
+ADMIN_LOGIN;
+    btn.disabled=false    btn.disabled=false;btn.innerHTML=';btn.innerHTML='🔓🔓 Войти';
+    Войти';
+    afterLogin();notify afterLogin();notify('🛡('🛡️ Режим админ️ Режим администратора активистратора активен');return;ен');return;
+  }
 
-async function login(){
-  const u=document.getElementById('loginUser').value.trim();
-  const p=document.getElementById('loginPass').value;
-  const btn=document.getElementById('logBtn');btn.disabled=true;btn.innerHTML='Вход...<span class="spinner"></span>';
-  if(u===ADMIN_LOGIN&&p===ADMIN_PASS){
-    await loadSave(ADMIN_LOGIN);
-    state.isAdmin=true;state.currentUser=ADMIN_LOGIN;
-    btn.disabled=false;btn.innerHTML='🔓 Войти';
-    afterLogin();notify('🛡️ Режим администратора активен');
-    return;
   }
-  // Проверяем пароль сначала в облаке, потом локально
-  let cloudUser=null;
-  try{cloudUser=await cloudGet('users/'+encodeURIComponent(u));}catch(e){}
-  if(cloudUser&&cloudUser.pass===p){
-    await loadSave(u);
-    state.isAdmin=false;
-    btn.disabled=false;btn.innerHTML='🔓 Войти';
-    afterLogin();notify(`✓ С возвращением, ${u}!`);
-    return;
+  const cloudUser  const cloudUser=await cloudGet=await cloudGet('users/'+encodeURIComponent('users/'+encodeURIComponent(u));
+ (u));
+  if(cloudUser if(cloudUser&&cloudUser.pass&&cloudUser.pass===p){
+===p){
+    await loadSave    await loadSave(u);state.isAdmin(u);state.isAdmin=false;
+   =false;
+    btn.disabled=false; btn.disabled=false;btn.innerHTMLbtn.innerHTML='🔓='🔓 Войти';
+    Войти';
+    afterLogin();notify afterLogin();notify(`✓ С(`✓ С возвращением, ${ возвращением, ${u}!`u}!`);return;
+);return;
   }
-  // Локальный фолбэк
-  try{
-    const localRaw=localStorage.getItem(SAVE_KEY+u);
-    if(localRaw){
-      const db=getUsersDB();
-      // пробуем локальную БД для пароля
+   }
+  // оф // офлайн-фоллайн-фолбэк побэк по локальному зерка локальному зеркалу паролейлу паролей
+  if(!
+  if(!cloudOk){
+cloudOk){
+    const lu=get    const lu=getLocalUsers();LocalUsers();
+    if(l
+    if(lu[u]&&u[u]&&lu[u].passlu[u].pass===p&&local===p&&localLoad(uLoad(u)){
+)){
+      state.isAdmin=false      state.isAdmin=false;
+      btn;
+      btn.disabled=false;btn.disabled=false;btn.innerHTML='🔓 Войти';
+.innerHTML='🔓 Войти';
+      afterLogin();      afterLogin();notify(`✓ Входnotify(`✓ Вход в в офлайн-ре офлайн-режиме, ${жиме, ${u}`);returnu}`);return;
+    };
     }
-  }catch(e){}
-  btn.disabled=false;btn.innerHTML='🔓 Войти';
-  notify('❌ Неверный логин или пароль','error');
+  }
+
+  }
+  btn.disabled=false  btn.disabled=false;btn.innerHTML=';btn.innerHTML='🔓 Войти🔓 Войти';
+  notify';
+  notify('❌ Не('❌ Неверный логверный логин или пароль','ин или пароль','error');
+error');
 }
+function logout}
+function logout(){if(!confirm(){if(!confirm('В('Выйти из акыйти из аккаунта?каунта?'))return;localStorage'))return;localStorage.removeItem('au_last.removeItem('au_last');state=fresh');state=freshState(null);documentState(null);document.getElementById('authOverlay.getElementById('authOverlay').classList.remove('').classList.remove('hidden');closeModalhidden');closeModal('authModal');('authModal');renderHeader();}renderHeader();}
+function openAuth
+function openAuth(){if(!state(){if(!state.currentUser)return;document.currentUser)return;document.getElementById('authWho.getElementById('authWho').textContent=state').textContent=state.currentUser+(state.isAdmin.currentUser+(state.isAdmin?' (?' (админ)':'админ)':'');openModal('');openModal('authModal');playauthModal');playUI('modal');UI('modal');}
 
-function logout(){if(!confirm('Выйти из аккаунта?'))return;state=freshState(null);document.getElementById('authOverlay').classList.remove('hidden');closeModal('authModal');renderHeader();}
-function openAuth(){if(!state.currentUser)return;document.getElementById('authWho').textContent=state.currentUser+(state.isAdmin?' (админ)':'');openModal('authModal');playUI('modal');}
+// =================}
 
-// ===== ADMIN =====
-async function openAdmin(){
-  if(!state.isAdmin){notify('❌ Доступ запрещён','error');return;}
-  document.getElementById('adminCar').innerHTML=CARS_DB.map(c=>`<option value="${c.id}">${c.name} (${c.price.toLocaleString('ru')})</option>`).join('');
-  document.getElementById('godSw').classList.toggle('on',state.godMode);
+// ================= АДМИ АДМИН =================
+asyncН =================
+async function openAdmin(){ function openAdmin(){
+  if(!
+  if(!state.isAdmin){notifystate.isAdmin){notify('❌ Доступ('❌ Доступ запрещён','error запрещён','error');return;}
+');return;}
+  document.getElementById('  document.getElementById('adminCar').innerHTMLadminCar').innerHTML=CARS_DB.map=CARS_DB.map(c=>`<(c=>`<option value="${coption value="${c.id}">${c.id}">${c.name} (${c.name} (${c.price.toLocaleString('.price.toLocaleString('ru')})</ru')})</option>`).joinoption>`).join('');
+ ('');
+  document.getElementById('god document.getElementById('godSw').classList.toggleSw').classList.toggle('on',state('on',state.godMode);.godMode);
+  await render
   await renderDBTable();
-  await pmPopulate();
-  openModal('adminModal');playUI('modal');
+DBTable();
+  await pmPop  await pmPopulate();
+ ulate();
+  openModal('admin openModal('adminModal');playUIModal');playUI('modal');
+('modal');
 }
-async function renderDBTable(){
-  const loader=document.getElementById('dbLoader');
-  if(loader)loader.innerHTML='<span class="spinner"></span>';
-  const db=await getUsersDB();
-  const users=Object.entries(db).filter(([u])=>u!==ADMIN_LOGIN);
-  document.getElementById('dbTable').innerHTML=users.length?`<table class="db-table"><tr><th>Ник</th><th>Машин</th><th>Капитал</th><th>LVL</th><th>Шанс</th><th>Обновлено</th></tr>${users.map(([u,d])=>{const ago=d.updatedAt?fmtAgo(d.updatedAt):'—';return `<tr><td>${u}</td><td>${d.cars||0}</td><td class="mono">${(d.capital||0).toLocaleString('ru')}</td><td>${d.level||1}</td><td class="mono" style="color:${(d.chanceMod||1)>1?'var(--green)':(d.chanceMod||1)<1?'var(--red)':'var(--cyan)'}">×${d.chanceMod||1}</td><td style="color:var(--muted);font-size:11px">${ago}</td></tr>`;}).join('')}</table>`:'<p style="color:var(--muted)">Пока нет игроков</p>';
-  if(loader)loader.innerHTML='';
+async}
+async function renderDBTable function renderDBTable(){
+  const(){
+  const loader=document.getElementById(' loader=document.getElementById('dbLoader');ifdbLoader');if(loader)loader.innerHTML(loader)loader.innerHTML='<span class="='<span class="spinner"></span>';spinner"></span>';
+  const db
+  const db=await getUsersDB=await getUsersDB();
+  const();
+  const users=Object.entries users=Object.entries(db).filter(([(db).filter(([u])u])=>u!==ADMIN=>u!==ADMIN_LOGIN);
+ _LOGIN);
+  document.getElementById('db document.getElementById('dbTable').innerHTML=Table').innerHTML=users.length?`users.length?`<table class="<table class="db-table"><trdb-table"><tr><th>Н><th>Ник</th><ик</th><th>Машth>Машин</th><ин</th><th>Каth>Капитал</thпитал</th><th>LVL><th>LVL</th><th</th><th>Шанс>Шанс</th><th</th><th>Обновлено>Обновлено</th></tr</th></tr>${users.map(([>${users.map(([u,d])=>u,d])=>``<tr<tr><td>${u><td>${u}</td><td}</td><td>${d.cars>${d.cars||0}</||0}</td><td classtd><td class="mono">${(="mono">${(d.capital||d.capital||0).toLocaleString0).toLocaleString('ru')}</('ru')}</td><td>${td><td>${d.level||1d.level||1}</td><td}</td><td class="mono" class="mono" style="color:${ style="color:${(d.chance(d.chanceMod||1)>Mod||1)>1?'var(--1?'var(--green)':(dgreen)':(d.chanceMod||.chanceMod||1)<1?'1)<1?'var(--red)var(--red)':'var(--cyan':'var(--cyan)'}">)'}">×${×${d.chanceModd.chanceMod||1}</td||1}</td><td style><td style="color:var="color:var(--muted);(--muted);font-size:1font-size:11px1px">${fmtAgo">${fmtAgo(d.updated(d.updatedAt)}</td></At)}</td></tr>`).jointr>`).join('')}</table>`('')}</table>`:'<p style:'<p style="color:var="color:var(--muted)">(--muted)">Пока нет игроковПока нет игроков</p>';</p>';
+  if(loader
+  if(loader)loader.innerHTML=')loader.innerHTML='';
 }
-function fmtAgo(ts){const d=Date.now()-ts;if(d<60000)return 'только что';if(d<3600000)return Math.floor(d/60000)+' мин назад';if(d<86400000)return Math.floor(d/3600000)+' ч назад';return Math.floor(d/86400000)+' дн назад';}
-async function exportDB(){const data={users:await getUsersDB(),currentSave:state,exportedAt:new Date().toISOString()};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='auto_upgrade_db_'+Date.now()+'.json';a.click();}
-function adminAdd(v){state.balance+=v;notify(`💰 Баланс: ${state.balance.toLocaleString('ru')} BYN`);save();renderHeader();}
-function adminGiveCar(){const id=parseInt(document.getElementById('adminCar').value);const c=CARS_DB.find(x=>x.id===id);state.garage.push({id:c.id,name:c.name,price:c.price,wiki:c.wiki,cat:c.cat,engine:c.engine,cyl:c.cyl,year:c.year,boss:c.boss,condition:5,stage:3,plate:'7777 AA-7',plateMult:.35});notify(`🎁 Выдано: ${c.name}`);save();renderGarage();renderHeader();}
-function toggleGod(){state.godMode=!state.godMode;document.getElementById('godSw').classList.toggle('on',state.godMode);notify(state.godMode?'🔥 God Mode ON':'God Mode OFF');save();}
+';
+}
+function fmtAgofunction fmtAgo(ts){if(ts){if(!ts)return(!ts)return ' '—';const d—';const d=Date.now()-=Date.now()-ts;ifts;if(d<60(d<60000)return000)return 'то 'только что';ifлько что';if(d<36(d<36000000000)return Math0)return Math.floor(d/6.floor(d/600000000)+' мин)+' мин назад';if назад';if(d<86(d<864000400000)return Math00)return Math.floor(d/3.floor(d/36000600000)+' ч00)+' ч назад';return назад';return Math.floor(d/ Math.floor(d/8640864000000000)+' д)+' дн назад';}н назад';}
+async function export
+async function exportDB(){constDB(){const data={users: data={users:await getUsersDB(),await getUsersDB(),currentSave:statecurrentSave:state,exportedAt,exportedAt:new Date().toISOString:new Date().toISOString()};const blob()};const blob=new Blob([JSON=new Blob([JSON.stringify(data,null,.stringify(data,null,2)],{type2)],{type:'application/json'}:'application/json'});const a=document);const a=document.createElement('a');.createElement('a');a.href=URLa.href=URL.createObjectURL(blob);.createObjectURL(blob);a.download='autoa.download='auto_upgrade_db_'+Date_upgrade_db_'+Date.now()+'.json.now()+'.json';a.click();';a.click();}
+function}
+function adminAdd(v){ adminAdd(v){state.balance+=vstate.balance+=v;notify(`💰 Баланс;notify(`💰 Баланс: ${state.balance: ${state.balance.toLocaleString('ru.toLocaleString('ru')} BYN`')} BYN`);save();render);save();renderHeader();}
+Header();}
+function adminGiveCarfunction adminGiveCar(){const id=(){const id=parseInt(document.getElementById('parseInt(document.getElementById('adminCar').valueadminCar').value);const c=C);const c=CARS_DB.find(xARS_DB.find(x=>x.id====>x.id===id);state.gid);state.garage.push({arage.push({id:c.id,nameid:c.id,name:c.name,price:c.name,price:c.price,w:c.price,wiki:c.wiki:c.wiki,iki,cat:c.cat,cat:c.cat,engine:c.engine,cengine:c.engine,cyl:c.cylyl:c.cyl,year:c.year,year:c.year,boss:c.b,boss:c.boss,condition:oss,condition:5,stage:5,stage:3,plate:'3,plate:'77777777 AA-7', AA-7',plateMult:.3plateMult:.35});notify(`5});notify(`🎁 Вы🎁 Выдано: ${дано: ${c.name}`);c.name}`);save();renderGarsave();renderGarage();renderHeaderage();renderHeader();}
+function();}
+function toggleGod(){state toggleGod(){state.godMode=!.godMode=!state.godModestate.godMode;document.getElementById(';document.getElementById('godSw').classListgodSw').classList.toggle('on',.toggle('on',state.godModestate.godMode);notify(state.g);notify(state.godMode?'🔥 God ModeodMode?'🔥 God Mode ON':'God Mode ON':'God Mode OFF');save(); OFF');save();}
 
-async function pmRefresh(){await renderDBTable();await pmPopulate();notify('🔄 Данные обновлены из облака');}
-async function pmList(){const db=await getUsersDB();return Object.keys(db).filter(u=>u!==ADMIN_LOGIN);}
-async function pmPopulate(){const sel=document.getElementById('pmUser');const users=await pmList();const cur=sel.value;sel.innerHTML=users.length?users.map(u=>`<option value="${u}">${u}</option>`).join(''):'<option value="">— нет игроков —</option>';if(users.includes(cur))sel.value=cur;else if(users.length)sel.value=users[0];pmRender();}
-async function pmRender(){const u=document.getElementById('pmUser').value;const panel=document.getElementById('pmPanel');if(!u){panel.innerHTML='<p style="color:var(--muted)">Нет зарегистрированных игроков</p>';return;}const d=await getPlayerSave(u);if(!d){panel.innerHTML='<p style="color:var(--muted)">Сейв игрока не найден</p>';return;}const mod=d.chanceMod||1;
-panel.innerHTML=`<div class="garage-stat-row"><span>Баланс:</span><b class="mono">${(d.balance||0).toLocaleString('ru')} BYN</b></div>
-<div class="garage-stat-row"><span>Машин:</span><b class="mono">${(d.garage||[]).length}</b></div>
-<div class="garage-stat-row"><span>Уровень:</span><b class="mono">LVL ${d.level||1}</b></div>
-<div class="garage-stat-row"><span>Шанс победы:</span><b class="mono" style="color:${mod>1?'var(--green)':mod<1?'var(--red)':'var(--cyan)'}">×${mod}</b></div>
-<h4 style="margin:12px 0 6px">💰 Деньги</h4>
-<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn btn-green" onclick="pmMoney('${u}',10000)">+10k</button><button class="btn btn-green" onclick="pmMoney('${u}',100000)">+100k</button><button class="btn btn-green" onclick="pmMoney('${u}',1000000)">+1M</button><button class="btn btn-red" onclick="pmZero('${u}')">Обнулить</button></div>
-<input class="input" id="pmMoneyVal" type="number" placeholder="Своя сумма (можно отрицательную)" style="margin-top:8px">
-<button class="btn btn-cyan" onclick="pmMoney('${u}',parseInt(document.getElementById('pmMoneyVal').value)||0)">Применить сумму</button>
-<h4 style="margin:12px 0 6px">🎲 Шанс победы (множитель 0.1–5)</h4>
-<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"><input class="input" id="pmChanceVal" type="number" step="0.1" min="0.1" max="5" value="${mod}" style="width:90px;margin:0"><button class="btn btn-cyan" onclick="pmChance('${u}',parseFloat(document.getElementById('pmChanceVal').value))">Установить</button><button class="btn" onclick="pmChance('${u}',0.5)">×0.5</button><button class="btn" onclick="pmChance('${u}',1)">×1</button><button class="btn" onclick="pmChance('${u}',1.5)">×1.5</button><button class="btn" onclick="pmChance('${u}',2)">×2</button></div>
-<h4 style="margin:12px 0 6px">🚗 Выдать машину</h4>
-<select class="input" id="pmCar">${CARS_DB.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select>
-<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn btn-gold" onclick="pmGiveCar('${u}',3)">🎁 Выдать (на ходу)</button><button class="btn btn-gold" onclick="pmGiveCar('${u}',5)">👑 Выдать (капсула)</button></div>
-<h4 style="margin:12px 0 6px">🚘 Гараж игрока (${(d.garage||[]).length})</h4>
-<div style="max-height:160px;overflow-y:auto">${(d.garage||[]).map((c,i)=>`<div class="car-option"><div class="car-option-info"><b>${c.name}</b><small>${calcCarPrice(c).toLocaleString('ru')} BYN</small></div><button class="btn btn-red" onclick="pmRemoveCar('${u}',${i})">×</button></div>`).join('')||'<p style="color:var(--muted)">Пусто</p>'}</div>
-<h4 style="margin:12px 0 6px">⚠️ Опасная зона</h4>
-<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn btn-red" onclick="pmReset('${u}')">♻️ Сброс прогресса</button><button class="btn btn-red" onclick="pmDelete('${u}')">🗑 Удалить игрока</button></div>`;}
-async function pmMoney(u,v){const d=await getPlayerSave(u);if(!d)return;d.balance=Math.max(0,(d.balance||0)+v);await setPlayerSave(u,d);notify(`💰 ${u}: баланс ${d.balance.toLocaleString('ru')} BYN`);pmRender();renderDBTable();}
-async function pmZero(u){const d=await getPlayerSave(u);if(!d)return;pmMoney(u,-(d.balance||0));}
-async function pmChance(u,m){if(!(m>0))m=1;m=Math.min(5,Math.max(0.1,m));const d=await getPlayerSave(u);if(!d)return;d.chanceMod=m;await setPlayerSave(u,d);notify(`🎲 ${u}: модификатор шанса ×${m}`);pmRender();renderDBTable();}
-async function pmGiveCar(u,cond){const id=parseInt(document.getElementById('pmCar').value);const c=CARS_DB.find(x=>x.id===id);const d=await getPlayerSave(u);if(!d)return;d.garage=d.garage||[];d.garage.push({id:c.id,name:c.name,price:c.price,wiki:c.wiki,cat:c.cat,engine:c.engine,cyl:c.cyl,year:c.year,boss:c.boss,condition:cond||3,stage:0});await setPlayerSave(u,d);notify(`🎁 ${u} выдано: ${c.name}`);pmRender();renderDBTable();}
-async function pmRemoveCar(u,i){const d=await getPlayerSave(u);if(!d)return;(d.garage||[]).splice(i,1);await setPlayerSave(u,d);notify(`🗑 У ${u} изъята машина`);pmRender();renderDBTable();}
-async function pmReset(u){if(!confirm(`Сбросить прогресс игрока ${u}?`))return;const d=freshState(u);d.balance=100;d.garage=[{id:1,name:'ЗАЗ-968М Запорожец',price:1900,wiki:'ZAZ-968',cat:'budget',engine:'V4_air',cyl:4,year:1979,condition:3,stage:0}];const db=await getUsersDB();d.chanceMod=(db[u]||{}).chanceMod||1;await setPlayerSave(u,d);notify(`♻️ Прогресс ${u} сброшен`);pmRender();renderDBTable();}
-async function pmDelete(u){if(!confirm(`Удалить игрока ${u} полностью?`))return;localStorage.removeItem(SAVE_KEY+u);await cloudDelete('users/'+encodeURIComponent(u));await cloudDelete('saves/'+encodeURIComponent(u));await pmPopulate();renderDBTable();notify(`🗑 Игрок ${u} удалён`);}
+// =================}
 
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>switchTab(t.dataset.tab)));
+// ================= УП УПРАВЛЕНИЕ ИРАВЛЕНИЕ ИГРОКАМИГРОКАМИ =================
+async function =================
+async function pmRefresh(){await pmRefresh(){await renderDB renderDBTable();await pmTable();await pmPopulate();notifyPopulate();notify('🔄 Данные('🔄 Данные обновлены из обла обновлены из облака');}
+ка');}
+async function pmListasync function pmList(){const(){const db=await db=await getUsersDB();return getUsersDB();return Object.keys(db). Object.keys(db).filter(u=>filter(u=>u!==ADMIN_LOGINu!==ADMIN_LOGIN);}
+async function);}
+async function pmPopulate(){ pmPopulate(){const sel=document.getElementByIdconst sel=document.getElementById('pmUser');('pmUser');const users=awaitconst users=await pmList();const pmList();const cur=sel.value cur=sel.value;sel.innerHTML=;sel.innerHTML=users.length?usersusers.length?users.map(u=>`.map(u=>`<option value="${<option value="${u}">${uu}">${u}</option>`).}</option>`).join('')join(''):'<option value:'<option value="">— нет игроков="">— нет игроков —</option>'; —</option>';if(usersif(users.includes(cur))sel.includes(cur))sel.value=cur;.value=cur;else if(users.lengthelse if(users.length)sel.value=)sel.value=users[0];users[0];pmRender();}pmRender();}
+async function pm
+async function pmRender(){constRender(){const u=document.getElementById(' u=document.getElementById('pmUser').valuepmUser').value;const panel=document;const panel=document.getElementById('pmPanel.getElementById('pmPanel');if(!u');if(!u){panel.innerHTML='<){panel.innerHTML='<p style="colorp style="color:var(--m:var(--muted)">Нет зарегистриuted)">Нет зарегистрированных игроков</pрованных игроков</p>';return;}const>';return;}const d=await getPlayer d=await getPlayerSave(u);ifSave(u);if(!d){panel(!d){panel.innerHTML='<p style.innerHTML='<p style="color:var="color:var(--muted)">(--muted)">Сейв игроСейв игрока не найденка не найден</p>';return</p>';return;}const mod;}const mod=d.chanceMod=d.chanceMod||1;||1;
+panel.innerHTML=`
+panel.innerHTML=`<div class="<div class="garage-stat-rowgarage-stat-row"><span>Б"><span>Баланс:</spanаланс:</span><b class="><b class="mono">${(dmono">${(d.balance||0)..balance||0).toLocaleString('rutoLocaleString('ru')} BYN</')} BYN</b></div>b></div>
+<div class="
+<div class="garage-stat-rowgarage-stat-row"><span>М"><span>Машин:</spanашин:</span><b class="><b class="mono">${(dmono">${(d.garage||.garage||[]).length}</[]).length}</b></div>b></div>
+<div class="
+<div class="garage-stat-rowgarage-stat-row"><span>У"><span>Уровень:</span><ровень:</span><b class="monob class="mono">LVL ${">LVL ${d.level||1d.level||1}</b></div}</b></div>
+<div class>
+<div class="garage-stat="garage-stat-row"><span>-row"><span>Шанс победыШанс победы:</span><b:</span><b class="mono" class="mono" style="color:${ style="color:${mod>1?'mod>1?'var(--green)':var(--green)':mod<1?'mod<1?'var(--red)var(--red)':'var(--cyan':'var(--cyan)'}">)'}">×${mod}</×${mod}</b></div>b></div>
+<h4 style
+<h4 style="margin:1="margin:12px 02px 0 6px"> 6px">💰 Деньги💰 Деньги</h4></h4>
+<div style="
+<div style="display:flex;gapdisplay:flex;gap:6px;:6px;flex-wrap:flex-wrap:wrap"><wrap"><button class="btnbutton class="btn btn-green" onclick btn-green" onclick="pmMoney('${="pmMoney('${u}',u}',100010000)">+10)">+10k</button0k</button><button class="><button class="btn btn-green"btn btn-green" onclick="pmMoney onclick="pmMoney('${u}',1('${u}',1000000000)">+10)">+100k</00k</button><button classbutton><button class="btn btn-green="btn btn-green" onclick="pm" onclick="pmMoney('${u}',Money('${u}',10001000000)">000)">+1M</+1M</button><button classbutton><button class="btn btn-red="btn btn-red" onclick="pm" onclick="pmZero('${u}')Zero('${u}')">Обнулить">Обнулить</button></</button></div>
+<inputdiv>
+<input class="input" class="input" id="pmMoney id="pmMoneyVal" type="Val" type="number" placeholder="number" placeholder="Своя суммаСвоя сумма (можно (можно отрицательную отрицательную)" style="margin)" style="margin-top:8px-top:8px">
+<button class">
+<button class="btn btn-c="btn btn-cyan" onclick="yan" onclick="pmMoney('${upmMoney('${u}',parseInt(document.getElementById}',parseInt(document.getElementById('pmMoneyVal('pmMoneyVal').value)||0').value)||0)">Примен)">Применить сумму</buttonить сумму</button>
+<h4>
+<h4 style="margin: style="margin:12px 12px 0 6px0 6px">🎲">🎲 Шанс победы Шанс победы (мно (множитель 0.житель 0.1–5)</1–5)</h4>
+h4>
+<div style="display<div style="display:flex;gap::flex;gap:6px;flex6px;flex-wrap:wrap;-wrap:wrap;align-items:center"><align-items:center"><input class="inputinput class="input" id="pm" id="pmChanceVal" typeChanceVal" type="number" step="number" step="0.1="0.1" min="0" min="0.1" max.1" max="5" value="5" value="${mod}" style="${mod}" style="width:9="width:90px;margin:0px;margin:0"><button class0"><button class="btn btn-c="btn btn-cyan" onclick="yan" onclick="pmChance('${upmChance('${u}',parseFloat(document.getElementById}',parseFloat(document.getElementById('pmChanceVal('pmChanceVal').value))">').value))">Установить</Установить</button><button classbutton><button class="btn"="btn" onclick="pmChance onclick="pmChance('${u}',0('${u}',0.5)">×.5)">×0.5</0.5</button><button classbutton><button class="btn" onclick="btn" onclick="pmChance('${="pmChance('${u}',1)">u}',1)">×1</button×1</button><button class="><button class="btn"btn" onclick="pmChance onclick="pmChance('${u}',1('${u}',1.5)">×.5)">×1.5</1.5</button><button classbutton><button class="btn"="btn" onclick="pmChance onclick="pmChance('${u}',2('${u}',2)">×2</)">×2</button></div>button></div>
+<h4 style
+<h4 style="margin:1="margin:12px 02px 0 6px"> 6px">🚗 Вы🚗 Выдать машину</hдать машину</h4>
+<select4>
+<select class="input" class="input" id="pmCar id="pmCar">${CARS_DB">${CARS_DB.map(c=>`.map(c=>`<option value="${<option value="${c.id}">${c.id}">${c.name}</c.name}</option>`).joinoption>`).join('')}</select>('')}</select>
+<div style="
+<div style="display:flex;gapdisplay:flex;gap:6px;:6px;flex-wrap:wrapflex-wrap:wrap"><button class=""><button class="btn btn-goldbtn btn-gold" onclick="pm" onclick="pmGiveCar('${uGiveCar('${u}',3)">🎁 Выдать}',3)">🎁 Выдать (на ходу)</ (на ходу)</button><button classbutton><button class="btn btn-g="btn btn-gold" onclick="old" onclick="pmGiveCar('${pmGiveCar('${u}',5)">u}',5)">👑 Выдать (👑 Выдать (капсулакапсула)</button></div)</button></div>
+<h4>
+<h4 style="margin: style="margin:12px 12px 0 6px0 6px">🚘">🚘 Гараж игро Гараж игрока (${(ка (${(d.garaged.garage||[]).length||[]).length})</h4})</h4>
+<div style>
+<div style="max-height:="max-height:160px160px;overflow-y:auto;overflow-y:auto">${(d.g">${(d.garage||[]arage||[]).map((c).map((c,i)=>`<,i)=>`<div class="cardiv class="car-option"><div class-option"><div class="car-option-info="car-option-info"><b>${c"><b>${c.name}</b><.name}</b><small>${calcCarsmall>${calcCarPrice(c).toLocalePrice(c).toLocaleString('ru')}String('ru')} BYN</small BYN</small></div><></div><button class="btnbutton class="btn btn-red" onclick btn-red" onclick="pmRemoveCar="pmRemoveCar('${u}',${('${u}',${i})">×</buttoni})">×</button></div>`).></div>`).join('')||join('')||'<p style="'<p style="color:var(--color:var(--muted)">Пmuted)">Пусто</pусто</p>'}</div>>'}</div>
+<h4 style
+<h4 style="margin:1="margin:12px 02px 0 6px"> 6px">⚠️⚠️ Опасная зона Опасная зона</h4></h4>
+<div style="
+<div style="display:flex;gapdisplay:flex;gap:6px;:6px;flex-wrap:wrapflex-wrap:wrap"><button class=""><button class="btn btn-red"btn btn-red" onclick="pmReset onclick="pmReset('${u}')">('${u}')">♻️ С♻️ Сброс прогрессброс прогресса</button><а</button><button class="btnbutton class="btn btn-red" onclick btn-red" onclick="pmDelete('${="pmDelete('${u}')">🗑 Уu}')">🗑 Удалить игрокадалить игрока</button></</button></div>`;}div>`;}
+async function pm
+async function pmMoney(u,vMoney(u,v){const d=){const d=await getPlayerSave(uawait getPlayerSave(u);if(!d);if(!d)return;d.balance=Math)return;d.balance=Math.max(0,(.max(0,(d.balance||0d.balance||0)+v);await)+v);await setPlayerSave(u setPlayerSave(u,d);notify(`,d);notify(`💰💰 ${u}: баланс ${u}: баланс ${d.balance.toLocale ${d.balance.toLocaleString('ru')}String('ru')} BYN`); BYN`);pmRender();renderpmRender();renderDBTable();}DBTable();}
+async function pm
+async function pmZero(u){constZero(u){const d=await getPlayer d=await getPlayerSave(u);ifSave(u);if(!d)return;(!d)return;pmMoney(u,-pmMoney(u,-(d.balance||(d.balance||0));}
+0));}
+async function pmChanceasync function pmChance(u,m){if(u,m){if(!(m>0(!(m>0))m=1))m=1;m=Math.min(;m=Math.min(5,Math.max5,Math.max(0.1(0.1,m));const d,m));const d=await getPlayerSave=await getPlayerSave(u);if(!(u);if(!d)return;d.chd)return;d.chanceMod=m;anceMod=m;await setPlayerSaveawait setPlayerSave(u,d);notify(u,d);notify(`🎲(`🎲 ${u}: мод ${u}: модификатор шанификатор шанса ×${mса ×${m}`);pmRender}`);pmRender();renderDBTable();renderDBTable();}();}
+async function pm
+async function pmGiveCar(u,GiveCar(u,cond){const idcond){const id=parseInt(document.getElementById=parseInt(document.getElementById('pmCar('pmCar').value);').value);const c=CARSconst c=CARS_DB.find(x=>_DB.find(x=>x.id===idx.id===id);const d=);const d=await getPlayerSave(uawait getPlayerSave(u);if(!d);if(!d)return;d.gar)return;d.garage=d.garage=d.garage||[];age||[];d.garaged.garage.push({id:c.push({id:c.id,name:c.name.id,name:c.name,price:c.price,price:c.price,wiki:c.w,wiki:c.wiki,iki,cat:c.cat,cat:c.cat,engine:c.engine,cengine:c.engine,cyl:c.cyl:c.cyl,year:cyl,year:c.year,b.year,boss:c.bossoss:c.boss,condition:cond,condition:cond||3,stage||3,stage:0});await:0});await setPlayerSave(u setPlayerSave(u,d);notify(`,d);notify(`🎁 ${u}🎁 ${u} выдано: выдано: ${c.name}` ${c.name}`);pmRender(););pmRender();renderDBTable();renderDBTable();}
+async function}
+async function pmRemoveCar(u pmRemoveCar(u,i){const d=await getPlayerSave,i){const d=await getPlayerSave(u);if(!(u);if(!d)return;(dd)return;(d.garage||.garage||[]).splice(i[]).splice(i,1);await,1);await setPlayerSave(u setPlayerSave(u,d);notify(`,d);notify(`🗑 У ${u🗑 У ${u} изъя} изъята машина`);та машина`);pmRender();renderpmRender();renderDBTable();}DBTable();}
+async function pm
+async function pmReset(u){ifReset(u){if(!confirm(`С(!confirm(`Сброситьбросить прогресс игро прогресс игрока ${u}?ка ${u}?`))return;`))return;const d=fconst d=freshState(u);reshState(u);d.balance=1d.balance=100;d00;d.garage=[.garage=[{id:1{id:1,name:'ЗАЗ,name:'ЗАЗ-968-968М ЗапороМ Запорожец',priceжец',price:190:1900,wiki:'0,wiki:'ZAZ-9ZAZ-968',cat68',cat:'budget',engine:'budget',engine:'V4_air:'V4_air',cyl:',cyl:4,year:4,year:19791979,condition:3,condition:3,stage:0,stage:0}];const db}];const db=await getUsersDB=await getUsersDB();d.chance();d.chanceMod=(db[uMod=(db[u]||{}).]||{}).chanceMod||chanceMod||1;await set1;await setPlayerSave(u,dPlayerSave(u,d);notify(`♻️ Пр);notify(`♻️ Прогресс ${огресс ${u} сброu} сброшен`);pmшен`);pmRender();renderDBRender();renderDBTable();}
+Table();}
+async function pmDeleteasync function pmDelete(u){if(!(u){if(!confirm(`Удалconfirm(`Удалить игрока ${ить игрока ${u} полностьюu} полностью?`))return?`))return;localStorage.removeItem(S;localStorage.removeItem(SAVE_KEY+uAVE_KEY+u);const lu=get);const lu=getLocalUsers();deleteLocalUsers();delete lu[u lu[u];setLocalUsers];setLocalUsers(lu);await(lu);await cloudDelete('users cloudDelete('users/'+encodeURIComponent(u));/'+encodeURIComponent(u));await cloudDelete('await cloudDelete('saves/'+encodeURIComponentsaves/'+encodeURIComponent(u));await pm(u));await pmPopulate();renderPopulate();renderDBTable();notifyDBTable();notify(`🗑(`🗑 Игрок ${ Игрок ${u} удалu} удалён`);}ён`);}
+
+// ================= СТА
+
+// ================= СТАРТ =================РТ =================
+document.querySelectorAll('.
+document.querySelectorAll('.tab').forEach(ttab').forEach(t=>t.addEventListener('=>t.addEventListener('click',()=>switchclick',()=>switchTab(t.dataset.tabTab(t.dataset.tab)));
+(async)));
 (async function init(){
-  // Проверяем доступность облака
-  await cloudGet('.');
+ function init(){
+  await cloudPing  await cloudPing();         ();          // FIX: корре // FIX: корректнаяктная проверка связи проверка связи
+  update
   updateCloudStatus();
-  renderHeader();renderTicker();renderCases();updateStoUI();updateStakeDisplay();updateWheel();
-  setInterval(renderTicker,60000);
-  setInterval(updateCloudStatus,10000);
+CloudStatus();
+  //  // автов автовход поход по последней сессии последней сессии
+  const
+  const last=localStorage.getItem last=localStorage.getItem('au_last');('au_last');
+  if(last
+  if(last){
+    const){
+    const ok=await load ok=await loadSave(last);
+Save(last);
+    if(ok){    if(ok){state.isAdmin=(laststate.isAdmin=(last===ADMIN_LOGIN);===ADMIN_LOGIN);afterafterLogin();}Login();}
+  }
+
+  }
+  renderHeader();  renderHeader();renderTicker();renderrenderTicker();renderCases();updateStCases();updateStoUI();updateoUI();updateStakeDisplay();StakeDisplay();updateWheel();
+updateWheel();
+  setInterval(renderTicker  setInterval(renderTicker,600,60000);
+00);
+  setInterval(async()=>  setInterval(async()=>{await cloudPing{await cloudPing();updateCloudStatus();updateCloudStatus();},1();},150005000); );  // FIX: живой // FIX: живой мониторин мониторинг связиг связи
+})();
 })();
 </script>
+</script>
 </body>
+</body>
+</html>
 </html>
